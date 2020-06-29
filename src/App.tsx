@@ -1,23 +1,24 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.scss';
+import Styles from './App.module.scss';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div className={Styles.App}>
+      <header className={Styles.AppHeader}>
+        <img src={logo} className={Styles.AppLogo} alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
         <a
-          className="App-link"
+          className={Styles.AppLink}
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
         >
           Learn React
         </a>
+        <p className={Styles.RedBorder}>Styled with CSS Modules</p>
       </header>
     </div>
   );
