@@ -4,9 +4,9 @@ name: Deploy to GitHub Pages
 # When there is a push or pull_request on develop
 on:
   push:
-    branches: [ develop ]
+    branches: [develop]
   pull_request:
-    branches: [ develop ]
+    branches: [develop]
 
 # Create a job
 jobs:
@@ -16,4 +16,5 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy to GitHub Pages
     steps:
+      - uses: actions/checkout@v2
       - run: yarn deploy
