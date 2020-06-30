@@ -16,6 +16,7 @@ jobs:
     steps:
       - name: Checkout branch
         uses: actions/checkout@v2
+
         with:
           ref: develop
 
@@ -26,4 +27,7 @@ jobs:
           git config user.name ${{secrets.USERNAME}} 
           git config user.email ${{secrets.EMAIL}}
           git remote set-url origin https://${{secrets.TOKEN}}@github.com/${{secrets.USERNAME}}/userresearch.git
+
+          git config --global user.name "HarryAmmon" && git config --global user.email "harry_a99@hotmail.co.uk"
+
           yarn deploy
