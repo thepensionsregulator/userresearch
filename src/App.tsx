@@ -18,9 +18,7 @@ function App() {
         >
           Learn React
         </a>
-        <p className={Styles.RedBorder}>
-          Testing GitHub actions small change!!
-        </p>
+        <p className={Styles.RedBorder}>Testing GitHub actions small change</p>
       </header>
     </div>
   );
