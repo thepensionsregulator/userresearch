@@ -24,10 +24,7 @@ jobs:
         run: yarn install
       - name: Deploy to GH-Pages
         run: |
-          git config user.name ${{secrets.USERNAME}} 
-          git config user.email ${{secrets.EMAIL}}
-          git remote set-url origin https://${{secrets.TOKEN}}@github.com/${{secrets.USERNAME}}/userresearch.git
-
-          git config --global user.name "HarryAmmon" && git config --global user.email "harry_a99@hotmail.co.uk"
-
+          git config user.name ${{secrets.GH_PAGES_USERNAME}} 
+          git config user.email ${{secrets.GH_PAGES_EMAIL}}
+          git remote set-url origin https://${{secrets.GH_PAGES_PERSONAL_ACCESS_TOKEN}}@github.com/${{secrets.GH_PAGES_USERNAME}}/userresearch.git     
           yarn deploy
