@@ -16,6 +16,11 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy to GitHub Pages
     steps:
-      - uses: actions/checkout@v2
-      - run: yarn install
-      - run: yarn deploy
+      - name: Checkout branch
+        uses: actions/checkout@v2
+      - name: install dependencies
+        run: yarn install
+      - name: Deploy to GH-Pages
+        run: |
+          git config user.name "HarryAmmon" && git config user.email "harry_a99@hotmail.co.uk"
+          yarn deploy
