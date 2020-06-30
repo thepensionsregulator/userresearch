@@ -17,4 +17,4 @@ jobs:
     name: Deploy to GitHub Pages
     steps:
       - uses: actions/checkout@v2
-      - run: yarn deploy
+      - run: echo hello world
