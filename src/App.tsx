@@ -1,7 +1,7 @@
 import React from 'react';
 import { Header, Footer, Highlight } from '@tpr/layout';
 import { Route, Switch } from 'react-router-dom';
-import HomePage from './views/HomePage';
+import HomePage from './views/Home';
 import Typography from './views/Typography';
 import About from './views/About';
 
