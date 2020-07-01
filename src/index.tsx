@@ -9,7 +9,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider>
-      <Router>
+      <Router basename="/userresearch">
         <App />
       </Router>
     </ThemeProvider>
