@@ -1,10 +1,10 @@
 import React from 'react';
-import ThemeProvider from '@tpr/theming';
+
 import { Header, Footer, Highlight } from '@tpr/layout';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
   return (
-    <ThemeProvider>
       <Header
         logoUrl={
           'https://www.thepensionsregulator.gov.uk/-/media/thepensionsregulator/images/logo/tpr-logo-header.ashx'
@@ -27,7 +27,6 @@ function App() {
           { title: 'Site map', url: 'link-3' },
         ]}
       />
-    </ThemeProvider>
   );
 }
 
