@@ -6,6 +6,7 @@ import {
   FFInputDate,
   FFInputNumber,
   FFRadioButton,
+  FFSelect,
 } from '@tpr/forms';
 import Styles from './Typography.module.scss';
 
@@ -127,39 +128,59 @@ const Typography = () => (
         <div className={Styles.grouping}>
           <H3>Radio</H3>
           <div className={Styles.component}>
-            <Form onSubmit={console.log}>
-              {({ handleSubmit }) => {
-                const fieldName = 'radioButton';
-                return (
-                  <form onSubmit={handleSubmit}>
-                    <FFRadioButton
-                      name={fieldName}
-                      label="option1"
-                      value="value1"
-                    />
-                    <FFRadioButton
-                      name={fieldName}
-                      label="option2"
-                      value="value2"
-                      hint="Text can be added to prompt the user"
-                    />
-                    <FFRadioButton
-                      name={fieldName}
-                      label="option3"
-                      value="value3"
-                      hint="One radio button can be preselected"
-                    />
-                  </form>
-                );
-              }}
+            <Form
+              onSubmit={console.log}
+              initialValues={{ radioButton: 'value3' }}
+            >
+              {({ handleSubmit }) => (
+                <form onSubmit={handleSubmit}>
+                  <FFRadioButton
+                    name="radioButton"
+                    label="option1"
+                    value="value1"
+                  />
+                  <FFRadioButton
+                    name="radioButton"
+                    label="option2"
+                    value="value2"
+                    hint="Text can be added to prompt the user"
+                  />
+                  <FFRadioButton
+                    name="radioButton"
+                    label="option3"
+                    value="value3"
+                    hint="One radio button can be preselected"
+                  />
+                </form>
+              )}
             </Form>
           </div>
         </div>
         <div className={Styles.grouping}>
           <H3>Select</H3>
+          <div className={Styles.component}>
+            <Form onSubmit={console.log}>
+              {({ handleSubmit }) => (
+                <form onSubmit={handleSubmit}>
+                  <FFSelect
+                    name={'animal'}
+                    label="Select animal"
+                    hint="Please select an animal from the dropdown menu"
+                    options={[
+                      { label: 'Seal', value: 1 },
+                      { label: 'Warthog', value: 2 },
+                      { label: 'kangaroo', value: 3 },
+                      { label: 'Guinea Pig', value: 4 },
+                    ]}
+                  />
+                </form>
+              )}
+            </Form>
+          </div>
         </div>
         <div className={Styles.grouping}>
           <H3>Text</H3>
+          <div className={Styles.component}></div>
         </div>
       </div>
     </div>
