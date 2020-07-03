@@ -2,13 +2,13 @@ import React from 'react';
 import { Form, validate, renderFields } from '@tpr/forms';
 
 const TextComponent = () => {
-  const fields = [
+  const fields: any[] = [
     {
       type: 'text',
       name: 'event_place',
       label: 'Event place',
       hint: 'The word must be London exactly',
-      error: (value, _fields) => {
+      error: (value: any, _fields: any) => {
         return value === 'London' ? undefined : 'Must be in London';
       },
       placeholder: 'add some text here...',
