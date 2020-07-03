@@ -68,37 +68,37 @@ const Typography = () => (
       <div>
         <H2>Forms</H2>
         <div className={Styles.grouping}>
-          <H3>Checkbox</H3>
+          <H3>Checkbox Input</H3>
           <div className={Styles.component}>
             <CheckboxInputExample />
           </div>
         </div>
         <div className={Styles.grouping}>
-          <H3>Date</H3>
+          <H3>Date Input</H3>
           <div className={Styles.component}>
             <DateInputExample />
           </div>
         </div>
         <div className={Styles.grouping}>
-          <H3>Number</H3>
+          <H3>Number Input</H3>
           <div className={Styles.component}>
             <NumberInputExample />
           </div>
         </div>
         <div className={Styles.grouping}>
-          <H3>Radio</H3>
+          <H3>Radiobutton</H3>
           <div className={Styles.component}>
             <RadioButtonExample />
           </div>
         </div>
         <div className={Styles.grouping}>
-          <H3>Select</H3>
+          <H3>Dropdown Menu</H3>
           <div className={Styles.component}>
             <SelectInputExample />
           </div>
         </div>
         <div className={Styles.grouping}>
-          <H3>Text</H3>
+          <H3>Text Input</H3>
           <div className={Styles.component}>
             <TextInputExample />
           </div>
