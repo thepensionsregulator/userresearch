@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, FFCheckbox } from '@tpr/forms';
 
-const CheckboxInputComponent = () => (
+const CheckboxInputExample = () => (
   <Form onSubmit={console.log} initialValues={{ 'checkbox-c': true }}>
     {({ handleSubmit }) => (
       <form onSubmit={handleSubmit}>
@@ -21,4 +21,4 @@ const CheckboxInputComponent = () => (
   </Form>
 );
 
-export default CheckboxInputComponent;
+export default CheckboxInputExample;

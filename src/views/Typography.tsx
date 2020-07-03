@@ -8,12 +8,12 @@ import {
   FFRadioButton,
 } from '@tpr/forms';
 import Styles from './Typography.module.scss';
-import TextComponent from '../components/TextComponent';
-import SelectComponent from '../components/SelectComponent';
-import RadioButtonComponent from '../components/RadioButtonComponent';
-import NumberInputComponent from '../components/NumberInputComponent';
-import DateInputComponent from '../components/DateInputComponent';
-import CheckboxInputComponent from '../components/CheckboxInputComponent';
+import TextInputExample from '../components/TextInputExample';
+import SelectInputExample from '../components/SelectInputExample';
+import RadioButtonExample from '../components/RadioButtonExample';
+import NumberInputExample from '../components/NumberInputExample';
+import DateInputExample from '../components/DateInputExample';
+import CheckboxInputExample from '../components/CheckboxInputExample';
 
 const Typography = () => (
   <div className={Styles.root}>
@@ -77,37 +77,37 @@ const Typography = () => (
         <div className={Styles.grouping}>
           <H3>Checkbox</H3>
           <div className={Styles.component}>
-            <CheckboxInputComponent />
+            <CheckboxInputExample />
           </div>
         </div>
         <div className={Styles.grouping}>
           <H3>Date</H3>
           <div className={Styles.component}>
-            <DateInputComponent />
+            <DateInputExample />
           </div>
         </div>
         <div className={Styles.grouping}>
           <H3>Number</H3>
           <div className={Styles.component}>
-            <NumberInputComponent />
+            <NumberInputExample />
           </div>
         </div>
         <div className={Styles.grouping}>
           <H3>Radio</H3>
           <div className={Styles.component}>
-            <RadioButtonComponent />
+            <RadioButtonExample />
           </div>
         </div>
         <div className={Styles.grouping}>
           <H3>Select</H3>
           <div className={Styles.component}>
-            <SelectComponent />
+            <SelectInputExample />
           </div>
         </div>
         <div className={Styles.grouping}>
           <H3>Text</H3>
           <div className={Styles.component}>
-            <TextComponent />
+            <TextInputExample />
           </div>
         </div>
       </div>

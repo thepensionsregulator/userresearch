@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, FFRadioButton } from '@tpr/forms';
 
-const RadioButtonComponent = () => (
+const RadioButtonExample = () => (
   <Form onSubmit={console.log} initialValues={{ radioButton: 'value3' }}>
     {({ handleSubmit }) => (
       <form onSubmit={handleSubmit}>
@@ -23,4 +23,4 @@ const RadioButtonComponent = () => (
   </Form>
 );
 
-export default RadioButtonComponent;
+export default RadioButtonExample;

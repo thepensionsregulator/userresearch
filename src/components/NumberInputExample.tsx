@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, FFInputNumber } from '@tpr/forms';
 
-const NumberInputComponent = () => (
+const NumberInputExample = () => (
   <Form onSubmit={console.log}>
     {({ handleSubmit }) => (
       <form onSubmit={handleSubmit}>
@@ -15,4 +15,4 @@ const NumberInputComponent = () => (
   </Form>
 );
 
-export default NumberInputComponent;
+export default NumberInputExample;

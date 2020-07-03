@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, validate, renderFields } from '@tpr/forms';
 
-const TextComponent = () => {
+const TextInputExample = () => {
   const fields: any[] = [
     {
       type: 'text',
@@ -38,4 +38,4 @@ const TextComponent = () => {
   );
 };
 
-export default TextComponent;
+export default TextInputExample;

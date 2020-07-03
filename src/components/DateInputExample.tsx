@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, FFInputDate } from '@tpr/forms';
 
-const DateInputComponent = () => (
+const DateInputExample = () => (
   <Form onSubmit={console.log}>
     {({ handleSubmit }) => (
       <form onSubmit={handleSubmit}>
@@ -11,4 +11,4 @@ const DateInputComponent = () => (
   </Form>
 );
 
-export default DateInputComponent;
+export default DateInputExample;

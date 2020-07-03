@@ -1,7 +1,7 @@
 import React from 'react';
 import { FFSelect, Form } from '@tpr/forms';
 
-const SelectComponent = () => (
+const SelectInputExample = () => (
   <Form onSubmit={console.log}>
     {({ handleSubmit }) => (
       <form onSubmit={handleSubmit}>
@@ -21,4 +21,4 @@ const SelectComponent = () => (
   </Form>
 );
 
-export default SelectComponent;
+export default SelectInputExample;
