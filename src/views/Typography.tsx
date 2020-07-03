@@ -6,9 +6,10 @@ import {
   FFInputDate,
   FFInputNumber,
   FFRadioButton,
-  FFSelect,
 } from '@tpr/forms';
 import Styles from './Typography.module.scss';
+import TextComponent from '../components/TextComponent';
+import SelectComponent from '../components/SelectComponent';
 
 const Typography = () => (
   <div className={Styles.root}>
@@ -159,28 +160,14 @@ const Typography = () => (
         <div className={Styles.grouping}>
           <H3>Select</H3>
           <div className={Styles.component}>
-            <Form onSubmit={console.log}>
-              {({ handleSubmit }) => (
-                <form onSubmit={handleSubmit}>
-                  <FFSelect
-                    name={'animal'}
-                    label="Select animal"
-                    hint="Please select an animal from the dropdown menu"
-                    options={[
-                      { label: 'Seal', value: 1 },
-                      { label: 'Warthog', value: 2 },
-                      { label: 'kangaroo', value: 3 },
-                      { label: 'Guinea Pig', value: 4 },
-                    ]}
-                  />
-                </form>
-              )}
-            </Form>
+            <SelectComponent />
           </div>
         </div>
         <div className={Styles.grouping}>
           <H3>Text</H3>
-          <div className={Styles.component}></div>
+          <div className={Styles.component}>
+            <TextComponent />
+          </div>
         </div>
       </div>
     </div>
