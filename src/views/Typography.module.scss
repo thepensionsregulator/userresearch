@@ -1,0 +1,17 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.componentList {
+  max-width: 74rem;
+}
+
+.grouping {
+  margin: 1.5rem;
+}
+
+.component {
+  margin: 0.5rem 1.5rem;
+}
