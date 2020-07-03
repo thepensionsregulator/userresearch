@@ -12,12 +12,12 @@ const Typography = () => (
   <div className={Styles.root}>
     <div className={Styles.componentList}>
       <H1>Component List</H1>
-      <P>
+      {/* <P>
         The quick brown fox jumped over the lazy dog The quick brown fox jumped
         over the lazy dog The quick brown fox jumped over the lazy dog The quick
         brown fox jumped over the lazy dog The quick brown fox jumped over the
         lazy dog
-      </P>
+      </P> */}
       <div>
         <H2>Typography</H2>
         <div>
@@ -86,7 +86,7 @@ const Typography = () => (
           </div>
         </div>
         <div className={Styles.grouping}>
-          <H3>Radiobutton</H3>
+          <H3 cfg={{ mb: 3 }}>Radiobutton</H3>
           <div className={Styles.component}>
             <RadioButtonExample />
           </div>
