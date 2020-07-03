@@ -13,6 +13,7 @@ import SelectComponent from '../components/SelectComponent';
 import RadioButtonComponent from '../components/RadioButtonComponent';
 import NumberInputComponent from '../components/NumberInputComponent';
 import DateInputComponent from '../components/DateInputComponent';
+import CheckboxInputComponent from '../components/CheckboxInputComponent';
 
 const Typography = () => (
   <div className={Styles.root}>
@@ -29,12 +30,10 @@ const Typography = () => (
         <div>
           <div className={Styles.grouping}>
             <H3>Headings</H3>
-
             <div className={Styles.component}>
               <H1>This is a h1 component</H1>
               <Hr />
             </div>
-
             <div className={Styles.component}>
               <H2>This is a h2 component</H2>
               <Hr />
@@ -78,23 +77,7 @@ const Typography = () => (
         <div className={Styles.grouping}>
           <H3>Checkbox</H3>
           <div className={Styles.component}>
-            <Form onSubmit={console.log} initialValues={{ 'checkbox-c': true }}>
-              {({ handleSubmit }) => (
-                <form onSubmit={handleSubmit}>
-                  <FFCheckbox name="checkbox-a" label="Option 1" />
-                  <FFCheckbox
-                    name="checkbox-b"
-                    label="Option 2"
-                    hint="Text can be added to prompt the user"
-                  />
-                  <FFCheckbox
-                    name="checkbox-c"
-                    label="Option 3"
-                    hint="Checkboxes can be preselected"
-                  />
-                </form>
-              )}
-            </Form>
+            <CheckboxInputComponent />
           </div>
         </div>
         <div className={Styles.grouping}>
