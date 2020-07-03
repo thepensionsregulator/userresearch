@@ -6,10 +6,10 @@ const TextInputExample = () => {
     {
       type: 'text',
       name: 'event_place',
-      label: 'Event place',
-      hint: 'The word must be London exactly',
+      label: 'Event Location',
+      hint: 'The location must be London',
       error: (value: any, _fields: any) => {
-        return value === 'London' ? undefined : 'Must be in London';
+        return value === 'London' ? undefined : 'Must be London';
       },
       placeholder: 'add some text here...',
       inputWidth: 5,
@@ -19,7 +19,6 @@ const TextInputExample = () => {
       type: 'text',
       name: 'event_name',
       label: 'Event name',
-      hint: 'Cannot be empty',
       error: 'Enter an event name',
       placeholder: 'add some text here...',
       inputWidth: 5,
