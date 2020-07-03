@@ -10,6 +10,7 @@ import {
 import Styles from './Typography.module.scss';
 import TextComponent from '../components/TextComponent';
 import SelectComponent from '../components/SelectComponent';
+import RadioButtonComponent from '../components/RadioButtonComponent';
 
 const Typography = () => (
   <div className={Styles.root}>
@@ -129,32 +130,7 @@ const Typography = () => (
         <div className={Styles.grouping}>
           <H3>Radio</H3>
           <div className={Styles.component}>
-            <Form
-              onSubmit={console.log}
-              initialValues={{ radioButton: 'value3' }}
-            >
-              {({ handleSubmit }) => (
-                <form onSubmit={handleSubmit}>
-                  <FFRadioButton
-                    name="radioButton"
-                    label="option1"
-                    value="value1"
-                  />
-                  <FFRadioButton
-                    name="radioButton"
-                    label="option2"
-                    value="value2"
-                    hint="Text can be added to prompt the user"
-                  />
-                  <FFRadioButton
-                    name="radioButton"
-                    label="option3"
-                    value="value3"
-                    hint="One radio button can be preselected"
-                  />
-                </form>
-              )}
-            </Form>
+            <RadioButtonComponent />
           </div>
         </div>
         <div className={Styles.grouping}>
