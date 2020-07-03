@@ -7,17 +7,15 @@ import RadioButtonExample from '../components/RadioButtonExample';
 import NumberInputExample from '../components/NumberInputExample';
 import DateInputExample from '../components/DateInputExample';
 import CheckboxInputExample from '../components/CheckboxInputExample';
+import ButtonSizeExample from '../components/ButtonSizeExample';
+import ButtonAppearanceExample from '../components/ButtonAppearanceExample';
+import ButtonAppearanceOutlinedExample from '../components/ButtonAppearanceOutlinedExample';
+import ButtonSizeAndAppearanceExample from '../components/ButtonSizeAndAppearanceExample';
 
 const Typography = () => (
   <div className={Styles.root}>
     <div className={Styles.componentList}>
       <H1>Component List</H1>
-      {/* <P>
-        The quick brown fox jumped over the lazy dog The quick brown fox jumped
-        over the lazy dog The quick brown fox jumped over the lazy dog The quick
-        brown fox jumped over the lazy dog The quick brown fox jumped over the
-        lazy dog
-      </P> */}
       <div>
         <H2>Typography</H2>
         <div>
@@ -51,15 +49,45 @@ const Typography = () => (
           <div className={Styles.grouping}>
             <H3>Text</H3>
             <div className={Styles.component}>
-              <P>The quick brown fox jumped over the lazy dog</P>
+              <P>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                lacinia interdum lectus. Quisque luctus metus non arcu lacinia,
+                a scelerisque elit porta. Etiam auctor vel urna vitae tristique.
+                Mauris vel urna semper, sagittis magna nec, consectetur est.
+                Phasellus pulvinar, nulla volutpat posuere tristique, purus
+                lorem consequat mi, a vestibulum diam erat et velit. Duis nec
+                faucibus tortor. Ut varius erat nec nisl mollis ultrices eu
+                sollicitudin turpis. Proin vulputate purus sit amet varius
+                posuere.
+              </P>
               <P>This is a P component</P>
             </div>
             <div className={Styles.component}>
-              <Span>The quick brown fox jumped over the lazy dog</Span>
+              <Span>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                lacinia interdum lectus. Quisque luctus metus non arcu lacinia,
+                a scelerisque elit porta. Etiam auctor vel urna vitae tristique.
+                Mauris vel urna semper, sagittis magna nec, consectetur est.
+                Phasellus pulvinar, nulla volutpat posuere tristique, purus
+                lorem consequat mi, a vestibulum diam erat et velit. Duis nec
+                faucibus tortor. Ut varius erat nec nisl mollis ultrices eu
+                sollicitudin turpis. Proin vulputate purus sit amet varius
+                posuere.
+              </Span>
               <P>This is a Span component</P>
             </div>
             <div className={Styles.component}>
-              <Text tag="p">The quick brown fox jumped over the lazy dog</Text>
+              <Text tag="p">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                lacinia interdum lectus. Quisque luctus metus non arcu lacinia,
+                a scelerisque elit porta. Etiam auctor vel urna vitae tristique.
+                Mauris vel urna semper, sagittis magna nec, consectetur est.
+                Phasellus pulvinar, nulla volutpat posuere tristique, purus
+                lorem consequat mi, a vestibulum diam erat et velit. Duis nec
+                faucibus tortor. Ut varius erat nec nisl mollis ultrices eu
+                sollicitudin turpis. Proin vulputate purus sit amet varius
+                posuere.
+              </Text>
               <P>This is a Text component</P>
             </div>
           </div>
@@ -108,114 +136,19 @@ const Typography = () => (
       <div className={Styles.grouping}>
         <H3>Different Sizes</H3>
         <div className={Styles.component}>
-          <Button size="large" cfg={{ mr: 3 }}>
-            Large
-          </Button>
-          <Button size="medium" cfg={{ mr: 3 }}>
-            Medium
-          </Button>
-          <Button size="small" cfg={{ mr: 3 }}>
-            Small
-          </Button>
+          <ButtonSizeExample />
         </div>
         <H3>Different Appearances</H3>
         <div className={Styles.component}>
-          <Button intent="none" cfg={{ mr: 3 }}>
-            Submit
-          </Button>
-          <Button intent="success" cfg={{ mr: 3 }}>
-            Success
-          </Button>
-          <Button intent="danger" cfg={{ mr: 3 }}>
-            Danger
-          </Button>
-          <Button intent="warning" cfg={{ mr: 3 }}>
-            Warning
-          </Button>
-          <Button intent="special" cfg={{ mr: 3 }}>
-            Special
-          </Button>
-          <Button intent="special" cfg={{ mr: 3 }} disabled>
-            Disabled
-          </Button>
+          <ButtonAppearanceExample />
         </div>
         <H3>Different Appearances Outlined</H3>
         <div className={Styles.component}>
-          <Button appearance="outlined" intent="none" cfg={{ mr: 3 }}>
-            Submit
-          </Button>
-          <Button appearance="outlined" intent="success" cfg={{ mr: 3 }}>
-            Success
-          </Button>
-          <Button appearance="outlined" intent="danger" cfg={{ mr: 3 }}>
-            Danger
-          </Button>
-          <Button appearance="outlined" intent="warning" cfg={{ mr: 3 }}>
-            Warning
-          </Button>
-          <Button appearance="outlined" intent="special" cfg={{ mr: 3 }}>
-            Special
-          </Button>
-          <Button
-            appearance="outlined"
-            intent="special"
-            cfg={{ mr: 3 }}
-            disabled
-          >
-            Disabled
-          </Button>
+          <ButtonAppearanceOutlinedExample />
         </div>
         <H3>Combining Size and Appearance</H3>
         <div className={Styles.component}>
-          <Button
-            size="large"
-            appearance="outlined"
-            intent="none"
-            cfg={{ mr: 3 }}
-          >
-            Large
-          </Button>
-          <Button
-            size="medium"
-            appearance="outlined"
-            intent="success"
-            cfg={{ mr: 3 }}
-          >
-            Medium
-          </Button>
-          <Button
-            size="small"
-            appearance="outlined"
-            intent="danger"
-            cfg={{ mr: 3 }}
-          >
-            Small
-          </Button>
-          <Button
-            size="large"
-            appearance="outlined"
-            intent="warning"
-            cfg={{ mr: 3 }}
-          >
-            Large
-          </Button>
-          <Button
-            size="medium"
-            appearance="outlined"
-            intent="special"
-            cfg={{ mr: 3 }}
-          >
-            Medium
-          </Button>
-          <Button
-            size="small"
-            appearance="outlined"
-            intent="special"
-            cfg={{ mr: 3 }}
-            disabled
-          >
-            Small
-          </Button>
+          <ButtonSizeAndAppearanceExample />
         </div>
       </div>
     </div>
