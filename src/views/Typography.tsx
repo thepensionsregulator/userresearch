@@ -104,6 +104,120 @@ const Typography = () => (
           </div>
         </div>
       </div>
+      <H2>Buttons</H2>
+      <div className={Styles.grouping}>
+        <H3>Different Sizes</H3>
+        <div className={Styles.component}>
+          <Button size="large" cfg={{ mr: 3 }}>
+            Large
+          </Button>
+          <Button size="medium" cfg={{ mr: 3 }}>
+            Medium
+          </Button>
+          <Button size="small" cfg={{ mr: 3 }}>
+            Small
+          </Button>
+        </div>
+        <H3>Different Appearances</H3>
+        <div className={Styles.component}>
+          <Button intent="none" cfg={{ mr: 3 }}>
+            Submit
+          </Button>
+          <Button intent="success" cfg={{ mr: 3 }}>
+            Success
+          </Button>
+          <Button intent="danger" cfg={{ mr: 3 }}>
+            Danger
+          </Button>
+          <Button intent="warning" cfg={{ mr: 3 }}>
+            Warning
+          </Button>
+          <Button intent="special" cfg={{ mr: 3 }}>
+            Special
+          </Button>
+          <Button intent="special" cfg={{ mr: 3 }} disabled>
+            Disabled
+          </Button>
+        </div>
+        <H3>Different Appearances Outlined</H3>
+        <div className={Styles.component}>
+          <Button appearance="outlined" intent="none" cfg={{ mr: 3 }}>
+            Submit
+          </Button>
+          <Button appearance="outlined" intent="success" cfg={{ mr: 3 }}>
+            Success
+          </Button>
+          <Button appearance="outlined" intent="danger" cfg={{ mr: 3 }}>
+            Danger
+          </Button>
+          <Button appearance="outlined" intent="warning" cfg={{ mr: 3 }}>
+            Warning
+          </Button>
+          <Button appearance="outlined" intent="special" cfg={{ mr: 3 }}>
+            Special
+          </Button>
+          <Button
+            appearance="outlined"
+            intent="special"
+            cfg={{ mr: 3 }}
+            disabled
+          >
+            Disabled
+          </Button>
+        </div>
+        <H3>Combining Size and Appearance</H3>
+        <div className={Styles.component}>
+          <Button
+            size="large"
+            appearance="outlined"
+            intent="none"
+            cfg={{ mr: 3 }}
+          >
+            Large
+          </Button>
+          <Button
+            size="medium"
+            appearance="outlined"
+            intent="success"
+            cfg={{ mr: 3 }}
+          >
+            Medium
+          </Button>
+          <Button
+            size="small"
+            appearance="outlined"
+            intent="danger"
+            cfg={{ mr: 3 }}
+          >
+            Small
+          </Button>
+          <Button
+            size="large"
+            appearance="outlined"
+            intent="warning"
+            cfg={{ mr: 3 }}
+          >
+            Large
+          </Button>
+          <Button
+            size="medium"
+            appearance="outlined"
+            intent="special"
+            cfg={{ mr: 3 }}
+          >
+            Medium
+          </Button>
+          <Button
+            size="small"
+            appearance="outlined"
+            intent="special"
+            cfg={{ mr: 3 }}
+            disabled
+          >
+            Small
+          </Button>
+        </div>
+      </div>
     </div>
   </div>
 );
