@@ -11,6 +11,7 @@ import Styles from './Typography.module.scss';
 import TextComponent from '../components/TextComponent';
 import SelectComponent from '../components/SelectComponent';
 import RadioButtonComponent from '../components/RadioButtonComponent';
+import NumberInputComponent from '../components/NumberInputComponent';
 
 const Typography = () => (
   <div className={Styles.root}>
@@ -114,17 +115,7 @@ const Typography = () => (
         <div className={Styles.grouping}>
           <H3>Number</H3>
           <div className={Styles.component}>
-            <Form onSubmit={console.log}>
-              {({ handleSubmit }) => (
-                <form onSubmit={handleSubmit}>
-                  <FFInputNumber
-                    required
-                    name="DoB entry"
-                    label="What is your favorite number?"
-                  />
-                </form>
-              )}
-            </Form>
+            <NumberInputComponent />
           </div>
         </div>
         <div className={Styles.grouping}>
