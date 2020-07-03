@@ -12,6 +12,7 @@ import TextComponent from '../components/TextComponent';
 import SelectComponent from '../components/SelectComponent';
 import RadioButtonComponent from '../components/RadioButtonComponent';
 import NumberInputComponent from '../components/NumberInputComponent';
+import DateInputComponent from '../components/DateInputComponent';
 
 const Typography = () => (
   <div className={Styles.root}>
@@ -99,17 +100,7 @@ const Typography = () => (
         <div className={Styles.grouping}>
           <H3>Date</H3>
           <div className={Styles.component}>
-            <Form onSubmit={console.log}>
-              {({ handleSubmit }) => (
-                <form onSubmit={handleSubmit}>
-                  <FFInputDate
-                    required
-                    name="DoB entry"
-                    label="When were you born?"
-                  />
-                </form>
-              )}
-            </Form>
+            <DateInputComponent />
           </div>
         </div>
         <div className={Styles.grouping}>
