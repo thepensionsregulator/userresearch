@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Footer, Highlight } from '@tpr/layout';
+import { Header, Footer, Highlight, BetaHeader } from '@tpr/layout';
 import { Route, Switch } from 'react-router-dom';
 import HomePage from './views/Home';
 import Typography from './views/Typography';
@@ -8,6 +8,7 @@ import About from './views/About';
 function App() {
   return (
     <div>
+      <BetaHeader text="This is a new service - your feedback will help us improve it." />
       <Header
         logoUrl={
           'https://www.thepensionsregulator.gov.uk/-/media/thepensionsregulator/images/logo/tpr-logo-header.ashx'
