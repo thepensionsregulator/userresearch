@@ -1,5 +1,7 @@
 {
   "name": "userresearch",
+  "description": "A web application to showcase the TPR React components libraries for user research purposes",
+  "license": "MIT",
   "homepage": "https://thepensionsregulator.github.io/userresearch/",
   "version": "0.1.0",
   "private": true,
