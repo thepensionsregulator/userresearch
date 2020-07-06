@@ -1,10 +1,13 @@
 import React from 'react';
-import ThemeProvider from '@tpr/theming';
 import { Header, Footer, Highlight } from '@tpr/layout';
+import { Route, Switch } from 'react-router-dom';
+import HomePage from './views/Home';
+import Typography from './views/Typography';
+import About from './views/About';
 
 function App() {
   return (
-    <ThemeProvider>
+    <div>
       <Header
         logoUrl={
           'https://www.thepensionsregulator.gov.uk/-/media/thepensionsregulator/images/logo/tpr-logo-header.ashx'
@@ -18,6 +21,11 @@ function App() {
         }}
       />
       <Highlight name={'Scheme Name'} psr={'012161'} />
+      <Switch>
+        <Route path="/" exact component={() => <HomePage />} />
+        <Route path="/typography" component={() => <Typography />} />
+        <Route path="/about" component={() => <About />} />
+      </Switch>
       <Footer
         logoUrl="https://www.thepensionsregulator.gov.uk/-/media/thepensionsregulator/images/logo/tpr-logo-footer.ashx"
         onLinkClickHandler={(url) => console.log(`navigate to ${url}`)}
@@ -27,7 +35,7 @@ function App() {
           { title: 'Site map', url: 'link-3' },
         ]}
       />
-    </ThemeProvider>
+    </div>
   );
 }
 

@@ -1,5 +1,7 @@
 {
   "name": "userresearch",
+  "description": "A web application to showcase the TPR React components libraries for user research purposes",
+  "license": "MIT",
   "homepage": "https://thepensionsregulator.github.io/userresearch/",
   "version": "0.1.0",
   "private": true,
@@ -14,11 +16,11 @@
     "@tpr/theming": "^2.1.3",
     "@types/jest": "^24.0.0",
     "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-test-renderer": "^16.13.1",
     "typescript": "~3.7.2"
@@ -47,6 +49,8 @@
     ]
   },
   "devDependencies": {
+    "@types/react": "^16.9.41",
+    "@types/react-router-dom": "^5.1.5",
     "gh-pages": "^3.1.0",
     "prettier": "^2.0.5"
   }
