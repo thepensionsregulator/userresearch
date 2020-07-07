@@ -13,7 +13,7 @@ function App() {
         logoUrl={
           'https://www.thepensionsregulator.gov.uk/-/media/thepensionsregulator/images/logo/tpr-logo-header.ashx'
         }
-        title={'User Research'}
+        title={'Scheme Return'}
         onClickSchemeOptions={() => {
           console.log('Scheme Options clicked');
         }}
@@ -21,7 +21,7 @@ function App() {
           console.log('Logout clicked');
         }}
       />
-      <Highlight name={'Scheme Name'} psr={'012161'} />
+      <Highlight name={'Scheme Name: The Best Pension Scheme'} psr={'012161'} />
       <Switch>
         <Route path="/" exact component={() => <HomePage />} />
         <Route path="/typography" component={() => <Typography />} />
@@ -31,9 +31,19 @@ function App() {
         logoUrl="https://www.thepensionsregulator.gov.uk/-/media/thepensionsregulator/images/logo/tpr-logo-footer.ashx"
         onLinkClickHandler={(url) => console.log(`navigate to ${url}`)}
         links={[
-          { title: 'Website help', url: 'link-1' },
-          { title: 'Cymraeg', url: 'link-2' },
-          { title: 'Site map', url: 'link-3' },
+          {
+            title: 'Accessibility',
+            url:
+              'https://www.thepensionsregulator.gov.uk/en/website-policies/accessibility-statement',
+          },
+          {
+            title: 'Contact Us',
+            url: 'https://www.thepensionsregulator.gov.uk/en/contact-us',
+          },
+          {
+            title: 'Website Policies',
+            url: 'https://www.thepensionsregulator.gov.uk/en/website-policies',
+          },
         ]}
       />
     </div>
