@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/userresearch/static/css/main.abbbc605.chunk.css",
-    "main.js": "/userresearch/static/js/main.67734a36.chunk.js",
-    "main.js.map": "/userresearch/static/js/main.67734a36.chunk.js.map",
+    "main.css": "/userresearch/static/css/main.fcc3b378.chunk.css",
+    "main.js": "/userresearch/static/js/main.4837b9f1.chunk.js",
+    "main.js.map": "/userresearch/static/js/main.4837b9f1.chunk.js.map",
     "runtime-main.js": "/userresearch/static/js/runtime-main.e75d416b.js",
     "runtime-main.js.map": "/userresearch/static/js/runtime-main.e75d416b.js.map",
-    "static/css/2.fa1062b7.chunk.css": "/userresearch/static/css/2.fa1062b7.chunk.css",
-    "static/js/2.8aba276d.chunk.js": "/userresearch/static/js/2.8aba276d.chunk.js",
-    "static/js/2.8aba276d.chunk.js.map": "/userresearch/static/js/2.8aba276d.chunk.js.map",
+    "static/css/2.4ad4c3bc.chunk.css": "/userresearch/static/css/2.4ad4c3bc.chunk.css",
+    "static/js/2.45acac63.chunk.js": "/userresearch/static/js/2.45acac63.chunk.js",
+    "static/js/2.45acac63.chunk.js.map": "/userresearch/static/js/2.45acac63.chunk.js.map",
     "index.html": "/userresearch/index.html",
-    "precache-manifest.ed93cefb3847832d73896012c0f4ef40.js": "/userresearch/precache-manifest.ed93cefb3847832d73896012c0f4ef40.js",
+    "precache-manifest.b70cc23a78a8d0b559a6b19a9018988d.js": "/userresearch/precache-manifest.b70cc23a78a8d0b559a6b19a9018988d.js",
     "service-worker.js": "/userresearch/service-worker.js",
-    "static/css/2.fa1062b7.chunk.css.map": "/userresearch/static/css/2.fa1062b7.chunk.css.map",
-    "static/css/main.abbbc605.chunk.css.map": "/userresearch/static/css/main.abbbc605.chunk.css.map",
-    "static/js/2.8aba276d.chunk.js.LICENSE.txt": "/userresearch/static/js/2.8aba276d.chunk.js.LICENSE.txt",
+    "static/css/2.4ad4c3bc.chunk.css.map": "/userresearch/static/css/2.4ad4c3bc.chunk.css.map",
+    "static/css/main.fcc3b378.chunk.css.map": "/userresearch/static/css/main.fcc3b378.chunk.css.map",
+    "static/js/2.45acac63.chunk.js.LICENSE.txt": "/userresearch/static/js/2.45acac63.chunk.js.LICENSE.txt",
     "static/media/fonts.css": "/userresearch/static/media/open-sans-semi-bold.a01def30.woff2"
   },
   "entrypoints": [
     "static/js/runtime-main.e75d416b.js",
-    "static/css/2.fa1062b7.chunk.css",
-    "static/js/2.8aba276d.chunk.js",
-    "static/css/main.abbbc605.chunk.css",
-    "static/js/main.67734a36.chunk.js"
+    "static/css/2.4ad4c3bc.chunk.css",
+    "static/js/2.45acac63.chunk.js",
+    "static/css/main.fcc3b378.chunk.css",
+    "static/js/main.4837b9f1.chunk.js"
   ]
 }
