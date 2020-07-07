@@ -10,11 +10,11 @@ const InitialQuestions = () => {
     {
       name: FIELD_NAME,
       label: 'Yes',
-      value: true,
+      value: 'yes',
       type: 'radio',
       cfg: { my: 4 },
     },
-    { name: FIELD_NAME, label: 'No', value: false, type: 'radio' },
+    { name: FIELD_NAME, label: 'No', value: 'no', type: 'radio' },
   ];
   return (
     <div className={Styles.root}>
@@ -38,7 +38,7 @@ const InitialQuestions = () => {
           the scheme. (open in new window/tab)
         </P>
         <Form onSubmit={console.log}>
-          {({ handleSubmit }) => (
+          {({ handleSubmit, pristine }) => (
             <form>
               {renderFields(fields)}
               <Hr cfg={{ my: 8 }} />
@@ -47,7 +47,7 @@ const InitialQuestions = () => {
                 pointsTo="right"
                 onClick={() => console.log('click again')}
                 title={'Continue'}
-                disabled={true}
+                disabled={pristine}
               />
             </form>
           )}
