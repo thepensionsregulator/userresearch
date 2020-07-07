@@ -1,0 +1,21 @@
+.root {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.main {
+  padding: 1.25rem;
+  display: flex;
+  align-self: center;
+  margin: 0.2rem;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.list {
+  margin-left: 1.2rem;
+}
+
+.backToTop {
+  align-self: flex-end;
+}
