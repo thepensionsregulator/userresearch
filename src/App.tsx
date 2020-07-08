@@ -26,6 +26,10 @@ function App() {
         <Route path="/" exact component={() => <HomePage />} />
         <Route path="/typography" component={() => <Typography />} />
         <Route path="/about" component={() => <About />} />
+        <Route
+          path="/initial-questions/scheme-wound-up"
+          component={() => <SchemeWoundUp />}
+        />
       </Switch>
       <Footer
         logoUrl="https://www.thepensionsregulator.gov.uk/-/media/thepensionsregulator/images/logo/tpr-logo-footer.ashx"
