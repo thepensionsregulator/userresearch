@@ -3,9 +3,12 @@ import { ArrowLink, WarningBox, ArrowButton } from '@tpr/layout';
 import { H1, Hr, P, Link } from '@tpr/core';
 import { Form, FieldProps, renderFields } from '@tpr/forms';
 import Styles from './Layout.module.scss';
+import { useHistory } from 'react-router-dom';
 
 const SchemeWoundUp = () => {
-  const onSubmit = () => console.log('Submit handled');
+  const history = useHistory();
+  const onSubmit = () =>
+    history.push('/initial-questions/scheme-wound-up/wound-up-confirmation');
   const FIELD_NAME = 'windUpDate';
   const fields: FieldProps[] = [
     {
@@ -23,7 +26,7 @@ const SchemeWoundUp = () => {
         <ArrowLink
           iconSide="left"
           pointsTo="left"
-          onClick={() => console.log('Back button clicked')}
+          onClick={() => history.push('/initial-questions')}
         />
         <H1 cfg={{ mb: 8 }}>Scheme wound up</H1>
         <Hr cfg={{ mb: 8 }} />
@@ -53,6 +56,10 @@ const SchemeWoundUp = () => {
                 />
                 <Link underline={true}>Cancel</Link>
               </WarningBox>
+                    <Link
+                      underline
+                      onClick={() => history.push('/initial-questions')}
+                    >
             </form>
           )}
         </Form>
