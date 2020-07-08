@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import HomePage from './views/Home';
 import Typography from './views/Typography';
 import About from './views/About';
-
+import WoundUpConfirmation from './views/WoundUpConfirmation';
 function App() {
   return (
     <div>
@@ -26,6 +26,10 @@ function App() {
         <Route path="/" exact component={() => <HomePage />} />
         <Route path="/typography" component={() => <Typography />} />
         <Route path="/about" component={() => <About />} />
+        <Route
+          path="/initial-questions/scheme-wound-up/wound-up-confirmation"
+          component={() => <WoundUpConfirmation />}
+        />
       </Switch>
       <Footer
         logoUrl="https://www.thepensionsregulator.gov.uk/-/media/thepensionsregulator/images/logo/tpr-logo-footer.ashx"
