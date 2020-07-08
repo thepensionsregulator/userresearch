@@ -22,7 +22,6 @@ const InitialQuestions = () => {
   const history = useHistory();
 
   const onSubmit = (formValues: any) => {
-    console.log(formValues.schemeWoundUp);
     history.push(
       formValues.schemeWoundUp === 'yes'
         ? 'initial-questions/scheme-wound-up'
@@ -36,7 +35,10 @@ const InitialQuestions = () => {
         <ArrowLink
           iconSide="left"
           pointsTo="left"
-          onClick={() => console.log('clickity click')}
+          onClick={() => {
+            window.location.href =
+              'https://exchange.thepensionsregulator.gov.uk/Members/SchemeListing.aspx';
+          }}
         />
         <H1>Check if you need to complete a scheme return</H1>
         <Hr cfg={{ my: 2 }} />
