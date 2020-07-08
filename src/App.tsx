@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import HomePage from './views/Home';
 import Typography from './views/Typography';
 import About from './views/About';
+import SchemeWoundUp from './views/SchemeWoundUp';
 
 function App() {
   return (
