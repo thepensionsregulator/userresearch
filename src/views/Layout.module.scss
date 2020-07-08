@@ -5,7 +5,7 @@
 }
 .main {
   padding: 1.25rem;
-  max-width: 1200px;
+  width: 75rem;
   display: flex;
   align-self: center;
   margin: 0.2rem;
@@ -19,4 +19,8 @@
 
 .backToTop {
   align-self: flex-end;
+}
+
+.warningBox {
+  width: 700px;
 }
