@@ -3,9 +3,11 @@ import Styles from './Layout.module.scss';
 import { ArrowLink, ArrowButton } from '@tpr/layout';
 import { H1, Hr, P } from '@tpr/core';
 import { Form, renderFields, FieldProps } from '@tpr/forms';
+import { useHistory } from 'react-router-dom';
 
 const InitialQuestions = () => {
-  const FIELD_NAME = 'schemeWoundUp?';
+  const FIELD_NAME = 'schemeWoundUp';
+
   const fields: FieldProps[] = [
     {
       name: FIELD_NAME,
@@ -16,6 +18,18 @@ const InitialQuestions = () => {
     },
     { name: FIELD_NAME, label: 'No', value: 'no', type: 'radio' },
   ];
+
+  const history = useHistory();
+
+  const onSubmit = (formValues: any) => {
+    console.log(formValues.schemeWoundUp);
+    history.push(
+      formValues.schemeWoundUp === 'yes'
+        ? 'initial-questions/scheme-wound-up'
+        : '/',
+    );
+  };
+
   return (
     <div className={Styles.root}>
       <div className={Styles.main}>
@@ -37,15 +51,15 @@ const InitialQuestions = () => {
           process has finished. If you're not sure, check the current details of
           the scheme. (open in new window/tab)
         </P>
-        <Form onSubmit={console.log}>
+        <Form onSubmit={onSubmit}>
           {({ handleSubmit, pristine }) => (
-            <form>
+            <form onSubmit={handleSubmit}>
               {renderFields(fields)}
               <Hr cfg={{ my: 8 }} />
               <ArrowButton
+                type="submit"
                 iconSide="right"
                 pointsTo="right"
-                onClick={() => console.log('click again')}
                 title={'Continue'}
                 disabled={pristine}
               />
