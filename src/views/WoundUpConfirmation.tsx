@@ -31,6 +31,10 @@ const WoundUpConfirmation = () => {
             iconSide="right"
             pointsTo="right"
             cfg={{ mr: 4, mt: 7 }}
+            onClick={() => {
+              window.location.href =
+                'https://exchange.thepensionsregulator.gov.uk/Members/SchemeListing.aspx';
+            }}
           ></ArrowButton>
         </div>
         <Hr cfg={{ my: 4 }} />
