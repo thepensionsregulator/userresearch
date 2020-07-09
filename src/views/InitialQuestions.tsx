@@ -28,7 +28,11 @@ const InitialQuestions = () => {
   const history = useHistory();
 
   const onSubmit = (formValues: any) => {
-    history.push(formValues.schemeWoundUp === 'yes' ? '/scheme-wound-up' : '/');
+    history.push(
+      formValues.schemeWoundUp === 'yes'
+        ? '/initial-questions/scheme-wound-up'
+        : '/',
+    );
   };
 
   return (
