@@ -5,6 +5,7 @@ import HomePage from './views/Home';
 import Typography from './views/Typography';
 import About from './views/About';
 import InitialQuestions from './views/InitialQuestions';
+import SchemeWoundUp from './views/SchemeWoundUp';
 
 function App() {
   return (
@@ -29,8 +30,12 @@ function App() {
         <Route path="/about" component={() => <About />} />
         <Route
           path="/initial-questions"
-          component={() => <InitialQuestions />}
-        />
+          component={() => <InitialQuestions />}>
+        </Route>
+        <Route
+          path="/initial-questions/scheme-wound-up"
+          component={() => <SchemeWoundUp />}></Route>
+        
       </Switch>
       <Footer
         logoUrl="https://www.thepensionsregulator.gov.uk/-/media/thepensionsregulator/images/logo/tpr-logo-footer.ashx"

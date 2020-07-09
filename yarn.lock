@@ -1559,6 +1559,14 @@
     normalize.css "^8.0.1"
     tslib "^2.0.0"
 
+"@tpr/theming@^2.1.4":
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/@tpr/theming/-/theming-2.1.4.tgz#1d60fb4b24a8b7dd06142e897521074f9998af6b"
+  integrity sha512-ocGW/oUtXAWJfH9BOFiTOHUcO2mM6Pij52f3T1CSwteaCLIb32euJX98/NECWZ5rTms3NhhThw1JXyrCfL7zeA==
+  dependencies:
+    normalize.css "^8.0.1"
+    tslib "^2.0.0"
+
 "@types/babel__core@^7.1.0":
   version "7.1.6"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.6.tgz#16ff42a5ae203c9af1c6e190ed1f30f83207b610"
