@@ -1484,6 +1484,19 @@
     tslib "^2.0.0"
     xstate "^4.10.0"
 
+"@tpr/core@^2.1.6":
+  version "2.1.6"
+  resolved "https://registry.yarnpkg.com/@tpr/core/-/core-2.1.6.tgz#eda8cce648d68bd91443c0f9d2eeaa7e54b44771"
+  integrity sha512-AMGq1/JDnwUS3UeuuOO5bpddT1qfMRtJeRLJd0XpiEdv4tRh+86XnLmFf4WeJGFItIo/Z5zsPlQ/gW+rzBl+VA==
+  dependencies:
+    "@tpr/theming" "^2.1.4"
+    "@xstate/react" "^0.8.1"
+    final-form "^4.20.0"
+    qs "^6.9.4"
+    react-final-form "^6.5.0"
+    tslib "^2.0.0"
+    xstate "^4.10.0"
+
 "@tpr/forms@^2.1.6":
   version "2.1.6"
   resolved "https://registry.yarnpkg.com/@tpr/forms/-/forms-2.1.6.tgz#533f0369a4478ec7cec5a7da053f3a638ff8784e"
@@ -1504,6 +1517,26 @@
     react-final-form "^6.5.0"
     tslib "^2.0.0"
 
+"@tpr/forms@^2.1.7":
+  version "2.1.7"
+  resolved "https://registry.yarnpkg.com/@tpr/forms/-/forms-2.1.7.tgz#769b42b7a02cd5af91fac7de02bc375119ef0bd4"
+  integrity sha512-B0SukOu1HbPdSLYcJWCku4SZ9oyW0Kc1xL4a8fB+sHidLqJlUTMj0pzx4MT8/VAcV/S9yVwKDzEElHYBySUWAw==
+  dependencies:
+    "@tpr/core" "^2.1.6"
+    "@tpr/icons" "^2.1.6"
+    "@tpr/theming" "^2.1.4"
+    "@types/lodash" "^4.14.157"
+    "@types/match-sorter" "^4.0.0"
+    "@types/qs" "^6.9.3"
+    date-fns "^2.14.0"
+    downshift "^5.4.2"
+    final-form "^4.20.0"
+    lodash "^4.17.15"
+    match-sorter "^4.1.0"
+    qs "^6.9.4"
+    react-final-form "^6.5.0"
+    tslib "^2.0.0"
+
 "@tpr/icons@^2.1.5":
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/@tpr/icons/-/icons-2.1.5.tgz#de3fc6ff9424af56317846f9834ed05d27c32e62"
@@ -1512,17 +1545,28 @@
     "@tpr/core" "^2.1.5"
     tslib "^2.0.0"
 
-"@tpr/layout@^2.1.6":
+"@tpr/icons@^2.1.6":
   version "2.1.6"
-  resolved "https://registry.yarnpkg.com/@tpr/layout/-/layout-2.1.6.tgz#f86ef9aab295190be0b21fc18abbc369460ac3c6"
-  integrity sha512-Zr2Muq3CUB3RqKk0w2s7imE2Zk9syEF97xHMo+JC4z/9ZVPbWWtlh2+z4K62e0trrJ7qlVdKdLjACngUrRW4Pw==
+  resolved "https://registry.yarnpkg.com/@tpr/icons/-/icons-2.1.6.tgz#f342a183f756e77c61da6570b13e6d47fdb41554"
+  integrity sha512-OjzK9Jp+/n8+eiImmO77AvYULmDReLeBzJOGzyh+fcBr3miDNWqcxk6tOva+AqI/v7THj0oqE6wHBqU9igIurA==
   dependencies:
-    "@tpr/core" "^2.1.5"
-    "@tpr/forms" "^2.1.6"
-    "@tpr/icons" "^2.1.5"
-    "@tpr/theming" "^2.1.3"
+    "@tpr/core" "^2.1.6"
+    tslib "^2.0.0"
+
+"@tpr/layout@^2.1.8-next.8":
+  version "2.1.8-next.8"
+  resolved "https://registry.yarnpkg.com/@tpr/layout/-/layout-2.1.8-next.8.tgz#0c77c42db324f2fe6ff582e690117ba4597c0960"
+  integrity sha512-hJLnNQjeounG2GFnzUWpQ7HyHm2fUMj85/rthmzGD+UXdrwKd3Rn4/S3xK3VxNQPJi+mEts9Ip6s7dmAggg5NA==
+  dependencies:
+    "@tpr/core" "^2.1.6"
+    "@tpr/forms" "^2.1.7"
+    "@tpr/icons" "^2.1.6"
+    "@tpr/theming" "^2.1.4"
+    "@types/lodash" "^4.14.157"
     "@xstate/react" "^0.8.1"
+    date-fns "^2.14.0"
     final-form "^4.20.0"
+    lodash "^4.17.15"
     qs "^6.9.4"
     react-final-form "^6.5.0"
     tslib "^2.0.0"
@@ -1532,6 +1576,14 @@
   version "2.1.3"
   resolved "https://registry.yarnpkg.com/@tpr/theming/-/theming-2.1.3.tgz#df71cc73f6526586d048c65b6f53eebc4df56389"
   integrity sha512-YGz9FnHfKoTS4kcTWy8sRffhbA2V8ojJgjREIum1/Gz8YAnZoavZKX7EUstYawdukElOF/lBEnJCXSadqDnNKg==
+  dependencies:
+    normalize.css "^8.0.1"
+    tslib "^2.0.0"
+
+"@tpr/theming@^2.1.4":
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/@tpr/theming/-/theming-2.1.4.tgz#1d60fb4b24a8b7dd06142e897521074f9998af6b"
+  integrity sha512-ocGW/oUtXAWJfH9BOFiTOHUcO2mM6Pij52f3T1CSwteaCLIb32euJX98/NECWZ5rTms3NhhThw1JXyrCfL7zeA==
   dependencies:
     normalize.css "^8.0.1"
     tslib "^2.0.0"
