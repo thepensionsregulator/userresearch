@@ -14,12 +14,16 @@ const WoundUpConfirmation = () => {
           cfg={{ mb: 3 }}
         />
         <Info>
-          <H1>Scheme wound up confirmed</H1>
-          <P>
-            You confirmed on <b>9 July 2020</b> that your scheme has now wound
-            up.
-          </P>
-          <P>Thank you for your time and co-operation.</P>
+          <div className={Styles.confirmationInfoBox}>
+            <H1>Scheme wound up confirmed</H1>
+            <div>
+              <P cfg={{ my: 4 }}>
+                You confirmed on <b>9 July 2020</b> that your scheme has now
+                wound up.
+              </P>
+              <P cfg={{ my: 4 }}>Thank you for your time and co-operation.</P>
+            </div>
+          </div>
         </Info>
         <div>
           <ArrowButton
