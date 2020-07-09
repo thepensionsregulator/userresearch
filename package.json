@@ -10,7 +10,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "@tpr/core": "^2.1.5",
-    "@tpr/forms": "^2.1.8-next.2",
+    "@tpr/forms": "^2.1.8-next.4",
     "@tpr/icons": "^2.1.5",
     "@tpr/layout": "^2.1.8-next.4",
     "@tpr/theming": "^2.1.3",
