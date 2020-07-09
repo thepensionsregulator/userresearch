@@ -14,9 +14,15 @@ const InitialQuestions = () => {
       label: 'Yes',
       value: 'yes',
       type: 'radio',
-      cfg: { my: 4 },
+      cfg: { my: 4, mr: 4 },
     },
-    { name: FIELD_NAME, label: 'No', value: 'no', type: 'radio' },
+    {
+      name: FIELD_NAME,
+      label: 'No',
+      value: 'no',
+      type: 'radio',
+      cfg: { my: 4, mr: 4 },
+    },
   ];
 
   const history = useHistory();
