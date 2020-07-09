@@ -1532,10 +1532,10 @@
     "@tpr/core" "^2.1.6"
     tslib "^2.0.0"
 
-"@tpr/layout@^2.1.8-next.4":
-  version "2.1.8-next.4"
-  resolved "https://registry.yarnpkg.com/@tpr/layout/-/layout-2.1.8-next.4.tgz#f7d3b71a56e780196f56450ed41646daf591d44b"
-  integrity sha512-0xcxTB715SE5KL9ANlU4bxIJriBst8a+mzDXS9DnGquMHd9K4KZKd3onwRDT9j4CPLfDSyCUPW/kxhPCDKb0eg==
+"@tpr/layout@^2.1.8-next.8":
+  version "2.1.8-next.8"
+  resolved "https://registry.yarnpkg.com/@tpr/layout/-/layout-2.1.8-next.8.tgz#0c77c42db324f2fe6ff582e690117ba4597c0960"
+  integrity sha512-hJLnNQjeounG2GFnzUWpQ7HyHm2fUMj85/rthmzGD+UXdrwKd3Rn4/S3xK3VxNQPJi+mEts9Ip6s7dmAggg5NA==
   dependencies:
     "@tpr/core" "^2.1.6"
     "@tpr/forms" "^2.1.7"
@@ -1552,14 +1552,6 @@
     xstate "^4.10.0"
 
 "@tpr/theming@^2.1.3", "@tpr/theming@^2.1.4":
-  version "2.1.4"
-  resolved "https://registry.yarnpkg.com/@tpr/theming/-/theming-2.1.4.tgz#1d60fb4b24a8b7dd06142e897521074f9998af6b"
-  integrity sha512-ocGW/oUtXAWJfH9BOFiTOHUcO2mM6Pij52f3T1CSwteaCLIb32euJX98/NECWZ5rTms3NhhThw1JXyrCfL7zeA==
-  dependencies:
-    normalize.css "^8.0.1"
-    tslib "^2.0.0"
-
-"@tpr/theming@^2.1.4":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@tpr/theming/-/theming-2.1.4.tgz#1d60fb4b24a8b7dd06142e897521074f9998af6b"
   integrity sha512-ocGW/oUtXAWJfH9BOFiTOHUcO2mM6Pij52f3T1CSwteaCLIb32euJX98/NECWZ5rTms3NhhThw1JXyrCfL7zeA==
