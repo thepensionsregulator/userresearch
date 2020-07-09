@@ -7,6 +7,12 @@ const WoundUpConfirmation = () => {
   return (
     <div className={Styles.root}>
       <div className={Styles.main}>
+        <ArrowLink
+          iconSide="left"
+          pointsTo="left"
+          onClick={() => console.log('Click')}
+          cfg={{ mb: 3 }}
+        />
         <Info>
           <H1>Scheme wound up confirmed</H1>
           <P>
