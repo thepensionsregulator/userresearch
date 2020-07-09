@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import HomePage from './views/Home';
 import Typography from './views/Typography';
 import About from './views/About';
+import SchemeWoundUp from './views/SchemeWoundUp';
 
 function App() {
   return (
@@ -26,6 +27,10 @@ function App() {
         <Route path="/" exact component={() => <HomePage />} />
         <Route path="/typography" component={() => <Typography />} />
         <Route path="/about" component={() => <About />} />
+        <Route
+          path="/initial-questions/scheme-wound-up"
+          component={() => <SchemeWoundUp />}
+        />
       </Switch>
       <Footer
         logoUrl="https://www.thepensionsregulator.gov.uk/-/media/thepensionsregulator/images/logo/tpr-logo-footer.ashx"
