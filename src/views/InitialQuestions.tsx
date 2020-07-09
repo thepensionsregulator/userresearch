@@ -62,7 +62,7 @@ const InitialQuestions = () => {
         <Form onSubmit={onSubmit}>
           {({ handleSubmit, pristine }) => (
             <form onSubmit={handleSubmit}>
-              {renderFields(fields)}
+              <div className={Styles.radioButtons}>{renderFields(fields)}</div>
               <Hr cfg={{ my: 8 }} />
               <ArrowButton
                 type="submit"
