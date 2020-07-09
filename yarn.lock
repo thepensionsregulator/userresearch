@@ -1484,10 +1484,12 @@
     tslib "^2.0.0"
     xstate "^4.10.0"
 
+
 "@tpr/forms@^2.1.7":
   version "2.1.7"
   resolved "https://registry.yarnpkg.com/@tpr/forms/-/forms-2.1.7.tgz#769b42b7a02cd5af91fac7de02bc375119ef0bd4"
   integrity sha512-B0SukOu1HbPdSLYcJWCku4SZ9oyW0Kc1xL4a8fB+sHidLqJlUTMj0pzx4MT8/VAcV/S9yVwKDzEElHYBySUWAw==
+
   dependencies:
     "@tpr/core" "^2.1.6"
     "@tpr/icons" "^2.1.6"
@@ -1503,6 +1505,7 @@
     qs "^6.9.4"
     react-final-form "^6.5.0"
     tslib "^2.0.0"
+
 
 "@tpr/forms@^2.1.8-next.4":
   version "2.1.8-next.4"
@@ -1523,6 +1526,7 @@
     qs "^6.9.4"
     react-final-form "^6.5.0"
     tslib "^2.0.0"
+
 
 "@tpr/icons@^2.1.5", "@tpr/icons@^2.1.6":
   version "2.1.6"
@@ -1552,6 +1556,14 @@
     xstate "^4.10.0"
 
 "@tpr/theming@^2.1.3", "@tpr/theming@^2.1.4":
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/@tpr/theming/-/theming-2.1.4.tgz#1d60fb4b24a8b7dd06142e897521074f9998af6b"
+  integrity sha512-ocGW/oUtXAWJfH9BOFiTOHUcO2mM6Pij52f3T1CSwteaCLIb32euJX98/NECWZ5rTms3NhhThw1JXyrCfL7zeA==
+  dependencies:
+    normalize.css "^8.0.1"
+    tslib "^2.0.0"
+
+"@tpr/theming@^2.1.4":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@tpr/theming/-/theming-2.1.4.tgz#1d60fb4b24a8b7dd06142e897521074f9998af6b"
   integrity sha512-ocGW/oUtXAWJfH9BOFiTOHUcO2mM6Pij52f3T1CSwteaCLIb32euJX98/NECWZ5rTms3NhhThw1JXyrCfL7zeA==
