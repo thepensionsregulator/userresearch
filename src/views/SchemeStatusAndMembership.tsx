@@ -178,6 +178,7 @@ const SchemeStatusAndMembership = () => {
                 required
                 validate={(value) => {
                   const currentDate = new Date().getDate();
+                  console.log(typeof value);
                   console.log(currentDate);
                   console.log(value);
                   if (value < currentDate) {
