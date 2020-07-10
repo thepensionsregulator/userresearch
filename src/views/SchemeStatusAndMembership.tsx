@@ -166,7 +166,15 @@ const SchemeStatusAndMembership = () => {
             <form>
               <H2>Scheme status</H2>
               <div>{renderFields(SchemeStatusFields)}</div>
-              <div></div>
+              <div>
+                <FFInputDate
+                  name="schemeStatusApplied"
+                  label="Date scheme status applied"
+                  hint="For example, 31 2 2019"
+                  error="The date the membership became effective must be in the past"
+                  required
+                />
+              </div>
               <H2>Scheme membership</H2>
               <P>Tell us the number of:</P>
               <div>{renderFields(SchemeMembershipFields)}</div>
