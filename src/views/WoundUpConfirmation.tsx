@@ -1,6 +1,6 @@
 import React from 'react';
 import Styles from './Layout.module.scss';
-import { H1, P, Hr, Link } from '@tpr/core';
+import { H1, P, Hr } from '@tpr/core';
 import { Info, ArrowButton, ArrowLink } from '@tpr/layout';
 
 const WoundUpConfirmation = () => {
