@@ -9,7 +9,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider>
-      <Router basename={`${process.env.PUBLIC_URL}/userresearch`}>
+      <Router basename={`${process.env.PUBLIC_URL}`}>
         <App />
       </Router>
     </ThemeProvider>
