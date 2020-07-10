@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import HomePage from './views/Home';
 import Typography from './views/Typography';
 import About from './views/About';
+import InitialQuestions from './views/InitialQuestions';
 import WoundUpConfirmation from './views/WoundUpConfirmation';
 import SchemeWoundUp from './views/SchemeWoundUp';
 
@@ -29,6 +30,11 @@ function App() {
         <Route path="/typography" component={() => <Typography />} />
         <Route path="/about" component={() => <About />} />
         <Route
+          exact
+          path="/initial-questions"
+          component={() => <InitialQuestions />} 
+        />
+        
           path="/initial-questions/scheme-wound-up/wound-up-confirmation"
           component={() => <WoundUpConfirmation />}
         />

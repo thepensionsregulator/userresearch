@@ -25,6 +25,11 @@
   width: 700px;
 }
 
+.radioButtons {
+  display: flex;
+  flex-direction: row;
+}
+
 .confirmationInfoBox {
   display: flex;
   flex-direction: column;

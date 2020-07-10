@@ -5,7 +5,6 @@ import Styles from './Layout.module.scss';
 
 const HomePage = () => (
   <div className={Styles.root}>
-    <div></div>
     <div className={Styles.main}>
       <H1 cfg={{ mb: 6 }}>Scheme Return</H1>
       <Hr cfg={{ mb: 10 }} />
