@@ -7,7 +7,7 @@ import About from './views/About';
 import InitialQuestions from './views/InitialQuestions';
 import WoundUpConfirmation from './views/WoundUpConfirmation';
 import SchemeWoundUp from './views/SchemeWoundUp';
-import SchemeStatusAndMembership from './views/SchemeStatusAndMemberShip';
+import SchemeStatusAndMembership from './views/SchemeStatusAndMembership';
 
 function App() {
   return (
@@ -46,7 +46,7 @@ function App() {
         />
         <Route
           exact
-          path="scheme-status-and-membership"
+          path="/scheme-status-and-membership"
           component={() => <SchemeStatusAndMembership />}
         />
       </Switch>
