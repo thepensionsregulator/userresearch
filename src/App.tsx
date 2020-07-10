@@ -7,6 +7,7 @@ import About from './views/About';
 import InitialQuestions from './views/InitialQuestions';
 import WoundUpConfirmation from './views/WoundUpConfirmation';
 import SchemeWoundUp from './views/SchemeWoundUp';
+import SchemeStatusAndMembership from './views/SchemeStatusAndMemberShip';
 
 function App() {
   return (
@@ -42,6 +43,11 @@ function App() {
           exact
           path="/initial-questions/scheme-wound-up"
           component={() => <SchemeWoundUp />}
+        />
+        <Route
+          exact
+          path="scheme-status-and-membership"
+          component={() => <SchemeStatusAndMembership />}
         />
       </Switch>
       <Footer
