@@ -32,9 +32,9 @@ function App() {
         <Route
           exact
           path="/initial-questions"
-          component={() => <InitialQuestions />} 
+          component={() => <InitialQuestions />}
         />
-        
+        <Route
           path="/initial-questions/scheme-wound-up/wound-up-confirmation"
           component={() => <WoundUpConfirmation />}
         />
