@@ -177,12 +177,11 @@ const SchemeStatusAndMembership = () => {
                 error="The date the membership became effective must be in the past"
                 required
                 validate={(value) => {
-                  const currentDate = new Date().getDate();
-                  console.log(typeof value);
-                  console.log(currentDate);
-                  console.log(value);
-                  if (value < currentDate) {
-                    console.log("I'm here!!");
+                  const valueDate = new Date(value);
+                  const currentDate = new Date();
+
+                  if (valueDate > currentDate) {
+                    return 'The date the membership became effective must be in the past';
                   }
                 }}
               />
