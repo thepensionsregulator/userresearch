@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import HomePage from './views/Home';
 import Typography from './views/Typography';
 import About from './views/About';
+import WoundUpConfirmation from './views/WoundUpConfirmation';
 import SchemeWoundUp from './views/SchemeWoundUp';
 
 function App() {
@@ -24,10 +25,15 @@ function App() {
       />
       <Highlight name={'Scheme Name: The Best Pension Scheme'} psr={'012161'} />
       <Switch>
-        <Route path="/" exact component={() => <HomePage />} />
+        <Route exact path="/" component={() => <HomePage />} />
         <Route path="/typography" component={() => <Typography />} />
         <Route path="/about" component={() => <About />} />
         <Route
+          path="/initial-questions/scheme-wound-up/wound-up-confirmation"
+          component={() => <WoundUpConfirmation />}
+        />
+        <Route
+          exact
           path="/initial-questions/scheme-wound-up"
           component={() => <SchemeWoundUp />}
         />

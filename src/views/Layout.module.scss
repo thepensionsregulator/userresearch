@@ -24,3 +24,9 @@
 .warningBox {
   width: 700px;
 }
+
+.confirmationInfoBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
