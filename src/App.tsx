@@ -9,6 +9,7 @@ import WoundUpConfirmation from './views/WoundUpConfirmation';
 import SchemeWoundUp from './views/SchemeWoundUp';
 
 function App() {
+  console.warn(process.env.PUBLIC_URL);
   return (
     <div>
       <BetaHeader text="This is a new service - your feedback will help us improve it." />
