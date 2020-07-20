@@ -22,65 +22,62 @@ const SchemeWoundUp = () => {
     },
   ];
   return (
-    <div className={Styles.root}>
-      <div className={Styles.main}>
+    <div>
+      <ArrowLink
+        iconSide="left"
+        pointsTo="left"
+        onClick={() => history.push('/initial-questions')}
+      />
+      <H1 cfg={{ mb: 8 }}>Scheme wound up</H1>
+      <Hr cfg={{ mb: 8 }} />
+      <P cfg={{ mb: 4 }}>
+        If this scheme has wound up, you don't need to complete a scheme return.
+      </P>
+      <Form onSubmit={onSubmit} validate={validate(fields)}>
+        {({ handleSubmit }) => (
+          <form onSubmit={handleSubmit}>
+            {renderFields(fields)}
+            <div className={Styles.warningBox}>
+              <WarningBox>
+                <P cfg={{ my: 3 }}>
+                  <b>Are you sure this scheme has wound up?</b>
+                </P>
+                <P cfg={{ mb: 4 }}>
+                  Choosing 'Confirm' will update the details we hold about this
+                  scheme and will remove it from your list of schemes. You'll no
+                  longer be able to access it. You may want to{' '}
+                  <Link underline>save or print previous scheme returns</Link>
+                  for your records.
+                </P>
+                <div>
+                  <ArrowButton
+                    type="submit"
+                    intent="danger"
+                    title="Confirm"
+                    pointsTo="right"
+                    iconSide="right"
+                    cfg={{ mr: 4 }}
+                  />
+                  <Link
+                    underline
+                    onClick={() => history.push('/initial-questions')}
+                  >
+                    Cancel
+                  </Link>
+                </div>
+              </WarningBox>
+            </div>
+          </form>
+        )}
+      </Form>
+      <div className={Styles.backToTop}>
         <ArrowLink
           iconSide="left"
-          pointsTo="left"
-          onClick={() => history.push('/initial-questions')}
+          pointsTo="up"
+          onClick={() => console.log('clicked')}
+          cfg={{ mr: 3 }}
+          title="Back to top"
         />
-        <H1 cfg={{ mb: 8 }}>Scheme wound up</H1>
-        <Hr cfg={{ mb: 8 }} />
-        <P cfg={{ mb: 4 }}>
-          If this scheme has wound up, you don't need to complete a scheme
-          return.
-        </P>
-        <Form onSubmit={onSubmit} validate={validate(fields)}>
-          {({ handleSubmit }) => (
-            <form onSubmit={handleSubmit}>
-              {renderFields(fields)}
-              <div className={Styles.warningBox}>
-                <WarningBox>
-                  <P cfg={{ my: 3 }}>
-                    <b>Are you sure this scheme has wound up?</b>
-                  </P>
-                  <P cfg={{ mb: 4 }}>
-                    Choosing 'Confirm' will update the details we hold about
-                    this scheme and will remove it from your list of schemes.
-                    You'll no longer be able to access it. You may want to{' '}
-                    <Link underline>save or print previous scheme returns</Link>
-                    for your records.
-                  </P>
-                  <div>
-                    <ArrowButton
-                      type="submit"
-                      intent="danger"
-                      title="Confirm"
-                      pointsTo="right"
-                      iconSide="right"
-                      cfg={{ mr: 4 }}
-                    />
-                    <Link
-                      underline
-                      onClick={() => history.push('/initial-questions')}
-                    >
-                      Cancel
-                    </Link>
-                  </div>
-                </WarningBox>
-              </div>
-            </form>
-          )}
-        </Form>
-        <div className={Styles.backToTop}>
-          <ArrowLink
-            iconSide="left"
-            pointsTo="up"
-            onClick={() => console.log('clicked')}
-            cfg={{ mr: 3 }}
-            title="Back to top"
-          />
-        </div>
       </div>
     </div>
   );

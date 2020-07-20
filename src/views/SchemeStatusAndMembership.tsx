@@ -1,5 +1,5 @@
 import React from 'react';
-import { H1, Hr, P, H2 } from '@tpr/core';
+import { DocWidth, H1, Hr, P, H2, AppWidth } from '@tpr/core';
 import Styles from './Layout.module.scss';
 import { Sidebar, ArrowLink } from '@tpr/layout';
 import { Form, renderFields, FieldProps, FFInputDate } from '@tpr/forms';
@@ -78,74 +78,73 @@ const SchemeStatusAndMembership = () => {
 
   return (
     <div className={Styles.root}>
-      <div>
-        <Sidebar
-          history={history}
-          location={location}
-          title={'Scheme return home'}
-          matchPath={matchPath}
-          sections={[
-            {
-              title: 'Scheme details',
-              order: 1,
-              links: [
-                {
-                  name: 'Scheme name and address',
-                  completed: true,
-                  path: '/scheme-name',
-                },
-                {
-                  name: 'Scheme status and membership',
-                  completed: false,
-                  path: '/scheme-status-and-membership',
-                },
-                {
-                  name: 'Consent to electronic communication',
-                  completed: false,
-                  path: '/electronic-communication',
-                },
-              ],
-            },
-            {
-              title: 'Role',
-              order: 2,
-              links: [
-                {
-                  name: 'Trustee details',
-                  completed: false,
-                  path: '/trustee-details',
-                },
-                {
-                  name: 'Employer details',
-                  completed: false,
-                  path: '/employer-details',
-                },
-                {
-                  name: 'Service provider details',
-                  completed: false,
-                  path: '/service-provider-details',
-                },
-                {
-                  name: 'Named contact details',
-                  completed: false,
-                  path: '/named-contract-details',
-                },
-              ],
-            },
-            {
-              title: 'Finish Up',
-              order: 3,
-              links: [
-                {
-                  name: 'Review and submit',
-                  completed: false,
-                  path: '/review-and-submit',
-                },
-              ],
-            },
-          ]}
-        />
-      </div>
+      <Sidebar
+        history={history}
+        location={location}
+        title={'Scheme return home'}
+        matchPath={matchPath}
+        sections={[
+          {
+            title: 'Scheme details',
+            order: 1,
+            links: [
+              {
+                name: 'Scheme name and address',
+                completed: true,
+                path: '/scheme-name',
+              },
+              {
+                name: 'Scheme status and membership',
+                completed: false,
+                path: '/scheme-status-and-membership',
+              },
+              {
+                name: 'Consent to electronic communication',
+                completed: false,
+                path: '/electronic-communication',
+              },
+            ],
+          },
+          {
+            title: 'Role',
+            order: 2,
+            links: [
+              {
+                name: 'Trustee details',
+                completed: false,
+                path: '/trustee-details',
+              },
+              {
+                name: 'Employer details',
+                completed: false,
+                path: '/employer-details',
+              },
+              {
+                name: 'Service provider details',
+                completed: false,
+                path: '/service-provider-details',
+              },
+              {
+                name: 'Named contact details',
+                completed: false,
+                path: '/named-contract-details',
+              },
+            ],
+          },
+          {
+            title: 'Finish Up',
+            order: 3,
+            links: [
+              {
+                name: 'Review and submit',
+                completed: false,
+                path: '/review-and-submit',
+              },
+            ],
+          },
+        ]}
+      />
+
       <div className={Styles.main}>
         <ArrowLink
           iconSide="left"
