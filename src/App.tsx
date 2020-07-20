@@ -26,30 +26,36 @@ function App() {
         }}
       />
       <Highlight name={'Scheme Name: The Best Pension Scheme'} psr={'012161'} />
-      <Switch>
-        <Route exact path="/" component={() => <HomePage />} />
-        <Route path="/typography" component={() => <Typography />} />
-        <Route path="/about" component={() => <About />} />
-        <Route
-          exact
-          path="/initial-questions"
-          component={() => <InitialQuestions />}
-        />
-        <Route
-          exact
-          path="/initial-questions/scheme-wound-up"
-          component={() => <SchemeWoundUp />}
-        />
-        <Route
-          path="/initial-questions/scheme-wound-up/wound-up-confirmation"
-          component={() => <WoundUpConfirmation />}
-        />
-        <Route
-          exact
-          path="/scheme-status-and-membership"
-          component={() => <SchemeStatusAndMembership />}
-        />
-      </Switch>
+
+      <DocWidth>
+        <AppWidth>
+          <Switch>
+            <Route exact path="/" component={() => <HomePage />} />
+            <Route path="/typography" component={() => <Typography />} />
+            <Route path="/about" component={() => <About />} />
+            <Route
+              exact
+              path="/initial-questions"
+              component={() => <InitialQuestions />}
+            />
+            <Route
+              exact
+              path="/initial-questions/scheme-wound-up"
+              component={() => <SchemeWoundUp />}
+            />
+            <Route
+              path="/initial-questions/scheme-wound-up/wound-up-confirmation"
+              component={() => <WoundUpConfirmation />}
+            />
+            <Route
+              exact
+              path="/scheme-status-and-membership"
+              component={() => <SchemeStatusAndMembership />}
+            />
+          </Switch>
+        </AppWidth>
+      </DocWidth>
+
       <Footer
         logoUrl="https://www.thepensionsregulator.gov.uk/-/media/thepensionsregulator/images/logo/tpr-logo-footer.ashx"
         onLinkClickHandler={(url) => console.log(`navigate to ${url}`)}
