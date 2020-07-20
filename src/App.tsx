@@ -1,4 +1,5 @@
 import React from 'react';
+import { AppWidth, DocWidth } from '@tpr/core';
 import { Header, Footer, Highlight, BetaHeader } from '@tpr/layout';
 import { Route, Switch } from 'react-router-dom';
 import HomePage from './views/Home';
