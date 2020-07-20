@@ -36,13 +36,13 @@ function App() {
           component={() => <InitialQuestions />}
         />
         <Route
-          path="/initial-questions/scheme-wound-up/wound-up-confirmation"
-          component={() => <WoundUpConfirmation />}
-        />
-        <Route
           exact
           path="/initial-questions/scheme-wound-up"
           component={() => <SchemeWoundUp />}
+        />
+        <Route
+          path="/initial-questions/scheme-wound-up/wound-up-confirmation"
+          component={() => <WoundUpConfirmation />}
         />
         <Route
           exact
