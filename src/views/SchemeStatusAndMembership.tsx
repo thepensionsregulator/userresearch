@@ -1,5 +1,5 @@
 import React from 'react';
-import { H1, Hr, P, H2, Flex, H3, H4 } from '@tpr/core';
+import { H1, Hr, P, Flex, H4 } from '@tpr/core';
 import Styles from './Layout.module.scss';
 import { Sidebar, ArrowLink, ArrowButton } from '@tpr/layout';
 import {
@@ -8,7 +8,7 @@ import {
   FieldProps,
   FFInputDate,
   SeparatorY,
-  SeparatorX,
+  validate,
 } from '@tpr/forms';
 import { useLocation, useHistory, matchPath } from 'react-router-dom';
 
@@ -16,7 +16,7 @@ const SchemeStatusAndMembership = () => {
   const history = useHistory();
   const location = useLocation();
 
-  const RADIO_BUTTON_NAME = 'scheme-status';
+  const RADIO_BUTTON_NAME = 'schemeStatus';
 
   const SchemeStatusFields: FieldProps[] = [
     {
@@ -47,44 +47,76 @@ const SchemeStatusAndMembership = () => {
       label: 'Winding up',
       hint:
         'The trustees have started the process of ending the scheme so that no members, assets or liabilities are left.',
-      value: 'winding',
+      value: 'windingUp',
     },
   ];
 
   const SchemeMembershipFields: FieldProps[] = [
     {
-      name: 'Active Membership',
+      name: 'activeMembers',
       type: 'number',
       label: 'Active Membership',
       hint:
         'Active members have benefits under the scheme and are continuing to save into it.',
+      validate: (value: any, SchemeStatusFields: any) => {
+        if (SchemeStatusFields.schemeStatus === 'paid' && value !== 0) {
+          return 'If the scheme status is paid up the scheme must have no active members';
+        } else if (value < 0 || (!value && value !== 0)) {
+          return 'Active members must be 0 or above';
+        } else {
+          return undefined;
+        }
+      },
       inputWidth: 1,
       cfg: { mb: 3 },
       required: true,
     },
     {
-      name: 'Deferred Membership',
+      name: 'deferredMembers',
       type: 'number',
       label: 'Deferred Membership',
       hint:
         'Deferred members have stopped paying into the scheme but are not yet receiving a pension.',
+      validate: (value: any, SchemeMembershipFields: any) => {
+        if (value < 0 || (!value && value !== 0)) {
+          return 'Deferred members must be 0 or above';
+        } else {
+          return undefined;
+        }
+      },
       inputWidth: 1,
       cfg: { mb: 3 },
       required: true,
     },
     {
-      name: 'Pensioner Membership',
+      name: 'pensionerMembers',
       type: 'number',
       label: 'Pensioner Membership',
       hint: 'Pensioner members are receiving a pension from the scheme.',
+      validate: (value: any, SchemeMembershipFields: any) => {
+        if (value < 0 || (!value && value !== 0)) {
+          return 'Pensioner members must be 0 or above';
+        } else {
+          return undefined;
+        }
+      },
       inputWidth: 1,
       cfg: { mb: 3 },
       required: true,
     },
     {
-      name: 'Total Membership',
+      name: 'totalMembership',
       type: 'number',
       label: 'Total Membership',
+      validate: (value: any, SchemeMembershipFields: any) => {
+        const totalMembers =
+          SchemeMembershipFields.activeMembers +
+          SchemeMembershipFields.deferredMembers +
+          SchemeMembershipFields.pensionerMembers;
+        if (value !== totalMembers) {
+          return 'Total members must be equal to the total of active, deferred and pensioner members';
+        }
+      },
       inputWidth: 1,
       cfg: { mb: 3 },
       required: true,
@@ -180,7 +212,7 @@ const SchemeStatusAndMembership = () => {
           These are the scheme details currently held by the regulator. Correct
           any details as necessary.
         </P>
-        <Form onSubmit={onSubmit}>
+        <Form onSubmit={onSubmit} validate={validate(SchemeMembershipFields)}>
           {({ handleSubmit }) => (
             <form>
               <H4 cfg={{ mb: 2 }}>Scheme status</H4>
@@ -191,8 +223,14 @@ const SchemeStatusAndMembership = () => {
                 <FFInputDate
                   name="schemeStatusApplied"
                   label="Date scheme status applied"
-                  hint="For example, 31 2 2019"
-                  error="The date the membership became effective must be in the past"
+                  hint="For example, 31 2 2019 or 31 02 2019"
+                  validate={(value) => {
+                    const valueDate = new Date(value);
+                    const previousSchemeDate = new Date('2019-02-31');
+                    if (previousSchemeDate >= valueDate) {
+                      return 'The new scheme status date must be after the previous scheme status date';
+                    }
+                  }}
                   required
                 />
               </Flex>
@@ -204,17 +242,19 @@ const SchemeStatusAndMembership = () => {
                 <FFInputDate
                   name="membershipEffective"
                   label="Date membership became effective"
-                  hint="For example, 31 2 2019"
-                  error="The date the membership became effective must be in the past"
-                  required
+                  hint="For example, 31 2 2019 or 31 02 2019"
                   validate={(value) => {
                     const valueDate = new Date(value);
-                    const currentDate = new Date();
-
-                    if (valueDate > currentDate) {
-                      return 'The date the membership became effective must be in the past';
+                    const dateUpperBound = new Date('2019-03-31');
+                    const dateLowerBound = new Date('2018-04-01');
+                    if (
+                      dateLowerBound < valueDate &&
+                      valueDate > dateUpperBound
+                    ) {
+                      return 'The date when the membership numbers applied must be between 1 April 2018 and 31 March 2019';
                     }
                   }}
+                  required
                 />
               </Flex>
               <Hr cfg={{ mt: 4, mb: 8 }} />
