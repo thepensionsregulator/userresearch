@@ -1,5 +1,5 @@
 import React from 'react';
-import { DocWidth, H1, Hr, P, H2, AppWidth } from '@tpr/core';
+import { DocWidth, H1, Hr, P, H2, AppWidth, Flex } from '@tpr/core';
 import Styles from './Layout.module.scss';
 import { Sidebar, ArrowLink } from '@tpr/layout';
 import { Form, renderFields, FieldProps, FFInputDate } from '@tpr/forms';
@@ -165,7 +165,7 @@ const SchemeStatusAndMembership = () => {
             <form>
               <H2>Scheme status</H2>
               <div>{renderFields(SchemeStatusFields)}</div>
-              <div>
+              <Flex cfg={{ bg: 'neutral.1' }}>
                 <FFInputDate
                   name="schemeStatusApplied"
                   label="Date scheme status applied"
@@ -173,28 +173,31 @@ const SchemeStatusAndMembership = () => {
                   error="The date the membership became effective must be in the past"
                   required
                 />
-              </div>
+              </Flex>
               <H2>Scheme membership</H2>
               <P>Tell us the number of:</P>
               <div>{renderFields(SchemeMembershipFields)}</div>
-              <FFInputDate
-                name="membershipEffective"
-                label="Date membership became effective"
-                hint="For example, 31 2 2019"
-                error="The date the membership became effective must be in the past"
-                required
-                validate={(value) => {
-                  const valueDate = new Date(value);
-                  const currentDate = new Date();
+              <Flex cfg={{ bg: 'neutral.1' }}>
+                <FFInputDate
+                  name="membershipEffective"
+                  label="Date membership became effective"
+                  hint="For example, 31 2 2019"
+                  error="The date the membership became effective must be in the past"
+                  required
+                  validate={(value) => {
+                    const valueDate = new Date(value);
+                    const currentDate = new Date();
 
-                  if (valueDate > currentDate) {
-                    return 'The date the membership became effective must be in the past';
-                  }
-                }}
-              />
+                    if (valueDate > currentDate) {
+                      return 'The date the membership became effective must be in the past';
+                    }
+                  }}
+                />
+              </Flex>
             </form>
           )}
         </Form>
+        <Hr />
       </div>
     </div>
   );
