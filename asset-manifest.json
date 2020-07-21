@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/userresearch/static/css/main.798515ec.chunk.css",
-    "main.js": "/userresearch/static/js/main.3721773b.chunk.js",
-    "main.js.map": "/userresearch/static/js/main.3721773b.chunk.js.map",
+    "main.css": "/userresearch/static/css/main.fa85441a.chunk.css",
+    "main.js": "/userresearch/static/js/main.904fabba.chunk.js",
+    "main.js.map": "/userresearch/static/js/main.904fabba.chunk.js.map",
     "runtime-main.js": "/userresearch/static/js/runtime-main.e75d416b.js",
     "runtime-main.js.map": "/userresearch/static/js/runtime-main.e75d416b.js.map",
-    "static/css/2.47ec42c9.chunk.css": "/userresearch/static/css/2.47ec42c9.chunk.css",
-    "static/js/2.0e5fa513.chunk.js": "/userresearch/static/js/2.0e5fa513.chunk.js",
-    "static/js/2.0e5fa513.chunk.js.map": "/userresearch/static/js/2.0e5fa513.chunk.js.map",
+    "static/css/2.a868f12e.chunk.css": "/userresearch/static/css/2.a868f12e.chunk.css",
+    "static/js/2.1b21feed.chunk.js": "/userresearch/static/js/2.1b21feed.chunk.js",
+    "static/js/2.1b21feed.chunk.js.map": "/userresearch/static/js/2.1b21feed.chunk.js.map",
     "index.html": "/userresearch/index.html",
-    "precache-manifest.677378ba4bb1dd69f09beb5d0fd74f8c.js": "/userresearch/precache-manifest.677378ba4bb1dd69f09beb5d0fd74f8c.js",
+    "precache-manifest.08cf1082aabb6f46b79b09e665bcc193.js": "/userresearch/precache-manifest.08cf1082aabb6f46b79b09e665bcc193.js",
     "service-worker.js": "/userresearch/service-worker.js",
-    "static/css/2.47ec42c9.chunk.css.map": "/userresearch/static/css/2.47ec42c9.chunk.css.map",
-    "static/css/main.798515ec.chunk.css.map": "/userresearch/static/css/main.798515ec.chunk.css.map",
-    "static/js/2.0e5fa513.chunk.js.LICENSE.txt": "/userresearch/static/js/2.0e5fa513.chunk.js.LICENSE.txt",
+    "static/css/2.a868f12e.chunk.css.map": "/userresearch/static/css/2.a868f12e.chunk.css.map",
+    "static/css/main.fa85441a.chunk.css.map": "/userresearch/static/css/main.fa85441a.chunk.css.map",
+    "static/js/2.1b21feed.chunk.js.LICENSE.txt": "/userresearch/static/js/2.1b21feed.chunk.js.LICENSE.txt",
     "static/media/fonts.css": "/userresearch/static/media/open-sans-semi-bold.a01def30.woff2"
   },
   "entrypoints": [
     "static/js/runtime-main.e75d416b.js",
-    "static/css/2.47ec42c9.chunk.css",
-    "static/js/2.0e5fa513.chunk.js",
-    "static/css/main.798515ec.chunk.css",
-    "static/js/main.3721773b.chunk.js"
+    "static/css/2.a868f12e.chunk.css",
+    "static/js/2.1b21feed.chunk.js",
+    "static/css/main.fa85441a.chunk.css",
+    "static/js/main.904fabba.chunk.js"
   ]
 }
