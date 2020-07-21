@@ -1,7 +1,7 @@
 import React from 'react';
 import { DocWidth, H1, Hr, P, H2, AppWidth, Flex } from '@tpr/core';
 import Styles from './Layout.module.scss';
-import { Sidebar, ArrowLink } from '@tpr/layout';
+import { Sidebar, ArrowLink, ArrowButton } from '@tpr/layout';
 import { Form, renderFields, FieldProps, FFInputDate } from '@tpr/forms';
 import { useLocation, useHistory, matchPath } from 'react-router-dom';
 
@@ -194,10 +194,25 @@ const SchemeStatusAndMembership = () => {
                   }}
                 />
               </Flex>
+              <Hr />
+              <ArrowButton
+                type="submit"
+                iconSide="right"
+                pointsTo="right"
+                title="Save and Continue"
+              />
             </form>
           )}
         </Form>
-        <Hr />
+        <div className={Styles.backToTop}>
+          <ArrowLink
+            iconSide="left"
+            pointsTo="up"
+            onClick={() => console.log('clicked')}
+            cfg={{ mr: 3 }}
+            title="Back to top"
+          />
+        </div>
       </div>
     </div>
   );
