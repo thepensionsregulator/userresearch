@@ -1,16 +1,15 @@
 .root {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
 }
+
 .main {
   padding: 1.25rem;
-  width: 75rem;
-  display: flex;
-  align-self: center;
-  margin: 0.2rem;
+  max-width: 80%;
+}
+
+.flexColumn {
   flex-direction: column;
-  justify-content: space-between;
+  width: 100%;
 }
 
 .list {
@@ -18,7 +17,8 @@
 }
 
 .backToTop {
-  align-self: flex-end;
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .warningBox {

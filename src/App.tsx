@@ -1,4 +1,5 @@
 import React from 'react';
+import { AppWidth, DocWidth } from '@tpr/core';
 import { Header, Footer, Highlight, BetaHeader } from '@tpr/layout';
 import { Route, Switch } from 'react-router-dom';
 import HomePage from './views/Home';
@@ -7,6 +8,7 @@ import About from './views/About';
 import InitialQuestions from './views/InitialQuestions';
 import WoundUpConfirmation from './views/WoundUpConfirmation';
 import SchemeWoundUp from './views/SchemeWoundUp';
+import SchemeStatusAndMembership from './views/SchemeStatusAndMembership';
 
 function App() {
   return (
@@ -25,25 +27,36 @@ function App() {
         }}
       />
       <Highlight name={'Scheme Name: The Best Pension Scheme'} psr={'012161'} />
-      <Switch>
-        <Route exact path="/" component={() => <HomePage />} />
-        <Route path="/typography" component={() => <Typography />} />
-        <Route path="/about" component={() => <About />} />
-        <Route
-          exact
-          path="/initial-questions"
-          component={() => <InitialQuestions />}
-        />
-        <Route
-          path="/initial-questions/scheme-wound-up/wound-up-confirmation"
-          component={() => <WoundUpConfirmation />}
-        />
-        <Route
-          exact
-          path="/initial-questions/scheme-wound-up"
-          component={() => <SchemeWoundUp />}
-        />
-      </Switch>
+
+      <DocWidth>
+        <AppWidth>
+          <Switch>
+            <Route exact path="/" component={() => <HomePage />} />
+            <Route path="/typography" component={() => <Typography />} />
+            <Route path="/about" component={() => <About />} />
+            <Route
+              exact
+              path="/initial-questions"
+              component={() => <InitialQuestions />}
+            />
+            <Route
+              exact
+              path="/initial-questions/scheme-wound-up"
+              component={() => <SchemeWoundUp />}
+            />
+            <Route
+              path="/initial-questions/scheme-wound-up/wound-up-confirmation"
+              component={() => <WoundUpConfirmation />}
+            />
+            <Route
+              exact
+              path="/scheme-status-and-membership"
+              component={() => <SchemeStatusAndMembership />}
+            />
+          </Switch>
+        </AppWidth>
+      </DocWidth>
+
       <Footer
         logoUrl="https://www.thepensionsregulator.gov.uk/-/media/thepensionsregulator/images/logo/tpr-logo-footer.ashx"
         onLinkClickHandler={(url) => console.log(`navigate to ${url}`)}

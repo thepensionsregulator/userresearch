@@ -13,7 +13,7 @@ import ButtonAppearanceOutlinedExample from '../components/ButtonAppearanceOutli
 import ButtonSizeAndAppearanceExample from '../components/ButtonSizeAndAppearanceExample';
 
 const Typography = () => (
-  <div className={Styles.root}>
+  <div>
     <div className={Styles.componentList}>
       <H1>Component List</H1>
       <div>
