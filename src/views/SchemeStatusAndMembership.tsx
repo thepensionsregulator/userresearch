@@ -1,8 +1,15 @@
 import React from 'react';
-import { H1, Hr, P, H2, Flex } from '@tpr/core';
+import { H1, Hr, P, H2, Flex, H3, H4 } from '@tpr/core';
 import Styles from './Layout.module.scss';
 import { Sidebar, ArrowLink, ArrowButton } from '@tpr/layout';
-import { Form, renderFields, FieldProps, FFInputDate } from '@tpr/forms';
+import {
+  Form,
+  renderFields,
+  FieldProps,
+  FFInputDate,
+  SeparatorY,
+  SeparatorX,
+} from '@tpr/forms';
 import { useLocation, useHistory, matchPath } from 'react-router-dom';
 
 const SchemeStatusAndMembership = () => {
@@ -15,20 +22,24 @@ const SchemeStatusAndMembership = () => {
     {
       name: RADIO_BUTTON_NAME,
       type: 'radio',
-      label: 'Open to new members',
-      value: 'open',
+      label: 'Paid up (frozen)',
+      hint:
+        "No more contributions are due to be paid into the scheme. Existing members' benefits are still held in the scheme.",
+      value: 'paid',
     },
     {
       name: RADIO_BUTTON_NAME,
       type: 'radio',
       label: 'Closed to new members',
       value: 'closed',
+      cfg: { mt: 1, mb: 3 },
     },
     {
       name: RADIO_BUTTON_NAME,
       type: 'radio',
-      label: 'Paid up (frozen)',
-      value: 'paid',
+      label: 'Open to new members',
+      value: 'open',
+      cfg: { mt: 1, mb: 3 },
     },
     {
       name: RADIO_BUTTON_NAME,
@@ -42,32 +53,40 @@ const SchemeStatusAndMembership = () => {
 
   const SchemeMembershipFields: FieldProps[] = [
     {
-      name: 'Active Members',
+      name: 'Active Membership',
       type: 'number',
-      label: 'Active members',
+      label: 'Active Membership',
       hint:
         'Active members have benefits under the scheme and are continuing to save into it.',
+      inputWidth: 1,
+      cfg: { mb: 3 },
       required: true,
     },
     {
-      name: 'Deferred Members',
+      name: 'Deferred Membership',
       type: 'number',
-      label: 'Deferred members',
+      label: 'Deferred Membership',
       hint:
         'Deferred members have stopped paying into the scheme but are not yet receiving a pension.',
+      inputWidth: 1,
+      cfg: { mb: 3 },
       required: true,
     },
     {
-      name: 'Pensioner Members',
+      name: 'Pensioner Membership',
       type: 'number',
-      label: 'Pensioner members',
+      label: 'Pensioner Membership',
       hint: 'Pensioner members are receiving a pension from the scheme.',
+      inputWidth: 1,
+      cfg: { mb: 3 },
       required: true,
     },
     {
-      name: 'Total Members',
+      name: 'Total Membership',
       type: 'number',
-      label: 'Total members',
+      label: 'Total Membership',
+      inputWidth: 1,
+      cfg: { mb: 3 },
       required: true,
     },
   ];
@@ -153,19 +172,22 @@ const SchemeStatusAndMembership = () => {
             window.location.href =
               'https://exchange.thepensionsregulator.gov.uk/Members/SchemeListing.aspx';
           }}
+          cfg={{ mt: 3 }}
         />
-        <H1>Scheme status and membership</H1>
-        <Hr />
-        <P>
+        <H1 cfg={{ mb: 2 }}>Scheme status and membership</H1>
+        <Hr cfg={{ mt: 6, mb: 8 }} />
+        <P cfg={{ mb: 4 }}>
           These are the scheme details currently held by the regulator. Correct
           any details as necessary.
         </P>
         <Form onSubmit={onSubmit}>
           {({ handleSubmit }) => (
             <form>
-              <H2>Scheme status</H2>
-              <div>{renderFields(SchemeStatusFields)}</div>
-              <Flex cfg={{ bg: 'neutral.1' }}>
+              <H4 cfg={{ mb: 2 }}>Scheme status</H4>
+              <SeparatorY>
+                <div>{renderFields(SchemeStatusFields)}</div>
+              </SeparatorY>
+              <Flex cfg={{ bg: 'neutral.1', p: 6 }}>
                 <FFInputDate
                   name="schemeStatusApplied"
                   label="Date scheme status applied"
@@ -174,10 +196,11 @@ const SchemeStatusAndMembership = () => {
                   required
                 />
               </Flex>
-              <H2>Scheme membership</H2>
-              <P>Tell us the number of:</P>
+
+              <H4 cfg={{ mb: 2 }}>Scheme Membership</H4>
+              <P cfg={{ mb: 2 }}>Tell us the number of:</P>
               <div>{renderFields(SchemeMembershipFields)}</div>
-              <Flex cfg={{ bg: 'neutral.1' }}>
+              <Flex cfg={{ bg: 'neutral.1', p: 6 }}>
                 <FFInputDate
                   name="membershipEffective"
                   label="Date membership became effective"
@@ -194,7 +217,7 @@ const SchemeStatusAndMembership = () => {
                   }}
                 />
               </Flex>
-              <Hr />
+              <Hr cfg={{ mt: 4, mb: 8 }} />
               <ArrowButton
                 type="submit"
                 iconSide="right"
