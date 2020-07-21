@@ -1,5 +1,5 @@
 import React from 'react';
-import { DocWidth, H1, Hr, P, H2, AppWidth, Flex } from '@tpr/core';
+import { H1, Hr, P, H2, Flex } from '@tpr/core';
 import Styles from './Layout.module.scss';
 import { Sidebar, ArrowLink, ArrowButton } from '@tpr/layout';
 import { Form, renderFields, FieldProps, FFInputDate } from '@tpr/forms';

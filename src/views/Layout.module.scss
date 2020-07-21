@@ -17,7 +17,8 @@
 }
 
 .backToTop {
-  align-self: flex-end;
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .warningBox {
