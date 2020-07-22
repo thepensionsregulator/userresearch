@@ -19,7 +19,7 @@ const UserResearchSidebar = () => {
             {
               name: 'Scheme name and address',
               completed: true,
-              path: '/scheme-name',
+              path: '/scheme-name-and-address',
             },
             {
               name: 'Scheme status and membership',
