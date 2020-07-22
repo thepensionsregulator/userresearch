@@ -10,8 +10,7 @@ import {
   SeparatorY,
   validate,
 } from '@tpr/forms';
-import UserresearchSidebar from '../components/UserresearchSidebar';
-
+import UserResearchSidebar from '../components/UserResearchSidebar';
 const SchemeStatusAndMembership = () => {
   const RADIO_BUTTON_NAME = 'schemeStatus';
 
@@ -126,8 +125,7 @@ const SchemeStatusAndMembership = () => {
 
   return (
     <div className={Styles.root}>
-      <UserresearchSidebar />
-
+      <UserResearchSidebar />
       <div className={Styles.main}>
         <ArrowLink
           iconSide="left"

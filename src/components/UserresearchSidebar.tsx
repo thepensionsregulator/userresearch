@@ -2,7 +2,7 @@ import React from 'react';
 import { Sidebar } from '@tpr/layout';
 import { useLocation, useHistory, matchPath } from 'react-router-dom';
 
-const UserresearchSidebar = () => {
+const UserResearchSidebar = () => {
   const history = useHistory();
   const location = useLocation();
   return (
@@ -75,4 +75,4 @@ const UserresearchSidebar = () => {
   );
 };
 
-export default UserresearchSidebar;
+export default UserResearchSidebar;
