@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Styles from './Layout.module.scss';
 import { H1, Hr, P, H4, Flex, Link as TPRLink, Button } from '@tpr/core';
-
 import UserResearchSidebar from '../components/UserResearchSidebar';
 import { Link } from 'react-router-dom';
 import { ArrowLink, ArrowButton } from '@tpr/layout';
-import { Form, FieldProps, renderFields, FFSelect } from '@tpr/forms';
+import { Form, FieldProps, renderFields, FFInputText } from '@tpr/forms';
 
 const SchemeNameAndAddress = () => {
+  const [findAddress, setFindAddress] = useState(false);
+
   const fields: FieldProps[][] = [
     [{ type: 'text', name: 'schemeName', inputWidth: 5 }],
     [
@@ -62,20 +63,26 @@ const SchemeNameAndAddress = () => {
                   scheme trustee
                 </P>
                 <Flex cfg={{ mb: 4, p: 3, bg: 'neutral.1' }}>
-                  <P cfg={{ mr: 2 }}>
-                    The Pensions Regulator, Napier House, Trafalgar Place,
-                    BRIGHTON, BN1 4DW
-                  </P>
-                  <TPRLink
-                    onClick={() => (
-                      <div>
-                        <FFSelect name="postCode" />
-                        <Button type="button">Find Address</Button>
-                      </div>
-                    )}
-                  >
-                    Change
-                  </TPRLink>
+                  {findAddress ? (
+                    <div>
+                      <FFInputText name="postCode" />
+                      <Button type="button">Find Address</Button>
+                    </div>
+                  ) : (
+                    <div>
+                      <P cfg={{ mr: 2 }}>
+                        The Pensions Regulator, Napier House, Trafalgar Place,
+                        BRIGHTON, BN1 4DW
+                      </P>
+                      <TPRLink
+                        onClick={() => {
+                          setFindAddress(true);
+                        }}
+                      >
+                        Change
+                      </TPRLink>
+                    </div>
+                  )}
                 </Flex>
                 <H4 cfg={{ mb: 1 }}>Select Address</H4>
                 {renderFields(fields[1])}
