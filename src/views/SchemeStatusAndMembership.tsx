@@ -11,6 +11,7 @@ import {
   validate,
 } from '@tpr/forms';
 import UserResearchSidebar from '../components/UserResearchSidebar';
+import { Link } from 'react-router-dom';
 const SchemeStatusAndMembership = () => {
   const RADIO_BUTTON_NAME = 'schemeStatus';
 
@@ -127,15 +128,14 @@ const SchemeStatusAndMembership = () => {
     <div className={Styles.root}>
       <UserResearchSidebar />
       <div className={Styles.main}>
-        <ArrowLink
-          iconSide="left"
-          pointsTo="left"
-          onClick={() => {
-            window.location.href =
-              'https://exchange.thepensionsregulator.gov.uk/Members/SchemeListing.aspx';
-          }}
-          cfg={{ mt: 3 }}
-        />
+        <Link to="/scheme-name-and-address">
+          <ArrowLink
+            onClick={() => {}}
+            iconSide="left"
+            pointsTo="left"
+            cfg={{ mt: 3 }}
+          />
+        </Link>
         <H1 cfg={{ mb: 2 }}>Scheme status and membership</H1>
         <Hr cfg={{ mt: 6, mb: 8 }} />
         <P cfg={{ mb: 4 }}>
