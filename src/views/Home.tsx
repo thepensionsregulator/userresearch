@@ -1,6 +1,6 @@
 import React from 'react';
 import { H1, Hr, H2, P } from '@tpr/core';
-import { Info, ArrowLink } from '@tpr/layout';
+import { Info } from '@tpr/layout';
 import Styles from './Layout.module.scss';
 import ScrollToTop from '../components/ScrollToTop';
 
