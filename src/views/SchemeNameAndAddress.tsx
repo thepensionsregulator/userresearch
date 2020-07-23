@@ -4,7 +4,7 @@ import { H1, Hr, P, H4, Flex, Link as TPRLink, Button } from '@tpr/core';
 import UserResearchSidebar from '../components/UserResearchSidebar';
 import { Link } from 'react-router-dom';
 import { ArrowLink, ArrowButton } from '@tpr/layout';
-import { Form, FieldProps, renderFields, FFInputText } from '@tpr/forms';
+import { Form, FieldProps, renderFields } from '@tpr/forms';
 
 const SchemeNameAndAddress = () => {
   const [findAddress, setFindAddress] = useState(false);
@@ -18,6 +18,16 @@ const SchemeNameAndAddress = () => {
         placeholder: 'Please select your address from the dropdown menu...',
         options: [{ label: 'Your search criteria has no match', value: 0 }],
         inputWidth: 6,
+      },
+    ],
+    [
+      {
+        type: 'text',
+        name: 'postCode',
+        label: 'Postcode',
+        error: 'Please enter a postcode',
+        inputWidth: 8,
+        cfg: { mb: 3 },
       },
     ],
   ];
@@ -62,14 +72,25 @@ const SchemeNameAndAddress = () => {
                   We'll use this address when we need to get in touch with the
                   scheme trustee
                 </P>
-                <Flex cfg={{ mb: 4, p: 3, bg: 'neutral.1' }}>
+                <Flex
+                  cfg={{
+                    mb: 4,
+                    p: 3,
+                    bg: 'neutral.1',
+                    flexDirection: 'row',
+                  }}
+                >
                   {findAddress ? (
-                    <div>
-                      <FFInputText name="postCode" />
-                      <Button type="button">Find Address</Button>
-                    </div>
+                    <Flex
+                      cfg={{
+                        flexDirection: 'column',
+                      }}
+                    >
+                      {renderFields(fields[2])}
+                      <Button type="button">Find address</Button>
+                    </Flex>
                   ) : (
-                    <div>
+                    <Flex>
                       <P cfg={{ mr: 2 }}>
                         The Pensions Regulator, Napier House, Trafalgar Place,
                         BRIGHTON, BN1 4DW
@@ -81,7 +102,7 @@ const SchemeNameAndAddress = () => {
                       >
                         Change
                       </TPRLink>
-                    </div>
+                    </Flex>
                   )}
                 </Flex>
                 <H4 cfg={{ mb: 1 }}>Select Address</H4>
