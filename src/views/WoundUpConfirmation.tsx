@@ -2,6 +2,7 @@ import React from 'react';
 import Styles from './Layout.module.scss';
 import { H1, P, Hr } from '@tpr/core';
 import { Info, ArrowButton, ArrowLink } from '@tpr/layout';
+import ScrollToTop from '../components/ScrollToTop';
 
 const WoundUpConfirmation = () => {
   return (
@@ -37,15 +38,7 @@ const WoundUpConfirmation = () => {
         ></ArrowButton>
       </div>
       <Hr cfg={{ my: 4 }} />
-      <div className={Styles.backToTop}>
-        <ArrowLink
-          iconSide="left"
-          pointsTo="up"
-          onClick={() => console.log('clicked')}
-          cfg={{ mr: 3 }}
-          title="Back to top"
-        />
-      </div>
+      <ScrollToTop />
     </div>
   );
 };

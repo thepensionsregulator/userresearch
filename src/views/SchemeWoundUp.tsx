@@ -4,6 +4,7 @@ import { H1, Hr, P, Link } from '@tpr/core';
 import { Form, FieldProps, renderFields, validate } from '@tpr/forms';
 import Styles from './Layout.module.scss';
 import { useHistory } from 'react-router-dom';
+import ScrollToTop from '../components/ScrollToTop';
 
 const SchemeWoundUp = () => {
   const history = useHistory();
@@ -70,15 +71,7 @@ const SchemeWoundUp = () => {
           </form>
         )}
       </Form>
-      <div className={Styles.backToTop}>
-        <ArrowLink
-          iconSide="left"
-          pointsTo="up"
-          onClick={() => console.log('clicked')}
-          cfg={{ mr: 3 }}
-          title="Back to top"
-        />
-      </div>
+      <ScrollToTop />
     </div>
   );
 };

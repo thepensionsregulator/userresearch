@@ -12,6 +12,7 @@ import {
 } from '@tpr/forms';
 import UserResearchSidebar from '../components/UserResearchSidebar';
 import { Link } from 'react-router-dom';
+import ScrollToTop from '../components/ScrollToTop';
 const SchemeStatusAndMembership = () => {
   const RADIO_BUTTON_NAME = 'schemeStatus';
 
@@ -197,15 +198,7 @@ const SchemeStatusAndMembership = () => {
             </form>
           )}
         </Form>
-        <div className={Styles.backToTop}>
-          <ArrowLink
-            iconSide="left"
-            pointsTo="up"
-            onClick={() => console.log('clicked')}
-            cfg={{ mr: 3 }}
-            title="Back to top"
-          />
-        </div>
+        <ScrollToTop />
       </div>
     </div>
   );

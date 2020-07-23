@@ -5,6 +5,7 @@ import UserResearchSidebar from '../components/UserResearchSidebar';
 import { Link } from 'react-router-dom';
 import { ArrowLink, ArrowButton } from '@tpr/layout';
 import { Form, FieldProps, renderFields } from '@tpr/forms';
+import ScrollToTop from '../components/ScrollToTop';
 
 const SchemeNameAndAddress = () => {
   const [findAddress, setFindAddress] = useState(false);
@@ -118,15 +119,7 @@ const SchemeNameAndAddress = () => {
             </form>
           )}
         </Form>
-        <div className={Styles.backToTop}>
-          <ArrowLink
-            iconSide="left"
-            pointsTo="up"
-            onClick={() => console.log('clicked')}
-            cfg={{ mr: 3 }}
-            title="Back to top"
-          />
-        </div>
+        <ScrollToTop />
       </div>
     </div>
   );

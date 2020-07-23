@@ -11,6 +11,7 @@ import ButtonSizeExample from '../components/ButtonSizeExample';
 import ButtonAppearanceExample from '../components/ButtonAppearanceExample';
 import ButtonAppearanceOutlinedExample from '../components/ButtonAppearanceOutlinedExample';
 import ButtonSizeAndAppearanceExample from '../components/ButtonSizeAndAppearanceExample';
+import ScrollToTop from '../components/ScrollToTop';
 
 const Typography = () => (
   <div>
@@ -152,6 +153,7 @@ const Typography = () => (
         </div>
       </div>
     </div>
+    <ScrollToTop />
   </div>
 );
 
