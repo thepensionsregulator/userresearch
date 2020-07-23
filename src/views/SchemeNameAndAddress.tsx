@@ -10,7 +10,7 @@ import ScrollToTop from '../components/ScrollToTop';
 const SchemeNameAndAddress = () => {
   const [findAddress, setFindAddress] = useState(false);
 
-  const fields: FieldProps[][] = [
+  const formFields: FieldProps[][] = [
     [{ type: 'text', name: 'schemeName', inputWidth: 5 }],
     [
       {
@@ -33,7 +33,17 @@ const SchemeNameAndAddress = () => {
     ],
   ];
 
+  const [fields, setFields] = useState(formFields);
+
   const onSubmit = () => console.log('Form submit');
+
+  const AddressLookup = () => {
+    fields[1][0].options![0].label =
+      'The Pensions Regulator, Napier House, Trafalgar Place, BRIGHTON, BN1 4DW';
+    setFields({ ...fields });
+    setFindAddress(false);
+  };
+
   return (
     <div className={Styles.root}>
       <UserResearchSidebar />
@@ -48,7 +58,7 @@ const SchemeNameAndAddress = () => {
         </Link>
         <H1 cfg={{ mt: 6, mb: 2 }}>Scheme name and address</H1>
         <Hr cfg={{ mt: 6, mb: 8 }} />
-        <Form onSubmit={onSubmit}>
+        <Form onSubmit={onSubmit} initialValues={{ postCode: 'BN1 4DW' }}>
           {({ handleSubmit }) => (
             <form>
               <Flex cfg={{ flexDirection: 'column', mb: 3 }}>
@@ -88,7 +98,9 @@ const SchemeNameAndAddress = () => {
                       }}
                     >
                       {renderFields(fields[2])}
-                      <Button type="button">Find address</Button>
+                      <Button type="button" onClick={() => AddressLookup()}>
+                        Find address
+                      </Button>
                     </Flex>
                   ) : (
                     <Flex>
