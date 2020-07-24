@@ -9,6 +9,7 @@ import InitialQuestions from './views/InitialQuestions';
 import WoundUpConfirmation from './views/WoundUpConfirmation';
 import SchemeWoundUp from './views/SchemeWoundUp';
 import SchemeStatusAndMembership from './views/SchemeStatusAndMembership';
+import ElectronicComsConsent from './views/ElectronicComsConsent';
 
 function App() {
   return (
@@ -52,6 +53,11 @@ function App() {
               exact
               path="/scheme-status-and-membership"
               component={() => <SchemeStatusAndMembership />}
+            />
+            <Route
+              exact
+              path="/consent-to-electronic-communication"
+              component={() => <ElectronicComsConsent />}
             />
           </Switch>
         </AppWidth>
