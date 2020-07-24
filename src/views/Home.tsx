@@ -1,7 +1,8 @@
 import React from 'react';
 import { H1, Hr, H2, P } from '@tpr/core';
-import { Info, ArrowLink } from '@tpr/layout';
+import { Info } from '@tpr/layout';
 import Styles from './Layout.module.scss';
+import ScrollToTop from '../components/ScrollToTop';
 
 const HomePage = () => (
   <div>
@@ -29,15 +30,7 @@ const HomePage = () => (
       </li>
     </ul>
     <Hr cfg={{ my: 5 }} />
-    <div className={Styles.backToTop}>
-      <ArrowLink
-        iconSide="left"
-        pointsTo="up"
-        onClick={() => console.log('clicked')}
-        cfg={{ mr: 3 }}
-        title="Back to top"
-      />
-    </div>
+    <ScrollToTop />
   </div>
 );
 

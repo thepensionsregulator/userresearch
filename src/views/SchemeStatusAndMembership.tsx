@@ -1,7 +1,7 @@
 import React from 'react';
 import { H1, Hr, P, Flex, H4 } from '@tpr/core';
 import Styles from './Layout.module.scss';
-import { Sidebar, ArrowLink, ArrowButton } from '@tpr/layout';
+import { ArrowLink, ArrowButton } from '@tpr/layout';
 import {
   Form,
   renderFields,
@@ -10,12 +10,10 @@ import {
   SeparatorY,
   validate,
 } from '@tpr/forms';
-import { useLocation, useHistory, matchPath } from 'react-router-dom';
-
+import UserResearchSidebar from '../components/UserResearchSidebar';
+import { Link } from 'react-router-dom';
+import ScrollToTop from '../components/ScrollToTop';
 const SchemeStatusAndMembership = () => {
-  const history = useHistory();
-  const location = useLocation();
-
   const RADIO_BUTTON_NAME = 'schemeStatus';
 
   const SchemeStatusFields: FieldProps[] = [
@@ -129,83 +127,16 @@ const SchemeStatusAndMembership = () => {
 
   return (
     <div className={Styles.root}>
-      <Sidebar
-        history={history}
-        location={location}
-        title={'Scheme return home'}
-        matchPath={matchPath}
-        sections={[
-          {
-            title: 'Scheme details',
-            order: 1,
-            links: [
-              {
-                name: 'Scheme name and address',
-                completed: true,
-                path: '/scheme-name',
-              },
-              {
-                name: 'Scheme status and membership',
-                completed: false,
-                path: '/scheme-status-and-membership',
-              },
-              {
-                name: 'Consent to electronic communication',
-                completed: false,
-                path: '/electronic-communication',
-              },
-            ],
-          },
-          {
-            title: 'Role',
-            order: 2,
-            links: [
-              {
-                name: 'Trustee details',
-                completed: false,
-                path: '/trustee-details',
-              },
-              {
-                name: 'Employer details',
-                completed: false,
-                path: '/employer-details',
-              },
-              {
-                name: 'Service provider details',
-                completed: false,
-                path: '/service-provider-details',
-              },
-              {
-                name: 'Named contact details',
-                completed: false,
-                path: '/named-contract-details',
-              },
-            ],
-          },
-          {
-            title: 'Finish Up',
-            order: 3,
-            links: [
-              {
-                name: 'Review and submit',
-                completed: false,
-                path: '/review-and-submit',
-              },
-            ],
-          },
-        ]}
-      />
-
+      <UserResearchSidebar />
       <div className={Styles.main}>
-        <ArrowLink
-          iconSide="left"
-          pointsTo="left"
-          onClick={() => {
-            window.location.href =
-              'https://exchange.thepensionsregulator.gov.uk/Members/SchemeListing.aspx';
-          }}
-          cfg={{ mt: 3 }}
-        />
+        <Link to="/scheme-name-and-address">
+          <ArrowLink
+            onClick={() => {}}
+            iconSide="left"
+            pointsTo="left"
+            cfg={{ mt: 3 }}
+          />
+        </Link>
         <H1 cfg={{ mb: 2 }}>Scheme status and membership</H1>
         <Hr cfg={{ mt: 6, mb: 8 }} />
         <P cfg={{ mb: 4 }}>
@@ -267,15 +198,7 @@ const SchemeStatusAndMembership = () => {
             </form>
           )}
         </Form>
-        <div className={Styles.backToTop}>
-          <ArrowLink
-            iconSide="left"
-            pointsTo="up"
-            onClick={() => console.log('clicked')}
-            cfg={{ mr: 3 }}
-            title="Back to top"
-          />
-        </div>
+        <ScrollToTop />
       </div>
     </div>
   );

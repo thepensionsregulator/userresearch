@@ -1,5 +1,6 @@
 import React from 'react';
 import { H1, Link } from '@tpr/core';
+import ScrollToTop from '../components/ScrollToTop';
 
 const About = () => (
   <div>
@@ -9,6 +10,7 @@ const About = () => (
         TPR React Components
       </a>
     </Link>
+    <ScrollToTop />
   </div>
 );
 
