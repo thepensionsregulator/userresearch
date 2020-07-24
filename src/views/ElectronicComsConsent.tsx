@@ -3,9 +3,15 @@ import Styles from './Layout.module.scss';
 import { H1, Hr, Flex, P } from '@tpr/core';
 import { Form, FieldProps, renderFields, SeparatorX } from '@tpr/forms';
 import { ArrowButton } from '@tpr/layout';
+import { useHistory } from 'react-router-dom';
 
 const ElectronicComsConsent = () => {
-  const onSubmit = () => console.log('form submit');
+  const history = useHistory();
+
+  const submit = () => {
+    history.push('/');
+  };
+
   const FIELD_NAME = 'electronicConsent';
   const fields: FieldProps[] = [
     { name: FIELD_NAME, type: 'radio', value: 'yes', label: 'Yes' },
@@ -31,9 +37,9 @@ const ElectronicComsConsent = () => {
           </P>
         </Flex>
 
-        <Form onSubmit={onSubmit} initialValues={{ [FIELD_NAME]: 'no' }}>
+        <Form onSubmit={submit} initialValues={{ [FIELD_NAME]: 'no' }}>
           {({ handleSubmit }) => (
-            <form>
+            <form onSubmit={handleSubmit}>
               <Flex cfg={{ mt: 2, mb: 6, flexDirection: 'column' }}>
                 <SeparatorX>{renderFields(fields)}</SeparatorX>
               </Flex>
