@@ -29,7 +29,7 @@ const UserResearchSidebar = () => {
             {
               name: 'Consent to electronic communication',
               completed: false,
-              path: '/electronic-communication',
+              path: '/consent-to-electronic-communication',
             },
           ],
         },

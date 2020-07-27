@@ -9,6 +9,7 @@ import InitialQuestions from './views/InitialQuestions';
 import WoundUpConfirmation from './views/WoundUpConfirmation';
 import SchemeWoundUp from './views/SchemeWoundUp';
 import SchemeStatusAndMembership from './views/SchemeStatusAndMembership';
+import ElectronicComsConsent from './views/ElectronicComsConsent';
 import SchemeNameAndAddress from './views/SchemeNameAndAddress';
 import Trustees from './views/Trustees';
 
@@ -57,6 +58,10 @@ function App() {
             />
             <Route
               exact
+              path="/consent-to-electronic-communication"
+              component={() => <ElectronicComsConsent />}
+            />
+            <Route
               path="/scheme-name-and-address"
               component={() => <SchemeNameAndAddress />}
             />
