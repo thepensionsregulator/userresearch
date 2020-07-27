@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Styles from './Layout.module.scss';
 import { H1, Hr, P, Flex, H2, Button } from '@tpr/core';
 import UserResearchSidebar from '../components/UserResearchSidebar';
-import AddTrustee from '../components/AddTrustee';
+import AddTrustee from '../components/AddTrusteeLink';
 import { Trustee, ArrowButton } from '@tpr/layout';
 import { TrusteeInput } from '@tpr/layout/lib/components/cards/trustee/context';
 import { TrusteeProps } from '@tpr/layout/lib/components/cards/trustee/trusteeMachine';

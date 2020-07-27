@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from '@tpr/core';
 import { useHistory } from 'react-router-dom';
 
-const AddTrustee = () => {
+const AddTrusteeLink = () => {
   const history = useHistory();
   return (
     <Link
@@ -15,4 +15,4 @@ const AddTrustee = () => {
   );
 };
 
-export default AddTrustee;
+export default AddTrusteeLink;
