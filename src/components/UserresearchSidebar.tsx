@@ -40,7 +40,7 @@ const UserResearchSidebar = () => {
             {
               name: 'Trustee details',
               completed: false,
-              path: '/trustee-details',
+              path: '/trustees',
             },
             {
               name: 'Employer details',

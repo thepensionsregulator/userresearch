@@ -10,6 +10,7 @@ import WoundUpConfirmation from './views/WoundUpConfirmation';
 import SchemeWoundUp from './views/SchemeWoundUp';
 import SchemeStatusAndMembership from './views/SchemeStatusAndMembership';
 import SchemeNameAndAddress from './views/SchemeNameAndAddress';
+import Trustees from './views/Trustees';
 
 function App() {
   return (
@@ -59,6 +60,7 @@ function App() {
               path="/scheme-name-and-address"
               component={() => <SchemeNameAndAddress />}
             />
+            <Route exact path="/trustees" component={() => <Trustees />} />
           </Switch>
         </AppWidth>
       </DocWidth>
