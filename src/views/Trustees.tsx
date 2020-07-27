@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Styles from './Layout.module.scss';
-import { H1, Hr, P, Flex, H2, Button } from '@tpr/core';
+import { H1, Hr, P, Flex, H2 } from '@tpr/core';
 import UserResearchSidebar from '../components/UserResearchSidebar';
-import AddTrustee from '../components/AddTrusteeLink';
+import AddTrusteeLink from '../components/AddTrusteeLink';
 import { Trustee, ArrowButton } from '@tpr/layout';
 import { TrusteeInput } from '@tpr/layout/lib/components/cards/trustee/context';
 import { TrusteeProps } from '@tpr/layout/lib/components/cards/trustee/trusteeMachine';
@@ -57,7 +57,7 @@ const Trustees = () => {
         </P>
         <Flex cfg={{ p: 4, bg: 'neutral.1', justifyContent: 'space-between' }}>
           <P>Total Number of Trustees: 1</P>
-          <AddTrustee />
+          <AddTrusteeLink />
         </Flex>
         <H2 cfg={{ mt: 2, mb: 2 }}>Trustees</H2>
         <Trustee
@@ -83,7 +83,7 @@ const Trustees = () => {
           cfg={{ mb: 6 }}
         />
         <Flex cfg={{ justifyContent: 'flex-end' }}>
-          <AddTrustee />
+          <AddTrusteeLink />
         </Flex>
         <Hr cfg={{ mb: 8 }} />
         <Form onSubmit={submit}>

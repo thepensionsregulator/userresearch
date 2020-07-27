@@ -12,6 +12,7 @@ import SchemeStatusAndMembership from './views/SchemeStatusAndMembership';
 import ElectronicComsConsent from './views/ElectronicComsConsent';
 import SchemeNameAndAddress from './views/SchemeNameAndAddress';
 import Trustees from './views/Trustees';
+import AddTrustee from './views/AddTrustee';
 
 function App() {
   return (
@@ -66,6 +67,11 @@ function App() {
               component={() => <SchemeNameAndAddress />}
             />
             <Route exact path="/trustees" component={() => <Trustees />} />
+            <Route
+              exact
+              path="/trustees/add-trustee"
+              component={() => <AddTrustee />}
+            />
           </Switch>
         </AppWidth>
       </DocWidth>
