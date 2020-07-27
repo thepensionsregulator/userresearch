@@ -145,7 +145,7 @@ const SchemeStatusAndMembership = () => {
         </P>
         <Form onSubmit={onSubmit} validate={validate(SchemeMembershipFields)}>
           {({ handleSubmit }) => (
-            <form>
+            <form onSubmit={handleSubmit}>
               <H4 cfg={{ mb: 2 }}>Scheme status</H4>
               <SeparatorY>
                 <div>{renderFields(SchemeStatusFields)}</div>
