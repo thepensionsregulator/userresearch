@@ -4,6 +4,7 @@ import { ArrowLink, ArrowButton } from '@tpr/layout';
 import { H1, Hr, P } from '@tpr/core';
 import { Form, renderFields, FieldProps } from '@tpr/forms';
 import { useHistory } from 'react-router-dom';
+import ScrollToTop from '../components/ScrollToTop';
 
 const InitialQuestions = () => {
   const FIELD_NAME = 'schemeWoundUp';
@@ -73,15 +74,7 @@ const InitialQuestions = () => {
           </form>
         )}
       </Form>
-      <div className={Styles.backToTop}>
-        <ArrowLink
-          iconSide="left"
-          pointsTo="up"
-          onClick={() => console.log('clicked')}
-          cfg={{ mr: 3 }}
-          title="Back to top"
-        />
-      </div>
+      <ScrollToTop />
     </div>
   );
 };
