@@ -4,6 +4,8 @@ import { H1, Hr, Flex, P } from '@tpr/core';
 import { Form, FieldProps, renderFields, SeparatorX } from '@tpr/forms';
 import { ArrowButton } from '@tpr/layout';
 import { useHistory } from 'react-router-dom';
+import UserResearchSidebar from '../components/UserResearchSidebar';
+import ScrollToTop from '../components/ScrollToTop';
 
 const ElectronicComsConsent = () => {
   const history = useHistory();
@@ -20,7 +22,7 @@ const ElectronicComsConsent = () => {
 
   return (
     <div className={Styles.root}>
-      {/* SideBar component */}
+      <UserResearchSidebar />
       <div className={Styles.main}>
         <H1 cfg={{ mt: 6, mb: 2 }}>Consent to electronic communication</H1>
         <Hr cfg={{ mt: 5, mb: 8 }} />
@@ -53,7 +55,7 @@ const ElectronicComsConsent = () => {
             </form>
           )}
         </Form>
-        {/* BackToTop component */}
+        <ScrollToTop />
       </div>
     </div>
   );
