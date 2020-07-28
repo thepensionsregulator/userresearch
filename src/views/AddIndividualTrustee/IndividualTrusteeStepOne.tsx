@@ -26,7 +26,7 @@ const IndividualTrusteeStepOne = () => {
             <form onSubmit={handleSubmit}>
                 <Flex>{renderFields(fields)}</Flex>
                 <Hr cfg={{mt: 7, mb: 4}} />
-                <ArrowButton type="submit" title="Continue" iconSide="right" pointsTo="right" cfg={{my: 4}} />
+                <ArrowButton type="submit" title="Continue" iconSide="right" pointsTo="right" cfg={{my: 4}} disabled={pristine}/>
             </form>
             )}
         </Form>
