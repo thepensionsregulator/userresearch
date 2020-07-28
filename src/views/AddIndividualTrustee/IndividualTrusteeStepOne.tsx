@@ -52,20 +52,23 @@ const IndividualTrusteeStepOne = () => {
         <H1 cfg={{ mt: 2, mb: 3 }}>Name of the trustee</H1>
         <Hr cfg={{ mt: 4, mb: 5 }} />
         <Form onSubmit={submit}>
-          {({ handleSubmit, pristine }) => (
-            <form onSubmit={handleSubmit}>
-              <SeparatorY>{renderFields(fields)}</SeparatorY>
-              <Hr cfg={{ mt: 7, mb: 4 }} />
-              <ArrowButton
-                type="submit"
-                title="Continue"
-                iconSide="right"
-                pointsTo="right"
-                cfg={{ my: 4 }}
-                disabled={pristine}
-              />
-            </form>
-          )}
+          {({ handleSubmit, hasValidationErrors }) => {
+            console.log(`hasValidationErrors: ${hasValidationErrors}`);
+            return (
+              <form onSubmit={handleSubmit}>
+                <SeparatorY>{renderFields(fields)}</SeparatorY>
+                <Hr cfg={{ mt: 7, mb: 4 }} />
+                <ArrowButton
+                  type="submit"
+                  title="Continue"
+                  iconSide="right"
+                  pointsTo="right"
+                  cfg={{ my: 4 }}
+                  disabled={hasValidationErrors}
+                />
+              </form>
+            );
+          }}
         </Form>
         <ScrollToTop />
       </div>
