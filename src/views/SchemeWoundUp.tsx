@@ -8,8 +8,7 @@ import ScrollToTop from '../components/ScrollToTop';
 
 const SchemeWoundUp = () => {
   const history = useHistory();
-  const onSubmit = () =>
-    history.push('/initial-questions/scheme-wound-up/wound-up-confirmation');
+  const onSubmit = () => history.push('scheme-wound-up/wound-up-confirmation');
   const FIELD_NAME = 'windUpDate';
   const fields: FieldProps[] = [
     {
@@ -27,7 +26,7 @@ const SchemeWoundUp = () => {
       <ArrowLink
         iconSide="left"
         pointsTo="left"
-        onClick={() => history.push('/initial-questions')}
+        onClick={() => history.goBack()}
       />
       <H1 cfg={{ mb: 8 }}>Scheme wound up</H1>
       <Hr cfg={{ mb: 8 }} />

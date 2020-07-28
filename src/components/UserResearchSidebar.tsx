@@ -19,17 +19,17 @@ const UserResearchSidebar = () => {
             {
               name: 'Scheme name and address',
               completed: true,
-              path: '/scheme-name-and-address',
+              path: 'scheme-name-and-address',
             },
             {
               name: 'Scheme status and membership',
               completed: false,
-              path: '/scheme-status-and-membership',
+              path: 'scheme-status-and-membership',
             },
             {
               name: 'Consent to electronic communication',
               completed: false,
-              path: '/consent-to-electronic-communication',
+              path: 'consent-to-electronic-communication',
             },
           ],
         },
@@ -40,22 +40,22 @@ const UserResearchSidebar = () => {
             {
               name: 'Trustee details',
               completed: false,
-              path: '/trustee-details',
+              path: 'trustees',
             },
             {
               name: 'Employer details',
               completed: false,
-              path: '/employer-details',
+              path: 'employer-details',
             },
             {
               name: 'Service provider details',
               completed: false,
-              path: '/service-provider-details',
+              path: 'service-provider-details',
             },
             {
               name: 'Named contact details',
               completed: false,
-              path: '/named-contract-details',
+              path: 'named-contact-details',
             },
           ],
         },
@@ -66,7 +66,7 @@ const UserResearchSidebar = () => {
             {
               name: 'Review and submit',
               completed: false,
-              path: '/review-and-submit',
+              path: 'review-and-submit',
             },
           ],
         },
