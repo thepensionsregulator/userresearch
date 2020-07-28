@@ -11,7 +11,7 @@ import ScrollToTop from '../components/ScrollToTop';
 
 const Trustees = () => {
   const submit = () => {
-    console.log('Beep boop');
+    console.log('Submitting form');
   };
 
   const [complete, setComplete] = useState(false);
