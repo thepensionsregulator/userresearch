@@ -1,7 +1,7 @@
 import React from 'react';
 import Styles from '../Layout.module.scss';
 import UserResearchSidebar from '../../components/UserResearchSidebar';
-import { ArrowLink } from '@tpr/layout';
+import { ArrowLink, ArrowButton } from '@tpr/layout';
 import { useHistory } from 'react-router-dom';
 import { H1, H3, Hr, H4 } from '@tpr/core';
 import {
@@ -11,6 +11,7 @@ import {
   SeparatorX,
   FieldProps,
 } from '@tpr/forms';
+import ScrollToTop from '../../components/ScrollToTop';
 
 const IndividualTrusteeStepTwo = () => {
   const history = useHistory();
@@ -73,11 +74,23 @@ const IndividualTrusteeStepTwo = () => {
                 Select the option that best describes the type of trustee:
               </H4>
               <SeparatorY>{renderFields(fields[0])}</SeparatorY>
-              <H4>Is this individual a professional trustee?</H4>
+              <br />
+              <H4 cfg={{ mb: 2 }}>
+                Is this individual a professional trustee?
+              </H4>
               <SeparatorX>{renderFields(fields[1])}</SeparatorX>
+              <Hr cfg={{ mt: 9, mb: 5 }} />
+              <ArrowButton
+                title="Continue"
+                pointsTo="right"
+                iconSide="right"
+                type="submit"
+                cfg={{ my: 4 }}
+              />
             </form>
           )}
         </Form>
+        <ScrollToTop />
       </div>
     </div>
   );
