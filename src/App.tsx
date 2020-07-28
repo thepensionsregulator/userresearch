@@ -14,6 +14,7 @@ import SchemeNameAndAddress from './views/SchemeNameAndAddress';
 import IndividualTrusteeStepOne from './views/AddIndividualTrustee/IndividualTrusteeStepOne';
 import Trustees from './views/Trustees';
 import AddTrustee from './views/AddTrustee';
+import IndividualTrusteeStepTwo from './views/AddIndividualTrustee/IndividualTrusteeStepTwo';
 
 function App() {
   return (
@@ -70,15 +71,20 @@ function App() {
             />
             <Route
               exact
-              path="/trustees/add-trustee/add-individual-step-1"
-              component={() => <IndividualTrusteeStepOne />}
-            />
-            <Route exact path="/trustees" component={() => <Trustees />} />
-            <Route
-              exact
               path="/trustees/add-trustee"
               component={() => <AddTrustee />}
             />
+            <Route
+              exact
+              path="/trustees/add-trustee/add-individual-step-1"
+              component={() => <IndividualTrusteeStepOne />}
+            />
+            <Route
+              exact
+              path="/trustees/add-trustee/add-individual-step-2"
+              component={() => <IndividualTrusteeStepTwo />}
+            />
+            <Route exact path="/trustees" component={() => <Trustees />} />
           </Switch>
         </AppWidth>
       </DocWidth>
