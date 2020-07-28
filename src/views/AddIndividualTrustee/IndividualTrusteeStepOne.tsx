@@ -1,6 +1,6 @@
 import React from 'react';
 import Styles from '../Layout.module.scss';
-import { H1, H3, Hr, Flex } from '@tpr/core';
+import { H1, H3, Hr } from '@tpr/core';
 import { useHistory } from 'react-router-dom';
 import UserResearchSidebar from '../../components/UserResearchSidebar';
 import { ArrowLink, ArrowButton } from '@tpr/layout';
