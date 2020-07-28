@@ -55,7 +55,7 @@ const UserResearchSidebar = () => {
             {
               name: 'Named contact details',
               completed: false,
-              path: 'named-contract-details',
+              path: 'named-contact-details',
             },
           ],
         },
