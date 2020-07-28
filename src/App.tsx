@@ -11,6 +11,7 @@ import SchemeWoundUp from './views/SchemeWoundUp';
 import SchemeStatusAndMembership from './views/SchemeStatusAndMembership';
 import ElectronicComsConsent from './views/ElectronicComsConsent';
 import SchemeNameAndAddress from './views/SchemeNameAndAddress';
+import IndividualTrusteeStepOne from './views/AddIndividualTrustee/IndividualTrusteeStepOne';
 
 function App() {
   return (
@@ -61,8 +62,14 @@ function App() {
               component={() => <ElectronicComsConsent />}
             />
             <Route
+              exact
               path="/scheme-name-and-address"
               component={() => <SchemeNameAndAddress />}
+            />
+            <Route
+            exact
+            path="/trustees/add-trustee/add-individual-step-1"
+            component = {() => <IndividualTrusteeStepOne/>}
             />
           </Switch>
         </AppWidth>
