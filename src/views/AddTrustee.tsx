@@ -10,11 +10,15 @@ import ScrollToTop from '../components/ScrollToTop';
 const AddTrustee = () => {
   const history = useHistory();
 
-  const submit = () => {
-    console.log('Submit');
-  };
-
   const RADIO_BUTTONS = 'trusteeType';
+
+  const submit = (formValues: any) => {
+    history.push(
+      formValues[RADIO_BUTTONS] === 'individual'
+        ? 'add-trustee/add-individual-step-1'
+        : 'add-trustee/add-corporate-step-1',
+    );
+  };
 
   const fields: FieldProps[] = [
     {
@@ -48,7 +52,7 @@ const AddTrustee = () => {
         <Hr cfg={{ mt: 4, mb: 5 }} />
         <H4 cfg={{ mb: 6 }}>Add an individual or corporate trustee?</H4>
         <Form onSubmit={submit}>
-          {({ handleSubmit }) => (
+          {({ handleSubmit, pristine }) => (
             <form onSubmit={handleSubmit}>
               <Flex cfg={{ mt: 2, mb: 4 }}>
                 <SeparatorX>{renderFields(fields)}</SeparatorX>
@@ -60,7 +64,7 @@ const AddTrustee = () => {
                 iconSide="right"
                 type="submit"
                 title="Continue"
-                disabled
+                disabled={pristine}
               />
             </form>
           )}
