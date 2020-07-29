@@ -1,7 +1,10 @@
 import ITrusteeRepository from './ITrusteeRepository';
-import Trustee from '../entities/Trustee';
+
+import AxiosInstance from 'axios';
+import { Trustee } from '../entities/Trustee';
 
 class TrusteeRepository implements ITrusteeRepository {
+    AxiosInstance axios;
   GetAllTrustees(): Trustee[] {
     throw new Error('Method not implemented');
   }

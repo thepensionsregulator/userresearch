@@ -1,4 +1,4 @@
-interface Trustee {
+export type Trustee = {
   id: string;
   schemeRoleId: string;
   title: string;
@@ -15,6 +15,4 @@ interface Trustee {
   telephoneNumber: string;
   emailAddress: string;
   effectiveDate: Date;
-}
-
-export default Trustee;
+};
