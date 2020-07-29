@@ -10,13 +10,17 @@ import {
   renderFields,
   SeparatorX,
   FieldProps,
+  validate,
 } from '@tpr/forms';
 import ScrollToTop from '../../components/ScrollToTop';
 
 const IndividualTrusteeStepTwo = () => {
   const history = useHistory();
 
-  const submit = () => console.log('Submitting....');
+  const submit = (values: any) => {
+    console.log(`Submitting values.... ${values[TRUSTEE_TYPE_BUTTONS]}`);
+    console.log(`Submitting values.... ${values[PROF_TRUSTEE_BUTTONS]}`);
+  };
 
   const TRUSTEE_TYPE_BUTTONS = 'trusteeType';
   const PROF_TRUSTEE_BUTTONS = 'professionalTrustee';
@@ -68,7 +72,14 @@ const IndividualTrusteeStepTwo = () => {
         <H1 cfg={{ mt: 2, mb: 3 }}>Type of trustee</H1>
         <Hr cfg={{ mt: 4, mb: 5 }} />
         <Form onSubmit={submit}>
-          {({ handleSubmit, pristine }) => (
+          {({
+            handleSubmit,
+            hasValidationErrors,
+            valid,
+            touched,
+            pristine,
+            values,
+          }) => (
             <form onSubmit={handleSubmit}>
               <H4 cfg={{ mb: 2 }}>
                 Select the option that best describes the type of trustee:
@@ -86,6 +97,11 @@ const IndividualTrusteeStepTwo = () => {
                 iconSide="right"
                 type="submit"
                 cfg={{ my: 4 }}
+                disabled={
+                  !(
+                    values[TRUSTEE_TYPE_BUTTONS] && values[PROF_TRUSTEE_BUTTONS]
+                  )
+                }
               />
             </form>
           )}
