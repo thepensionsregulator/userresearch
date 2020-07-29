@@ -1,8 +1,8 @@
-import Trustee from '../entities/Trustee';
+import { TrusteeInput } from '@tpr/layout/lib/components/cards/trustee/context';
 
 interface ITrusteeRepository {
-  GetAllTrustees(): Trustee[];
-  GetTrustee(id: string): Trustee;
+  GetAllTrustees(): TrusteeInput[];
+  GetTrustee(id: string): TrusteeInput;
 }
 
 export default ITrusteeRepository;
