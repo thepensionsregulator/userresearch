@@ -11,7 +11,7 @@ const IndividualTrusteeStepThree = () => {
   const history = useHistory();
 
   const submit = () => {
-    console.log('Submitting....');
+    history.push('add-individual-step-4');
   };
 
   const fields: FieldProps[] = [
@@ -79,9 +79,10 @@ const IndividualTrusteeStepThree = () => {
           iconSide="left"
           title="Back"
           onClick={() => history.goBack()}
+          cfg={{ mt: 3 }}
         />
-        <H3>Add trustee: Individual</H3>
-        <H1>What is this trustee's address?</H1>
+        <H3 cfg={{ mt: 2 }}>Add trustee: Individual</H3>
+        <H1 cfg={{ mt: 2, mb: 3 }}>What is this trustee's address?</H1>
         <Hr cfg={{ mt: 4, mb: 5 }} />
         <Form onSubmit={submit}>
           {({ handleSubmit, valid }) => (
