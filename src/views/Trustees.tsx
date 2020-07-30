@@ -43,28 +43,30 @@ const Trustees = () => {
           <AddTrusteeLink />
         </Flex>
         <H2 cfg={{ mt: 2, mb: 2 }}>Trustees</H2>
-        <Trustee
-          onDetailsSave={callBackFn}
-          onContactSave={callBackFn}
-          onAddressSave={callBackFn}
-          onRemove={callBackFn}
-          onCorrect={(value) => setComplete(value)}
-          addressAPI={{ get: (endpoint) => someMethod(endpoint), limit: 100 }}
-          complete={complete}
-          i18n={{
-            preview: {
-              buttons: {
-                one: 'Trustee',
-                two: 'Remove',
-                three: 'Correspondence address',
-                four: 'Contact details',
+        {trustees.map((trustee) => (
+          <Trustee
+            onDetailsSave={callBackFn}
+            onContactSave={callBackFn}
+            onAddressSave={callBackFn}
+            onRemove={callBackFn}
+            onCorrect={(value) => setComplete(value)}
+            addressAPI={{ get: (endpoint) => someMethod(endpoint), limit: 100 }}
+            complete={complete}
+            i18n={{
+              preview: {
+                buttons: {
+                  one: 'Trustee',
+                  two: 'Remove',
+                  three: 'Correspondence address',
+                  four: 'Contact details',
+                },
+                checkboxLabel: 'All details are correct',
               },
-              checkboxLabel: 'All details are correct',
-            },
-          }}
-          trustee={trustees[0]}
-          cfg={{ mb: 6 }}
-        />
+            }}
+            trustee={trustee}
+            cfg={{ mb: 6 }}
+          />
+        ))}
         <Flex cfg={{ justifyContent: 'flex-end' }}>
           <AddTrusteeLink />
         </Flex>
