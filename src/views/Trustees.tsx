@@ -45,6 +45,7 @@ const Trustees = () => {
         <H2 cfg={{ mt: 2, mb: 2 }}>Trustees</H2>
         {trustees.map((trustee) => (
           <Trustee
+            key={trustee.schemeRoleId.toString()}
             onDetailsSave={callBackFn}
             onContactSave={callBackFn}
             onAddressSave={callBackFn}
