@@ -19,11 +19,13 @@ const AddTrustee = () => {
           <IndividualTrusteeStepZero onSubmit={() => setState('step-1')} />
         );
       case 'step-1':
-        return <IndividualTrusteeStepOne next={() => setState('step-2')} />;
+        return <IndividualTrusteeStepOne onSubmit={() => setState('step-2')} />;
       case 'step-2':
-        return <IndividualTrusteeStepTwo next={() => setState('step-3')} />;
+        return <IndividualTrusteeStepTwo onSubmit={() => setState('step-3')} />;
       case 'step-3':
-        return <IndividualTrusteeStepThree next={() => setState('step-4')} />;
+        return (
+          <IndividualTrusteeStepThree onSubmit={() => setState('step-4')} />
+        );
       case 'step-4':
         return <IndividualTrusteeStepFour />;
     }
