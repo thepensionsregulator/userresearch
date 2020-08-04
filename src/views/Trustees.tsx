@@ -24,8 +24,13 @@ const Trustees = () => {
 
   const removeTrustee = (formValues: any, trusteeToRemove: TrusteeInput) => {
     TrusteeRepository.RemoveTrustee(trusteeToRemove);
-    const trusteesFromRepo = TrusteeRepository.GetAllTrustees();
-    setTrustees([...trusteesFromRepo]);
+    setTrustees([...TrusteeRepository.GetAllTrustees()]);
+    return Promise.resolve();
+  };
+
+  const updateTrustee = (formValues: any, trusteeToUpdate: TrusteeProps) => {
+    TrusteeRepository.UpdateTrustee(trusteeToUpdate);
+    setTrustees([...TrusteeRepository.GetAllTrustees()]);
     return Promise.resolve();
   };
 
@@ -47,21 +52,9 @@ const Trustees = () => {
         {trustees.map((trustee) => (
           <Trustee
             key={trustee.schemeRoleId.toString()}
-            onDetailsSave={(formValues: any, trusteeToRemove: TrusteeProps) => {
-              console.log(formValues);
-              console.log(trusteeToRemove);
-              return Promise.resolve();
-            }}
-            onContactSave={(formValues: any, trusteeToRemove: TrusteeProps) => {
-              console.log(formValues);
-              console.log(trusteeToRemove);
-              return Promise.resolve();
-            }}
-            onAddressSave={(formValues: any, trusteeToRemove: TrusteeProps) => {
-              console.log(formValues);
-              console.log(trusteeToRemove);
-              return Promise.resolve();
-            }}
+            onDetailsSave={updateTrustee}
+            onContactSave={updateTrustee}
+            onAddressSave={updateTrustee}
             onRemove={removeTrustee}
             onCorrect={(value) => setComplete(value)}
             addressAPI={{ get: (endpoint) => someMethod(endpoint), limit: 100 }}
