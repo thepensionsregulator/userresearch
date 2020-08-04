@@ -30,6 +30,12 @@ const IndividualTrusteeStepOne = (props: any) => {
       },
     },
   ];
+
+  const onSubmit = (values: any) => {
+    props.setNewTrustee({ ...props.newTrustee, ...values });
+    props.nextPage();
+  };
+
   return (
     <div className={Styles.main}>
       <ArrowLink
@@ -44,7 +50,7 @@ const IndividualTrusteeStepOne = (props: any) => {
       <H3 cfg={{ mt: 2 }}>Add trustee: Individual</H3>
       <H1 cfg={{ mt: 2, mb: 3 }}>Name of the trustee</H1>
       <Hr cfg={{ mt: 4, mb: 5 }} />
-      <Form onSubmit={props.onSubmit}>
+      <Form onSubmit={onSubmit}>
         {({ handleSubmit, hasValidationErrors }) => (
           <form onSubmit={handleSubmit}>
             <SeparatorY>{renderFields(fields)}</SeparatorY>

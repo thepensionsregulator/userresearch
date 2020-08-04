@@ -5,8 +5,9 @@ import { useHistory } from 'react-router-dom';
 import { H3, H1, Hr } from '@tpr/core';
 import { Form, renderFields, FieldProps } from '@tpr/forms';
 import ScrollToTop from '../../components/ScrollToTop';
+import TrusteeRepository from '../../services/TrusteeRepository';
 
-const IndividualTrusteeStepFour = () => {
+const IndividualTrusteeStepFour = (props: any) => {
   const history = useHistory();
 
   const submit = () => {
@@ -39,6 +40,11 @@ const IndividualTrusteeStepFour = () => {
       },
     },
   ];
+  const onSubmit = (values: any) => {
+    TrusteeRepository.WriteTrustee({ ...props.newTrustee, ...values });
+    history.push('/trustees');
+  };
+
   return (
     <div className={Styles.main}>
       <ArrowLink
@@ -51,7 +57,7 @@ const IndividualTrusteeStepFour = () => {
       <H3 cfg={{ mt: 2 }}>Add trustee: Individual</H3>
       <H1 cfg={{ mt: 2, mb: 3 }}>Contact details for the trustee</H1>
       <Hr cfg={{ mt: 4, mb: 5 }} />
-      <Form onSubmit={submit}>
+      <Form onSubmit={onSubmit}>
         {({ handleSubmit, valid }) => (
           <form onSubmit={handleSubmit}>
             {renderFields(fields)}

@@ -50,6 +50,12 @@ const IndividualTrusteeStepTwo = (props: any) => {
       { name: PROF_TRUSTEE_BUTTONS, type: 'radio', label: 'No', value: 'no' },
     ],
   ];
+
+  const onSubmit = (values: any) => {
+    props.setNewTrustee({ ...props.newTrustee, ...values });
+    props.nextPage();
+  };
+
   return (
     <div className={Styles.main}>
       <ArrowLink
@@ -62,7 +68,7 @@ const IndividualTrusteeStepTwo = (props: any) => {
       <H3 cfg={{ mt: 2 }}>Add trustee: Individual</H3>
       <H1 cfg={{ mt: 2, mb: 3 }}>Type of trustee</H1>
       <Hr cfg={{ mt: 4, mb: 5 }} />
-      <Form onSubmit={props.onSubmit}>
+      <Form onSubmit={onSubmit}>
         {({ handleSubmit, values }) => (
           <form onSubmit={handleSubmit}>
             <H4 cfg={{ mb: 2 }}>

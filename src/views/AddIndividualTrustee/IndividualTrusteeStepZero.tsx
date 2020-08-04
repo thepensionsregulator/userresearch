@@ -24,6 +24,10 @@ const IndividualTrusteeStepZero = (props: any) => {
     },
   ];
 
+  const onSubmit = (values: any) => {
+    props.nextPage();
+  };
+
   return (
     <div className={Styles.main}>
       <ArrowLink
@@ -39,7 +43,7 @@ const IndividualTrusteeStepZero = (props: any) => {
       <H1 cfg={{ mt: 2, mb: 3 }}>Type of trustee</H1>
       <Hr cfg={{ mt: 4, mb: 5 }} />
       <H4 cfg={{ mb: 6 }}>Add an individual or corporate trustee?</H4>
-      <Form onSubmit={props.onSubmit}>
+      <Form onSubmit={onSubmit}>
         {({ handleSubmit, pristine }) => (
           <form onSubmit={handleSubmit}>
             <Flex cfg={{ mt: 2, mb: 4 }}>
