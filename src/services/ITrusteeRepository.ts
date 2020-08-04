@@ -4,6 +4,7 @@ interface ITrusteeRepository {
   GetAllTrustees(): TrusteeInput[] | undefined;
   GetTrustee(id: string): TrusteeInput;
   WriteTrustee(trustee: TrusteeInput): void;
+  RemoveTrustee(id: string): boolean;
 }
 
 export default ITrusteeRepository;
