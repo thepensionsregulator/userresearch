@@ -24,9 +24,20 @@ class TrusteeRepository implements ITrusteeRepository {
     return trustee;
   }
 
-  RemoveTrustee(id: string): boolean {
-    Data.trustees.filter((x) => x.id === id);
-    return false;
+  RemoveTrustee(trustee: any) {
+    const trusteeToRemove = Data.trustees.findIndex((x) => x.id === trustee.id);
+
+    if (trusteeToRemove > -1) {
+      Data.trustees.splice(trusteeToRemove, 1);
+    }
+  }
+
+  UpdateTrustee(trustee: any) {
+    const trusteeToUpdate = Data.trustees.findIndex((x) => x.id === trustee.id);
+
+    if (trusteeToUpdate > -1) {
+      Data.trustees[trusteeToUpdate] = trustee;
+    }
   }
 
   getRandomInt(maxInt: number) {

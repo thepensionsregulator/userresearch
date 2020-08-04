@@ -15,18 +15,19 @@ const Trustees = () => {
   };
 
   const [complete, setComplete] = useState(false);
-
-  const callBackFn = (values: any, fullTrusteeObject: TrusteeProps) => {
-    console.log(values);
-    return Promise.resolve();
-  };
+  const [trustees, setTrustees] = useState(TrusteeRepository.GetAllTrustees());
 
   const someMethod = (a: any) => {
     console.log('Some method called');
     return Promise.resolve();
   };
 
-  const trustees: TrusteeInput[] = TrusteeRepository.GetAllTrustees();
+  const removeTrustee = (formValues: any, trusteeToRemove: TrusteeInput) => {
+    TrusteeRepository.RemoveTrustee(trusteeToRemove);
+    const trusteesFromRepo = TrusteeRepository.GetAllTrustees();
+    setTrustees([...trusteesFromRepo]);
+    return Promise.resolve();
+  };
 
   return (
     <div className={Styles.root}>
@@ -46,10 +47,22 @@ const Trustees = () => {
         {trustees.map((trustee) => (
           <Trustee
             key={trustee.schemeRoleId.toString()}
-            onDetailsSave={callBackFn}
-            onContactSave={callBackFn}
-            onAddressSave={callBackFn}
-            onRemove={callBackFn}
+            onDetailsSave={(formValues: any, trusteeToRemove: TrusteeProps) => {
+              console.log(formValues);
+              console.log(trusteeToRemove);
+              return Promise.resolve();
+            }}
+            onContactSave={(formValues: any, trusteeToRemove: TrusteeProps) => {
+              console.log(formValues);
+              console.log(trusteeToRemove);
+              return Promise.resolve();
+            }}
+            onAddressSave={(formValues: any, trusteeToRemove: TrusteeProps) => {
+              console.log(formValues);
+              console.log(trusteeToRemove);
+              return Promise.resolve();
+            }}
+            onRemove={removeTrustee}
             onCorrect={(value) => setComplete(value)}
             addressAPI={{ get: (endpoint) => someMethod(endpoint), limit: 100 }}
             complete={complete}
