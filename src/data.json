@@ -1,7 +1,7 @@
 {
   "trustees": [
     {
-      "id": "1234",
+      "id": "12345",
       "schemeRoleId": "4321",
       "title": "Mr",
       "firstname": "Robert",
@@ -21,7 +21,7 @@
     },
     {
       "id": "1234",
-      "schemeRoleId": "4321",
+      "schemeRoleId": "43211",
       "title": "Mrs",
       "firstname": "Alice",
       "lastname": "Robertson",
