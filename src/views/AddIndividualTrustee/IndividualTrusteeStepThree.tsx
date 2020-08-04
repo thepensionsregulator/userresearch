@@ -57,7 +57,7 @@ const IndividualTrusteeStepThree = (props: any) => {
     {
       type: 'text',
       inputWidth: 5,
-      name: 'postCode',
+      name: 'postcode',
       label: 'Post code',
       cfg: { my: 5 },
       validate: (values) => {

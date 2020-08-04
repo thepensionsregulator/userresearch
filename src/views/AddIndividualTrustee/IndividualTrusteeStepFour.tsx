@@ -10,14 +10,10 @@ import TrusteeRepository from '../../services/TrusteeRepository';
 const IndividualTrusteeStepFour = (props: any) => {
   const history = useHistory();
 
-  const submit = () => {
-    console.log('Submitting...');
-  };
-
   const fields: FieldProps[] = [
     {
       type: 'text',
-      name: 'phoneNumber',
+      name: 'telephoneNumber',
       label: 'Phone number',
       cfg: { my: 5 },
       inputWidth: 5,
@@ -40,6 +36,7 @@ const IndividualTrusteeStepFour = (props: any) => {
       },
     },
   ];
+
   const onSubmit = (values: any) => {
     TrusteeRepository.WriteTrustee({ ...props.newTrustee, ...values });
     history.push('/trustees');

@@ -15,7 +15,7 @@ const IndividualTrusteeStepOne = (props: any) => {
       type: 'text',
       label: 'Firstname',
       inputWidth: 5,
-      name: 'firstName',
+      name: 'firstname',
       validate: (value) => {
         if (!value) return 'Enter first name';
       },
@@ -24,7 +24,7 @@ const IndividualTrusteeStepOne = (props: any) => {
       type: 'text',
       label: 'Lastname',
       inputWidth: 5,
-      name: 'lastName',
+      name: 'lastname',
       validate: (value) => {
         if (!value) return 'Enter last name';
       },
