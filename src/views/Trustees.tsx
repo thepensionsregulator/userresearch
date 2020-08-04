@@ -39,7 +39,7 @@ const Trustees = () => {
           important that our records match the scheme records.
         </P>
         <Flex cfg={{ p: 4, bg: 'neutral.1', justifyContent: 'space-between' }}>
-          <P>Total Number of Trustees: 1</P>
+          <P>Total Number of Trustees: {trustees.length}</P>
           <AddTrusteeLink />
         </Flex>
         <H2 cfg={{ mt: 2, mb: 2 }}>Trustees</H2>
