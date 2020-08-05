@@ -19,9 +19,9 @@ class TrusteeRepository implements ITrusteeRepository {
   }
 
   GetTrustee(id: string): TrusteeInput {
-    return Data.trustees[0];
+    const trustee = Data.trustees.find((x) => x.id === id);
+    return trustee;
   }
-
 
   getRandomInt(maxInt: number) {
     return Math.floor(Math.random() * maxInt);
