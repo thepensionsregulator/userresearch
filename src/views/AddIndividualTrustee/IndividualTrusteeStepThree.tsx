@@ -1,18 +1,13 @@
 import React from 'react';
 import Styles from '../Layout.module.scss';
-import UserResearchSidebar from '../../components/UserResearchSidebar';
 import { ArrowLink, ArrowButton } from '@tpr/layout';
 import { useHistory } from 'react-router-dom';
 import { H3, H1, Hr } from '@tpr/core';
 import { Form, renderFields, FieldProps } from '@tpr/forms';
 import ScrollToTop from '../../components/ScrollToTop';
 
-const IndividualTrusteeStepThree = () => {
+const IndividualTrusteeStepThree = (props: any) => {
   const history = useHistory();
-
-  const submit = () => {
-    history.push('add-individual-step-4');
-  };
 
   const fields: FieldProps[] = [
     {
@@ -62,7 +57,7 @@ const IndividualTrusteeStepThree = () => {
     {
       type: 'text',
       inputWidth: 5,
-      name: 'postCode',
+      name: 'postcode',
       label: 'Post code',
       cfg: { my: 5 },
       validate: (values) => {
@@ -70,38 +65,41 @@ const IndividualTrusteeStepThree = () => {
       },
     },
   ];
+
+  const onSubmit = (values: any) => {
+    props.setNewTrustee({ ...props.newTrustee, ...values });
+    props.nextPage();
+  };
+
   return (
-    <div className={Styles.root}>
-      <UserResearchSidebar />
-      <div className={Styles.main}>
-        <ArrowLink
-          pointsTo="left"
-          iconSide="left"
-          title="Back"
-          onClick={() => history.goBack()}
-          cfg={{ mt: 3 }}
-        />
-        <H3 cfg={{ mt: 2 }}>Add trustee: Individual</H3>
-        <H1 cfg={{ mt: 2, mb: 3 }}>What is this trustee's address?</H1>
-        <Hr cfg={{ mt: 4, mb: 5 }} />
-        <Form onSubmit={submit}>
-          {({ handleSubmit, valid }) => (
-            <form onSubmit={handleSubmit}>
-              {renderFields(fields)}
-              <Hr cfg={{ mt: 8, mb: 4 }} />
-              <ArrowButton
-                type="submit"
-                iconSide="right"
-                pointsTo="right"
-                title="Continue"
-                cfg={{ my: 4 }}
-                disabled={!valid}
-              />
-            </form>
-          )}
-        </Form>
-        <ScrollToTop />
-      </div>
+    <div className={Styles.main}>
+      <ArrowLink
+        pointsTo="left"
+        iconSide="left"
+        title="Back"
+        onClick={() => history.goBack()}
+        cfg={{ mt: 3 }}
+      />
+      <H3 cfg={{ mt: 2 }}>Add trustee: Individual</H3>
+      <H1 cfg={{ mt: 2, mb: 3 }}>What is this trustee's address?</H1>
+      <Hr cfg={{ mt: 4, mb: 5 }} />
+      <Form onSubmit={onSubmit}>
+        {({ handleSubmit, valid }) => (
+          <form onSubmit={handleSubmit}>
+            {renderFields(fields)}
+            <Hr cfg={{ mt: 8, mb: 4 }} />
+            <ArrowButton
+              type="submit"
+              iconSide="right"
+              pointsTo="right"
+              title="Continue"
+              cfg={{ my: 4 }}
+              disabled={!valid}
+            />
+          </form>
+        )}
+      </Form>
+      <ScrollToTop />
     </div>
   );
 };

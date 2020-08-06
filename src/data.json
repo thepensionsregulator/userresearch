@@ -1,0 +1,42 @@
+{
+  "trustees": [
+    {
+      "id": "12345",
+      "schemeRoleId": "4321",
+      "title": "Mr",
+      "firstname": "Robert",
+      "lastname": "Robertson",
+      "trusteeType": "member-nominated",
+      "isProfessionalTrustee": false,
+      "addressLine1": "The Pensions Regulator",
+      "addressLine2": "Napier House",
+      "addressLine3": "Trafalgar Place",
+      "postTown": "Brighton",
+      "postcode": "Bn1 4DW",
+      "county": "East Sussex",
+      "countryId": "",
+      "telephoneNumber": "01277 000111",
+      "emailAddress": "rob.robertson@tpr.uk",
+      "effectiveDate": "1997-04-01T00:00:00"
+    },
+    {
+      "id": "1234",
+      "schemeRoleId": "43211",
+      "title": "Mrs",
+      "firstname": "Alice",
+      "lastname": "Robertson",
+      "trusteeType": "member-nominated",
+      "isProfessionalTrustee": true,
+      "addressLine1": "The Biscuit Regulator",
+      "addressLine2": "Gingerbread House",
+      "addressLine3": "Bourbon Place",
+      "postTown": "Fulford",
+      "postcode": "Bn1 4DW",
+      "county": "Yorkshire",
+      "countryId": "",
+      "telephoneNumber": "01277 000111",
+      "emailAddress": "Alice.robertson@tpr.uk",
+      "effectiveDate": "1999-03-10T00:00:00"
+    }
+  ]
+}
