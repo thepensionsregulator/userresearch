@@ -3,7 +3,7 @@ import Styles from './Layout.module.scss';
 import { H1, Hr, P, Flex, H2 } from '@tpr/core';
 import UserResearchSidebar from '../components/UserResearchSidebar';
 import AddTrusteeLink from '../components/AddTrusteeLink';
-import { Trustee, ArrowButton } from '@tpr/layout';
+import { TrusteeCard, ArrowButton } from '@tpr/layout';
 import { TrusteeInput } from '@tpr/layout/lib/components/cards/trustee/context';
 import { Form } from '@tpr/forms';
 import ScrollToTop from '../components/ScrollToTop';
@@ -17,8 +17,8 @@ const Trustees = () => {
   const [complete, setComplete] = useState(false);
   const [trustees, setTrustees] = useState(TrusteeRepository.GetAllTrustees());
 
-  const someMethod = (a: any) => {
-    console.log('Some method called');
+  const callAddressAPI = (a: any) => {
+    console.log('Calling an address API...');
     return Promise.resolve();
   };
 
@@ -50,14 +50,17 @@ const Trustees = () => {
         </Flex>
         <H2 cfg={{ mt: 2, mb: 2 }}>Trustees</H2>
         {trustees.map((trustee) => (
-          <Trustee
+          <TrusteeCard
             key={trustee.schemeRoleId.toString()}
             onDetailsSave={updateTrustee}
             onContactSave={updateTrustee}
             onAddressSave={updateTrustee}
             onRemove={removeTrustee}
-            onCorrect={(value) => setComplete(value)}
-            addressAPI={{ get: (endpoint) => someMethod(endpoint), limit: 100 }}
+            onCorrect={(value: any) => setComplete(value)}
+            addressAPI={{
+              get: (endpoint: any) => callAddressAPI(endpoint),
+              limit: 100,
+            }}
             complete={complete}
             i18n={{
               preview: {
