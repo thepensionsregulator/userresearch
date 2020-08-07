@@ -11,11 +11,26 @@ const SchemeNameAndAddress = () => {
   const [findAddress, setFindAddress] = useState(false);
 
   const formFields: FieldProps[][] = [
-    [{ type: 'text', name: 'schemeName', inputWidth: 5 }],
+    [
+      {
+        type: 'text',
+        name: 'schemeName',
+        inputWidth: 5,
+        label: 'Scheme name',
+        validate: (value) => {
+          if (!value) {
+            return 'Scheme name required';
+          }
+        },
+        hint:
+          'This should be the full name of the pension scheme as written in the latest trust deed or any other subsequent amending document. We advise you not to include any scheme reference numbers as part of the scheme name. There is a space to add these details in the section relating to insurance company information.',
+      },
+    ],
     [
       {
         type: 'select',
         name: 'selectAddress',
+        label: 'Scheme correspondence address',
         placeholder: 'Please select your address from the dropdown menu...',
         options: [{ label: 'Your search criteria has no match', value: 0 }],
         inputWidth: 6,
@@ -65,15 +80,6 @@ const SchemeNameAndAddress = () => {
                 <P cfg={{ mb: 4 }}>
                   These are the scheme details currently held by the regulator.
                   Correct any details as necessary.
-                </P>
-                <H4 cfg={{ mb: 1 }}>Scheme Name</H4>
-                <P cfg={{ mb: 2 }}>
-                  This should be the full name of the pension scheme as written
-                  in the latest trust deed or any other subsequent amending
-                  document. We advise you not to include any scheme reference
-                  numbers as part of the scheme name. There is a space to add
-                  these details in the section relating to insurance company
-                  information.
                 </P>
                 {renderFields(fields[0])}
               </Flex>

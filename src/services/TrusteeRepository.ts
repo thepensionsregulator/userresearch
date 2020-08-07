@@ -13,6 +13,7 @@ class TrusteeRepository implements ITrusteeRepository {
 
     Data.trustees.push(toWrite);
   }
+
   GetAllTrustees(): TrusteeInput[] {
     const trustees = Data.trustees;
     return trustees;
@@ -21,6 +22,22 @@ class TrusteeRepository implements ITrusteeRepository {
   GetTrustee(id: string): TrusteeInput {
     const trustee = Data.trustees.find((x) => x.id === id);
     return trustee;
+  }
+
+  RemoveTrustee(trustee: any) {
+    const trusteeToRemove = Data.trustees.findIndex((x) => x.id === trustee.id);
+
+    if (trusteeToRemove > -1) {
+      Data.trustees.splice(trusteeToRemove, 1);
+    }
+  }
+
+  UpdateTrustee(trustee: any) {
+    const trusteeToUpdate = Data.trustees.findIndex((x) => x.id === trustee.id);
+
+    if (trusteeToUpdate > -1) {
+      Data.trustees[trusteeToUpdate] = trustee;
+    }
   }
 
   getRandomInt(maxInt: number) {
