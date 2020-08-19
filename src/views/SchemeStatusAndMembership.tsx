@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { H1, Hr, P, Flex, H4 } from '@tpr/core';
 import Styles from './Layout.module.scss';
 import { ArrowLink, ArrowButton } from '@tpr/layout';
@@ -11,9 +11,13 @@ import {
   validate,
 } from '@tpr/forms';
 import UserResearchSidebar from '../components/UserResearchSidebar';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import ScrollToTop from '../components/ScrollToTop';
+import StateContext from '../StateContext';
 const SchemeStatusAndMembership = () => {
+  const appState = useContext(StateContext);
+  const history = useHistory();
+
   const RADIO_BUTTON_NAME = 'schemeStatus';
 
   const SchemeStatusFields: FieldProps[] = [
@@ -103,7 +107,7 @@ const SchemeStatusAndMembership = () => {
       required: true,
     },
     {
-      name: 'totalMembership',
+      name: 'totalMembers',
       type: 'number',
       label: 'Total Membership',
       validate: (value: any, SchemeMembershipFields: any) => {
@@ -121,8 +125,15 @@ const SchemeStatusAndMembership = () => {
     },
   ];
 
-  const onSubmit = () => {
-    console.log('Form submit');
+  const onSubmit = (values: any) => {
+    appState.setSchemeStatus(values.schemeStatus);
+    appState.setSchemeStatusApplied(values.schemeStatusApplied);
+    appState.setActiveMembers(values.activeMembers);
+    appState.setDeferredMembers(values.deferredMembers);
+    appState.setPensionerMembers(values.pensionerMembers);
+    appState.setTotalMembers(values.totalMembers);
+    appState.setMembershipEffective(values.dateMembershipEffective);
+    history.push('/consent-to-electronic-communication');
   };
 
   return (
@@ -143,7 +154,19 @@ const SchemeStatusAndMembership = () => {
           These are the scheme details currently held by the regulator. Correct
           any details as necessary.
         </P>
-        <Form onSubmit={onSubmit} validate={validate(SchemeMembershipFields)}>
+        <Form
+          onSubmit={onSubmit}
+          validate={validate(SchemeMembershipFields)}
+          initialValues={{
+            [RADIO_BUTTON_NAME]: appState.schemeStatus,
+            schemeStatusApplied: appState.schemeStatusApplied,
+            activeMembers: appState.activeMembers,
+            deferredMembers: appState.deferredMembers,
+            pensionerMembers: appState.pensionerMembers,
+            totalMembers: appState.totalMembers,
+            dateMembershipEffective: appState.membershipEffective,
+          }}
+        >
           {({ handleSubmit }) => (
             <form onSubmit={handleSubmit}>
               <H4 cfg={{ mb: 2 }}>Scheme status</H4>
@@ -171,7 +194,7 @@ const SchemeStatusAndMembership = () => {
               <div>{renderFields(SchemeMembershipFields)}</div>
               <Flex cfg={{ bg: 'neutral.1', p: 6 }}>
                 <FFInputDate
-                  name="membershipEffective"
+                  name="dateMembershipEffective"
                   label="Date membership became effective"
                   hint="For example, 31 2 2019 or 31 02 2019"
                   validate={(value) => {
