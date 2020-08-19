@@ -5,13 +5,16 @@ import * as serviceWorker from './serviceWorker';
 import './index.module.scss';
 import ThemeProvider from '@tpr/theming';
 import { BrowserRouter as Router } from 'react-router-dom';
+import StateProvider from './StateProvider';
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider>
-      <Router basename={`${process.env.PUBLIC_URL}`}>
-        <App />
-      </Router>
+      <StateProvider>
+        <Router basename={`${process.env.PUBLIC_URL}`}>
+          <App />
+        </Router>
+      </StateProvider>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root'),
