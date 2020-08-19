@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Styles from './Layout.module.scss';
 import { H1, Hr, Flex, P } from '@tpr/core';
 import { Form, FieldProps, renderFields, SeparatorX } from '@tpr/forms';
@@ -6,15 +6,19 @@ import { ArrowButton } from '@tpr/layout';
 import { useHistory } from 'react-router-dom';
 import UserResearchSidebar from '../components/UserResearchSidebar';
 import ScrollToTop from '../components/ScrollToTop';
+import StateContext from '../StateContext';
 
 const ElectronicComsConsent = () => {
+  const appState = useContext(StateContext);
   const history = useHistory();
 
-  const submit = () => {
-    history.push('/');
+  const FIELD_NAME = 'electronicConsent';
+
+  const submit = (values: any) => {
+    appState.setElectronicConsent(values.electronicConsent);
+    history.push('/trustees');
   };
 
-  const FIELD_NAME = 'electronicConsent';
   const fields: FieldProps[] = [
     { name: FIELD_NAME, type: 'radio', value: 'yes', label: 'Yes' },
     { name: FIELD_NAME, type: 'radio', value: 'no', label: 'No' },
@@ -39,7 +43,10 @@ const ElectronicComsConsent = () => {
           </P>
         </Flex>
 
-        <Form onSubmit={submit} initialValues={{ [FIELD_NAME]: 'no' }}>
+        <Form
+          onSubmit={submit}
+          initialValues={{ [FIELD_NAME]: appState.electronicConsent }}
+        >
           {({ handleSubmit }) => (
             <form onSubmit={handleSubmit}>
               <Flex cfg={{ mt: 2, mb: 6, flexDirection: 'column' }}>
