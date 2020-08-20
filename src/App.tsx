@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { AppWidth, DocWidth } from '@tpr/core';
 import { Header, Footer, Highlight, BetaHeader } from '@tpr/layout';
 import { Route, Switch } from 'react-router-dom';
@@ -13,8 +13,11 @@ import ElectronicComsConsent from './views/ElectronicComsConsent';
 import SchemeNameAndAddress from './views/SchemeNameAndAddress';
 import Trustees from './views/Trustees';
 import AddTrustee from './views/AddTrustee';
+import StateContext from './StateContext';
 
 function App() {
+  const AppState = useContext(StateContext);
+
   return (
     <div>
       <BetaHeader text="This is a new service - your feedback will help us improve it." />
@@ -30,7 +33,10 @@ function App() {
           console.log('Logout clicked');
         }}
       />
-      <Highlight name={'Scheme Name: The Best Pension Scheme'} psr={'012161'} />
+      <Highlight
+        name={`Scheme Name: ${AppState.schemeName}`}
+        psr={AppState.psr.toString()}
+      />
 
       <DocWidth>
         <AppWidth>

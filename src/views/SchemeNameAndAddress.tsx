@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Styles from './Layout.module.scss';
 import { H1, Hr, P, H4, Flex, Link as TPRLink, Button } from '@tpr/core';
 import UserResearchSidebar from '../components/UserResearchSidebar';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { ArrowLink, ArrowButton } from '@tpr/layout';
 import { Form, FieldProps, renderFields } from '@tpr/forms';
 import ScrollToTop from '../components/ScrollToTop';
+import StateContext from '../StateContext';
 
 const SchemeNameAndAddress = () => {
+  const appState = useContext(StateContext);
+  const history = useHistory();
   const [findAddress, setFindAddress] = useState(false);
 
   const formFields: FieldProps[][] = [
@@ -50,7 +53,10 @@ const SchemeNameAndAddress = () => {
 
   const [fields, setFields] = useState(formFields);
 
-  const onSubmit = () => console.log('Form submit');
+  const onSubmit = (values: any) => {
+    appState.setSchemeName(values.schemeName);
+    history.push('/scheme-status-and-membership');
+  };
 
   const AddressLookup = () => {
     fields[1][0].options![0].label =
@@ -73,9 +79,15 @@ const SchemeNameAndAddress = () => {
         </Link>
         <H1 cfg={{ mt: 6, mb: 2 }}>Scheme name and address</H1>
         <Hr cfg={{ mt: 6, mb: 8 }} />
-        <Form onSubmit={onSubmit} initialValues={{ postCode: 'BN1 4DW' }}>
+        <Form
+          onSubmit={onSubmit}
+          initialValues={{
+            schemeName: appState.schemeName,
+            postCode: 'BN1 4DW',
+          }}
+        >
           {({ handleSubmit }) => (
-            <form>
+            <form onSubmit={handleSubmit}>
               <Flex cfg={{ flexDirection: 'column', mb: 3 }}>
                 <P cfg={{ mb: 4 }}>
                   These are the scheme details currently held by the regulator.
