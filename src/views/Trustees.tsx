@@ -10,12 +10,13 @@ import ScrollToTop from '../components/ScrollToTop';
 import TrusteeRepository from '../services/TrusteeRepository';
 import { TrusteeProps } from '@tpr/layout/lib/components/cards/trustee/trusteeMachine';
 const Trustees = () => {
-  const submit = () => {
+  const onSubmit = (values: any) => {
     console.log('Submitting form');
   };
 
-  const [complete, setComplete] = useState(false);
+  const [complete] = useState(false);
   const [trustees, setTrustees] = useState(TrusteeRepository.GetAllTrustees());
+  const [correctTrusteeDetails, setCorrectTrusteeDetails] = useState(0);
 
   const callAddressAPI = (a: any) => {
     console.log('Calling an address API...');
