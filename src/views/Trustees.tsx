@@ -88,7 +88,7 @@ const Trustees = () => {
           <AddTrusteeLink />
         </Flex>
         <Hr cfg={{ mb: 8 }} />
-        <Form onSubmit={submit}>
+        <Form onSubmit={onSubmit}>
           {({ handleSubmit }) => (
             <form onSubmit={handleSubmit}>
               <ArrowButton
