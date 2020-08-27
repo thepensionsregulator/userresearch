@@ -105,7 +105,7 @@ const SchemeNameAndAddress = () => {
                   cfg={{
                     mb: 4,
                     p: 3,
-                    bg: 'neutral.1',
+                    bg: 'neutral.3',
                     flexDirection: 'row',
                   }}
                 >

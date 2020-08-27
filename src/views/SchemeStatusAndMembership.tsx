@@ -169,11 +169,11 @@ const SchemeStatusAndMembership = () => {
         >
           {({ handleSubmit }) => (
             <form onSubmit={handleSubmit}>
-              <H4 cfg={{ mb: 2 }}>Scheme status</H4>
+              <H4 cfg={{ mb: 6 }}>Scheme status</H4>
               <SeparatorY>
                 <div>{renderFields(SchemeStatusFields)}</div>
               </SeparatorY>
-              <Flex cfg={{ bg: 'neutral.1', p: 6 }}>
+              <Flex cfg={{ bg: 'neutral.3', p: 6 }}>
                 <FFInputDate
                   name="schemeStatusApplied"
                   label="Date scheme status applied"
@@ -189,10 +189,10 @@ const SchemeStatusAndMembership = () => {
                 />
               </Flex>
 
-              <H4 cfg={{ mb: 2 }}>Scheme Membership</H4>
-              <P cfg={{ mb: 2 }}>Tell us the number of:</P>
+              <H4 cfg={{ mt: 4, mb: 4 }}>Scheme Membership</H4>
+              <P cfg={{ mb: 3 }}>Tell us the number of:</P>
               <div>{renderFields(SchemeMembershipFields)}</div>
-              <Flex cfg={{ bg: 'neutral.1', p: 6 }}>
+              <Flex cfg={{ bg: 'neutral.3', p: 6 }}>
                 <FFInputDate
                   name="dateMembershipEffective"
                   label="Date membership became effective"
