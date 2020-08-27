@@ -44,7 +44,7 @@ const Trustees = () => {
           The following is a list of the trustees we hold for the scheme. It is
           important that our records match the scheme records.
         </P>
-        <Flex cfg={{ p: 4, bg: 'neutral.1', justifyContent: 'space-between' }}>
+        <Flex cfg={{ p: 4, bg: 'neutral.3', justifyContent: 'space-between' }}>
           <P>Total Number of Trustees: {trustees.length}</P>
           <AddTrusteeLink />
         </Flex>

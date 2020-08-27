@@ -24,10 +24,9 @@ const SchemeStatusAndMembership = () => {
     {
       name: RADIO_BUTTON_NAME,
       type: 'radio',
-      label: 'Paid up (frozen)',
-      hint:
-        "No more contributions are due to be paid into the scheme. Existing members' benefits are still held in the scheme.",
-      value: 'paid',
+      label: 'Open to new members',
+      value: 'open',
+      cfg: { mt: 1, mb: 3 },
     },
     {
       name: RADIO_BUTTON_NAME,
@@ -39,9 +38,10 @@ const SchemeStatusAndMembership = () => {
     {
       name: RADIO_BUTTON_NAME,
       type: 'radio',
-      label: 'Open to new members',
-      value: 'open',
-      cfg: { mt: 1, mb: 3 },
+      label: 'Paid up (frozen)',
+      hint:
+        "No more contributions are due to be paid into the scheme. Existing members' benefits are still held in the scheme.",
+      value: 'paid',
     },
     {
       name: RADIO_BUTTON_NAME,
@@ -70,7 +70,7 @@ const SchemeStatusAndMembership = () => {
         }
       },
       inputWidth: 1,
-      cfg: { mb: 3 },
+      cfg: { mb: 5 },
       required: true,
     },
     {
@@ -87,7 +87,7 @@ const SchemeStatusAndMembership = () => {
         }
       },
       inputWidth: 1,
-      cfg: { mb: 3 },
+      cfg: { mb: 5 },
       required: true,
     },
     {
@@ -103,7 +103,7 @@ const SchemeStatusAndMembership = () => {
         }
       },
       inputWidth: 1,
-      cfg: { mb: 3 },
+      cfg: { mb: 5 },
       required: true,
     },
     {
@@ -120,7 +120,7 @@ const SchemeStatusAndMembership = () => {
         }
       },
       inputWidth: 1,
-      cfg: { mb: 3 },
+      cfg: { mb: 5 },
       required: true,
     },
   ];
@@ -150,7 +150,7 @@ const SchemeStatusAndMembership = () => {
         </Link>
         <H1 cfg={{ mb: 2 }}>Scheme status and membership</H1>
         <Hr cfg={{ mt: 6, mb: 8 }} />
-        <P cfg={{ mb: 4 }}>
+        <P cfg={{ mb: 6 }}>
           These are the scheme details currently held by the regulator. Correct
           any details as necessary.
         </P>
@@ -169,11 +169,11 @@ const SchemeStatusAndMembership = () => {
         >
           {({ handleSubmit }) => (
             <form onSubmit={handleSubmit}>
-              <H4 cfg={{ mb: 2 }}>Scheme status</H4>
+              <H4 cfg={{ mb: 6 }}>Scheme status</H4>
               <SeparatorY>
                 <div>{renderFields(SchemeStatusFields)}</div>
               </SeparatorY>
-              <Flex cfg={{ bg: 'neutral.1', p: 6 }}>
+              <Flex cfg={{ bg: 'neutral.3', p: 6 }}>
                 <FFInputDate
                   name="schemeStatusApplied"
                   label="Date scheme status applied"
@@ -189,10 +189,10 @@ const SchemeStatusAndMembership = () => {
                 />
               </Flex>
 
-              <H4 cfg={{ mb: 2 }}>Scheme Membership</H4>
-              <P cfg={{ mb: 2 }}>Tell us the number of:</P>
+              <H4 cfg={{ mt: 4, mb: 4 }}>Scheme Membership</H4>
+              <P cfg={{ mb: 3 }}>Tell us the number of:</P>
               <div>{renderFields(SchemeMembershipFields)}</div>
-              <Flex cfg={{ bg: 'neutral.1', p: 6 }}>
+              <Flex cfg={{ bg: 'neutral.3', p: 6 }}>
                 <FFInputDate
                   name="dateMembershipEffective"
                   label="Date membership became effective"
