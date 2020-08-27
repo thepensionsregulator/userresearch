@@ -96,6 +96,7 @@ const Trustees = () => {
                 pointsTo="right"
                 iconSide="right"
                 title="Save and Continue"
+                disabled={!(correctTrusteeDetails === trustees.length)}
               />
             </form>
           )}
