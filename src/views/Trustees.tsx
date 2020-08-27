@@ -57,7 +57,13 @@ const Trustees = () => {
             onContactSave={updateTrustee}
             onAddressSave={updateTrustee}
             onRemove={removeTrustee}
-            onCorrect={(value: any) => setComplete(value)}
+            onCorrect={(value: any) => {
+              if (value) {
+                setCorrectTrusteeDetails(correctTrusteeDetails + 1);
+              } else {
+                setCorrectTrusteeDetails(correctTrusteeDetails - 1);
+              }
+            }}
             addressAPI={{
               get: (endpoint: any) => callAddressAPI(endpoint),
               limit: 100,
