@@ -24,10 +24,9 @@ const SchemeStatusAndMembership = () => {
     {
       name: RADIO_BUTTON_NAME,
       type: 'radio',
-      label: 'Paid up (frozen)',
-      hint:
-        "No more contributions are due to be paid into the scheme. Existing members' benefits are still held in the scheme.",
-      value: 'paid',
+      label: 'Open to new members',
+      value: 'open',
+      cfg: { mt: 1, mb: 3 },
     },
     {
       name: RADIO_BUTTON_NAME,
@@ -39,9 +38,10 @@ const SchemeStatusAndMembership = () => {
     {
       name: RADIO_BUTTON_NAME,
       type: 'radio',
-      label: 'Open to new members',
-      value: 'open',
-      cfg: { mt: 1, mb: 3 },
+      label: 'Paid up (frozen)',
+      hint:
+        "No more contributions are due to be paid into the scheme. Existing members' benefits are still held in the scheme.",
+      value: 'paid',
     },
     {
       name: RADIO_BUTTON_NAME,
@@ -70,7 +70,7 @@ const SchemeStatusAndMembership = () => {
         }
       },
       inputWidth: 1,
-      cfg: { mb: 3 },
+      cfg: { mb: 5 },
       required: true,
     },
     {
@@ -87,7 +87,7 @@ const SchemeStatusAndMembership = () => {
         }
       },
       inputWidth: 1,
-      cfg: { mb: 3 },
+      cfg: { mb: 5 },
       required: true,
     },
     {
@@ -103,7 +103,7 @@ const SchemeStatusAndMembership = () => {
         }
       },
       inputWidth: 1,
-      cfg: { mb: 3 },
+      cfg: { mb: 5 },
       required: true,
     },
     {
@@ -120,7 +120,7 @@ const SchemeStatusAndMembership = () => {
         }
       },
       inputWidth: 1,
-      cfg: { mb: 3 },
+      cfg: { mb: 5 },
       required: true,
     },
   ];
@@ -150,7 +150,7 @@ const SchemeStatusAndMembership = () => {
         </Link>
         <H1 cfg={{ mb: 2 }}>Scheme status and membership</H1>
         <Hr cfg={{ mt: 6, mb: 8 }} />
-        <P cfg={{ mb: 4 }}>
+        <P cfg={{ mb: 6 }}>
           These are the scheme details currently held by the regulator. Correct
           any details as necessary.
         </P>
