@@ -10,12 +10,13 @@ import ScrollToTop from '../components/ScrollToTop';
 import TrusteeRepository from '../services/TrusteeRepository';
 import { TrusteeProps } from '@tpr/layout/lib/components/cards/trustee/trusteeMachine';
 const Trustees = () => {
-  const submit = () => {
+  const onSubmit = (values: any) => {
     console.log('Submitting form');
   };
 
-  const [complete, setComplete] = useState(false);
+  const complete = false; // Will need to be changed to useState(false) to implement the 'correct' functionality
   const [trustees, setTrustees] = useState(TrusteeRepository.GetAllTrustees());
+  const [correctTrusteeDetails, setCorrectTrusteeDetails] = useState(0);
 
   const callAddressAPI = (a: any) => {
     console.log('Calling an address API...');
@@ -56,7 +57,13 @@ const Trustees = () => {
             onContactSave={updateTrustee}
             onAddressSave={updateTrustee}
             onRemove={removeTrustee}
-            onCorrect={(value: any) => setComplete(value)}
+            onCorrect={(value: boolean) => {
+              if (value) {
+                setCorrectTrusteeDetails(correctTrusteeDetails + 1);
+              } else {
+                setCorrectTrusteeDetails(correctTrusteeDetails - 1);
+              }
+            }}
             addressAPI={{
               get: (endpoint: any) => callAddressAPI(endpoint),
               limit: 100,
@@ -81,7 +88,7 @@ const Trustees = () => {
           <AddTrusteeLink />
         </Flex>
         <Hr cfg={{ mb: 8 }} />
-        <Form onSubmit={submit}>
+        <Form onSubmit={onSubmit}>
           {({ handleSubmit }) => (
             <form onSubmit={handleSubmit}>
               <ArrowButton
@@ -89,6 +96,7 @@ const Trustees = () => {
                 pointsTo="right"
                 iconSide="right"
                 title="Save and Continue"
+                disabled={!(correctTrusteeDetails === trustees.length)}
               />
             </form>
           )}
