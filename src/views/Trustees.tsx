@@ -18,9 +18,32 @@ const Trustees = () => {
   const [trustees, setTrustees] = useState(TrusteeRepository.GetAllTrustees());
   const [correctTrusteeDetails, setCorrectTrusteeDetails] = useState(0);
 
+<<<<<<< HEAD
   const callAddressAPI = (a: any) => {
     console.log('Calling an address API...');
     return Promise.resolve();
+=======
+  const callAddressAPI = (endpoint: string) => {
+    const results = Promise.resolve({
+      data: {
+        results: [
+          {
+            format: 'https://SomeFakeApi124a.dev/v2/someFakeEndpoint1',
+          },
+        ],
+        address: [
+          { addressLine1: 'The Pensions Regulator' },
+          { addressLine2: 'Napier House' },
+          { addressLine3: 'Trafalgar Place' },
+          { locality: 'Brighton' },
+          { province: 'East Sussex' },
+          { postalCode: 'BN1 4DW' },
+          { country: '' },
+        ],
+      },
+    });
+    return results;
+>>>>>>> 851bc335320b83a38f71768dd01dfbd90545a75e
   };
 
   const removeTrustee = (formValues: any, trusteeToRemove: TrusteeInput) => {
