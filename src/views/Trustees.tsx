@@ -14,15 +14,13 @@ const Trustees = () => {
     console.log('Submitting form');
   };
 
-  const complete = false;
+  const complete = false; // Will need to be changed to useState(false) to implement the 'correct' functionality
   const [trustees, setTrustees] = useState(TrusteeRepository.GetAllTrustees());
   const [correctTrusteeDetails, setCorrectTrusteeDetails] = useState(0);
 
   const callAddressAPI = (a: any) => {
     console.log('Calling an address API...');
-    console.log(a);
-
-    return Promise.resolve({ results: { addressLine1: '2 Cromwell' } });
+    return Promise.resolve();
   };
 
   const removeTrustee = (formValues: any, trusteeToRemove: TrusteeInput) => {
