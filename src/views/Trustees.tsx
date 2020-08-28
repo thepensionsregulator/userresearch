@@ -14,7 +14,7 @@ const Trustees = () => {
     console.log('Submitting form');
   };
 
-  const [complete] = useState(false);
+  const complete = false;
   const [trustees, setTrustees] = useState(TrusteeRepository.GetAllTrustees());
   const [correctTrusteeDetails, setCorrectTrusteeDetails] = useState(0);
 
