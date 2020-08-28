@@ -20,7 +20,9 @@ const Trustees = () => {
 
   const callAddressAPI = (a: any) => {
     console.log('Calling an address API...');
-    return Promise.resolve();
+    console.log(a);
+
+    return Promise.resolve({ results: { addressLine1: '2 Cromwell' } });
   };
 
   const removeTrustee = (formValues: any, trusteeToRemove: TrusteeInput) => {
@@ -57,7 +59,7 @@ const Trustees = () => {
             onContactSave={updateTrustee}
             onAddressSave={updateTrustee}
             onRemove={removeTrustee}
-            onCorrect={(value: any) => {
+            onCorrect={(value: boolean) => {
               if (value) {
                 setCorrectTrusteeDetails(correctTrusteeDetails + 1);
               } else {
