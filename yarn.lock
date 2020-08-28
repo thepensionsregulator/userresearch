@@ -1545,10 +1545,10 @@
     tslib "^2.0.0"
     xstate "^4.10.0"
 
-"@tpr/forms@^2.2.5":
-  version "2.2.5"
-  resolved "https://registry.yarnpkg.com/@tpr/forms/-/forms-2.2.5.tgz#1876cbf1a9b71c147579ace66e946a5843bdf4fb"
-  integrity sha512-+M6jrtz0tz+e9UkuFfVWn9rj1aiv2etIJjHoen/0AILOxq/EUA3BkFtpHeElNj8eeJCSEp2z4c9PybKXo56l9Q==
+"@tpr/forms@^2.2.6":
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/@tpr/forms/-/forms-2.2.6.tgz#28a3d0e1413b8633fc849a357819cf3bfefb9a22"
+  integrity sha512-mleeiXMw9TmXvIKaSYACP7EdeFlrvHqLQvpltD5yc2AgQ1ewz6BCLJxzVqDzLr9i+BP8/VkFWzJnVIq0m3XBcg==
   dependencies:
     "@tpr/core" "^2.2.3"
     "@tpr/icons" "^2.2.3"
@@ -1573,10 +1573,10 @@
     "@tpr/core" "^2.2.3"
     tslib "^2.0.0"
 
-"@tpr/layout@^2.2.10":
-  version "2.2.10"
-  resolved "https://registry.yarnpkg.com/@tpr/layout/-/layout-2.2.10.tgz#b1a2cdecc64b80bdf1a142391f513372c39211e2"
-  integrity sha512-QLJwOjbKS+lR/+I/WLKqYyQuX7EyKGBDMsDKpTrxjDtM72SJxqFC9bXHd3GyVG+WA0jSqPybc69wR+7gDb0mLQ==
+"@tpr/layout@^2.2.11":
+  version "2.2.11"
+  resolved "https://registry.yarnpkg.com/@tpr/layout/-/layout-2.2.11.tgz#adcccd4f3e571f91f480909188f0a0ab0475955f"
+  integrity sha512-yLv0E4MG1qAOse0nb2sInA2YjHL2JTQ9jJJRrhB5IOf+f6dRZO4f8M+p+vp82CBwwLeLDCfqa3vraat3McJtDA==
   dependencies:
     "@types/lodash" "^4.14.157"
     "@xstate/react" "^0.8.1"
