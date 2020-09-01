@@ -9,10 +9,13 @@ import { Form } from '@tpr/forms';
 import ScrollToTop from '../components/ScrollToTop';
 import TrusteeRepository from '../services/TrusteeRepository';
 import { TrusteeProps } from '@tpr/layout/lib/components/cards/trustee/trusteeMachine';
+import { useHistory } from 'react-router-dom';
 const Trustees = () => {
   const onSubmit = (values: any) => {
     console.log('Submitting form');
   };
+
+  const history = useHistory();
 
   const complete = false; // Will need to be changed to useState(false) to implement the 'correct' functionality
   const [trustees, setTrustees] = useState(TrusteeRepository.GetAllTrustees());
@@ -43,6 +46,7 @@ const Trustees = () => {
   const removeTrustee = (formValues: any, trusteeToRemove: TrusteeInput) => {
     TrusteeRepository.RemoveTrustee(trusteeToRemove);
     setTrustees([...TrusteeRepository.GetAllTrustees()]);
+    history.push({ search: 'state=trustee-removed' });
     return Promise.resolve();
   };
 
