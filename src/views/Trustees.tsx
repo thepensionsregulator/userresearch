@@ -62,6 +62,12 @@ const Trustees = () => {
     return result;
   };
 
+  const updateContact = (formValues: any, trusteeToUpdate: TrusteeProps) => {
+    const result = updateTrustee(formValues, trusteeToUpdate);
+    history.push({ search: 'state=trustee-contacts-edit' });
+    return result;
+  };
+
   return (
     <div className={Styles.root}>
       <UserResearchSidebar />
@@ -81,7 +87,7 @@ const Trustees = () => {
           <TrusteeCard
             key={trustee.schemeRoleId.toString()}
             onDetailsSave={updateDetails}
-            onContactSave={updateTrustee}
+            onContactSave={updateContact}
             onAddressSave={updateTrustee}
             onRemove={removeTrustee}
             onCorrect={(value: boolean) => {
