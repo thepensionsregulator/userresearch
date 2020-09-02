@@ -20,6 +20,8 @@ const IndividualTrusteeStepZero = (props: any) => {
       name: RADIO_BUTTONS,
       type: 'radio',
       label: 'Corporate',
+      hint:
+        'A corporate trustee will be a company (this may be the employer providing the scheme).',
       value: 'corporate',
     },
   ];
@@ -39,8 +41,10 @@ const IndividualTrusteeStepZero = (props: any) => {
         }}
         cfg={{ mt: 3 }}
       />
-      <H3 cfg={{ mt: 2 }}>Add trustee: Individual</H3>
-      <H1 cfg={{ mt: 2, mb: 3 }}>Type of trustee</H1>
+      <H3 cfg={{ mt: 2 }}>Add trustee</H3>
+      <H1 cfg={{ mt: 2, mb: 3 }}>
+        Are they an individual or a corporate trustee?
+      </H1>
       <Hr cfg={{ mt: 4, mb: 5 }} />
       <H4 cfg={{ mb: 6 }}>Add an individual or corporate trustee?</H4>
       <Form onSubmit={onSubmit}>
