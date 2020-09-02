@@ -81,8 +81,8 @@ const Trustees = () => {
         <H1 cfg={{ mb: 2 }}>Trustee Details</H1>
         <Hr cfg={{ mt: 6, mb: 8 }} />
         <P>
-          The following is a list of the trustees we hold for the scheme. It is
-          important that our records match the scheme records.
+          The following is a list of the trustees we hold for the scheme. Check,
+          amend and add trustees as necessary.
         </P>
         <Flex cfg={{ p: 4, bg: 'neutral.3', justifyContent: 'space-between' }}>
           <P>Total Number of Trustees: {trustees.length}</P>
