@@ -10,6 +10,7 @@ const UserResearchSidebar = () => {
       history={history}
       location={location}
       title={'Scheme return home'}
+      titlePath={'/'}
       matchPath={matchPath}
       sections={[
         {
