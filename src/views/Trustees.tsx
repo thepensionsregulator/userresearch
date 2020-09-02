@@ -9,10 +9,13 @@ import { Form } from '@tpr/forms';
 import ScrollToTop from '../components/ScrollToTop';
 import TrusteeRepository from '../services/TrusteeRepository';
 import { TrusteeProps } from '@tpr/layout/lib/components/cards/trustee/trusteeMachine';
+import { useHistory } from 'react-router-dom';
 const Trustees = () => {
   const onSubmit = (values: any) => {
     console.log('Submitting form');
   };
+
+  const history = useHistory();
 
   const complete = false; // Will need to be changed to useState(false) to implement the 'correct' functionality
   const [trustees, setTrustees] = useState(TrusteeRepository.GetAllTrustees());
@@ -43,6 +46,7 @@ const Trustees = () => {
   const removeTrustee = (formValues: any, trusteeToRemove: TrusteeInput) => {
     TrusteeRepository.RemoveTrustee(trusteeToRemove);
     setTrustees([...TrusteeRepository.GetAllTrustees()]);
+    history.push({ search: 'state=trustee-removed' });
     return Promise.resolve();
   };
 
@@ -50,6 +54,24 @@ const Trustees = () => {
     TrusteeRepository.UpdateTrustee(trusteeToUpdate);
     setTrustees([...TrusteeRepository.GetAllTrustees()]);
     return Promise.resolve();
+  };
+
+  const updateDetails = (formValues: any, trusteeToUpdate: TrusteeProps) => {
+    const result = updateTrustee(formValues, trusteeToUpdate);
+    history.push({ search: 'state=trustee-details-edit' });
+    return result;
+  };
+
+  const updateContact = (formValues: any, trusteeToUpdate: TrusteeProps) => {
+    const result = updateTrustee(formValues, trusteeToUpdate);
+    history.push({ search: 'state=trustee-contacts-edit' });
+    return result;
+  };
+
+  const updateAddress = (formValues: any, trusteeToUpdate: TrusteeProps) => {
+    const result = updateTrustee(formValues, trusteeToUpdate);
+    history.push({ search: 'state=trustee-address-edit' });
+    return result;
   };
 
   return (
@@ -70,9 +92,9 @@ const Trustees = () => {
         {trustees.map((trustee) => (
           <TrusteeCard
             key={trustee.schemeRoleId.toString()}
-            onDetailsSave={updateTrustee}
-            onContactSave={updateTrustee}
-            onAddressSave={updateTrustee}
+            onDetailsSave={updateDetails}
+            onContactSave={updateContact}
+            onAddressSave={updateAddress}
             onRemove={removeTrustee}
             onCorrect={(value: boolean) => {
               if (value) {
