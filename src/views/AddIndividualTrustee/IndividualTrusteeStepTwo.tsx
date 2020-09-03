@@ -2,7 +2,7 @@ import React from 'react';
 import Styles from '../Layout.module.scss';
 import { ArrowLink, ArrowButton } from '@tpr/layout';
 import { useHistory } from 'react-router-dom';
-import { H1, H3, Hr, H4, P } from '@tpr/core';
+import { H1, H3, Hr, H4, P, Link } from '@tpr/core';
 import {
   Form,
   SeparatorY,
@@ -98,8 +98,16 @@ const IndividualTrusteeStepTwo = (props: any) => {
               the scheme (or any employer in the same corporate group).
             </P>
             <P cfg={{ mb: 3 }}>
-              Please see our professional trustee description policy for a more
-              detailed explanation and examples
+              Please see our{' '}
+              <Link>
+                <a
+                  href="https://www.thepensionsregulator.gov.uk/docs/professional-trustee-description-policy.pdf"
+                  target="_blank"
+                >
+                  professional trustee description policy
+                </a>
+              </Link>{' '}
+              for a more detailed explanation and examples.
             </P>
             <Hr cfg={{ mt: 9, mb: 5 }} />
             <ArrowButton
