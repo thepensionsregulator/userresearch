@@ -2,7 +2,7 @@ import React from 'react';
 import Styles from '../Layout.module.scss';
 import { ArrowLink, ArrowButton } from '@tpr/layout';
 import { useHistory } from 'react-router-dom';
-import { H3, H1, Hr } from '@tpr/core';
+import { H3, H1, Hr, Flex, P, Button } from '@tpr/core';
 import { Form, renderFields, FieldProps } from '@tpr/forms';
 import ScrollToTop from '../../components/ScrollToTop';
 
@@ -66,6 +66,19 @@ const IndividualTrusteeStepThree = (props: any) => {
     },
   ];
 
+  const postCode: FieldProps[] = [
+    {
+      type: 'text',
+      name: 'postcode',
+      label: 'Postcode',
+      inputWidth: 2,
+      validate: (value) => {
+        if (!value) return 'Enter a postcode';
+      },
+      cfg: { py: 3, my: 2 },
+    },
+  ];
+
   const onSubmit = (values: any) => {
     props.setNewTrustee({ ...props.newTrustee, ...values });
     props.nextPage();
@@ -86,16 +99,26 @@ const IndividualTrusteeStepThree = (props: any) => {
       <Form onSubmit={onSubmit}>
         {({ handleSubmit, valid }) => (
           <form onSubmit={handleSubmit}>
-            {renderFields(fields)}
+            <Flex cfg={{ p: 5, bg: 'neutral.3', flexDirection: 'column' }}>
+              <P cfg={{ mt: 1 }}>
+                Enter the postcode of the trustee's address.
+              </P>
+              {renderFields(postCode)}
+              <Flex>
+                <Button type="submit" size="medium">
+                  Find address
+                </Button>
+              </Flex>
+            </Flex>
             <Hr cfg={{ mt: 8, mb: 4 }} />
-            <ArrowButton
+            {/* <ArrowButton
               type="submit"
               iconSide="right"
               pointsTo="right"
               title="Continue"
               cfg={{ my: 4 }}
               disabled={!valid}
-            />
+            /> */}
           </form>
         )}
       </Form>
