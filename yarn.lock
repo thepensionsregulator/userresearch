@@ -1573,10 +1573,10 @@
     "@tpr/core" "^2.2.3"
     tslib "^2.0.0"
 
-"@tpr/layout@^2.2.11":
-  version "2.2.11"
-  resolved "https://registry.yarnpkg.com/@tpr/layout/-/layout-2.2.11.tgz#adcccd4f3e571f91f480909188f0a0ab0475955f"
-  integrity sha512-yLv0E4MG1qAOse0nb2sInA2YjHL2JTQ9jJJRrhB5IOf+f6dRZO4f8M+p+vp82CBwwLeLDCfqa3vraat3McJtDA==
+"@tpr/layout@^2.2.12":
+  version "2.2.12"
+  resolved "https://registry.yarnpkg.com/@tpr/layout/-/layout-2.2.12.tgz#6ce3d051b21d75f4e6b3471759add10ccf7fba4e"
+  integrity sha512-qsDWgHrbmshJp/EB9FWTu1V4axefTwGNFvKul8qjWzicHDxdqaLQWe8zhAgHP37sgE1iBAICOwtzUnEVkVSBdA==
   dependencies:
     "@types/lodash" "^4.14.157"
     "@xstate/react" "^0.8.1"
