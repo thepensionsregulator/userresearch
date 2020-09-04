@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Styles from '../Layout.module.scss';
-import { ArrowLink, ArrowButton } from '@tpr/layout';
+import { ArrowLink } from '@tpr/layout';
 import { useHistory } from 'react-router-dom';
-import { H3, H1, Hr, Flex, P, Button } from '@tpr/core';
-import { Form, renderFields, FieldProps, FFSelect } from '@tpr/forms';
+import { H3, H1, Hr } from '@tpr/core';
+import { Form, FieldProps } from '@tpr/forms';
 import ScrollToTop from '../../components/ScrollToTop';
+import PostcodeSearch from '../AddressForm/PostcodeSearch';
+import AddressSelect from '../AddressForm/AddressSelect';
+import AddressConfirmation from '../AddressForm/AddressConfirmation';
 
 const IndividualTrusteeStepThree = (props: any) => {
   const history = useHistory();
@@ -83,8 +86,7 @@ const IndividualTrusteeStepThree = (props: any) => {
     {
       name: 'addressSelect',
       type: 'select',
-      label: 'select address',
-      inputWidth: 6,
+      label: 'Address',
       options: [
         {
           label: 'The Pensions Regulator, Napier House, Trafalgar Place',
@@ -100,6 +102,34 @@ const IndividualTrusteeStepThree = (props: any) => {
       ],
     },
   ];
+
+  const [step, setStep] = useState<'step-0' | 'step-1' | 'step-2'>('step-0');
+
+  const DisplayForm = () => {
+    switch (step) {
+      case 'step-0':
+        return (
+          <PostcodeSearch
+            nextStep={() => setStep('step-1')}
+            postcode="CM12 0AG"
+          />
+        );
+
+      case 'step-1':
+        return (
+          <AddressSelect
+            prevStep={() => setStep('step-0')}
+            nextStep={() => setStep('step-2')}
+          />
+        );
+
+      case 'step-2':
+        return <AddressConfirmation firstStep={() => setStep('step-0')} />;
+      default:
+        console.warn('Invalid step');
+        break;
+    }
+  };
 
   const onSubmit = (values: any) => {
     props.setNewTrustee({ ...props.newTrustee, ...values });
@@ -118,34 +148,14 @@ const IndividualTrusteeStepThree = (props: any) => {
       <H3 cfg={{ mt: 2 }}>Add trustee: Individual</H3>
       <H1 cfg={{ mt: 2, mb: 3 }}>What is this trustee's address?</H1>
       <Hr cfg={{ mt: 4, mb: 5 }} />
-      <Form onSubmit={onSubmit}>
-        {({ handleSubmit, valid }) => (
-          <form onSubmit={handleSubmit}>
-            <Flex cfg={{ p: 5, bg: 'neutral.3', flexDirection: 'column' }}>
-              <P cfg={{ mt: 1 }}>
-                Enter the postcode of the trustee's address.
-              </P>
-              {renderFields(postCode)}
-              <Flex>
-                <Button type="submit" size="medium" disabled={!valid}>
-                  Find address
-                </Button>
-              </Flex>
-            </Flex>
-            {renderFields(addressSelect)}
-            {renderFields(fields)}
-            <Hr cfg={{ mt: 8, mb: 4 }} />
-            <ArrowButton
-              type="submit"
-              iconSide="right"
-              pointsTo="right"
-              title="Continue"
-              cfg={{ my: 4 }}
-              disabled={!valid}
-            />
-          </form>
-        )}
+      <Form
+        onSubmit={() => {
+          console.log('submitting');
+        }}
+      >
+        {() => DisplayForm()}
       </Form>
+      <Hr cfg={{ mt: 4, mb: 5 }} />
       <ScrollToTop />
     </div>
   );
