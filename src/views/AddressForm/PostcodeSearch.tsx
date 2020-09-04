@@ -1,14 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Flex, P, Button } from '@tpr/core';
 import { Form, FFInputText } from '@tpr/forms';
+import AddressContext from '../../AddressContext';
 
 const PostcodeSearch = (props: any) => {
   const FIELD_NAME = 'postCode';
 
+  const addressContext = useContext(AddressContext);
+
+  const submitForm = (values: any) => {
+    console.log('Submitting form');
+    console.log(values);
+    props.nextStep();
+  };
+
   return (
     <div>
       <Form
-        onSubmit={() => console.log('submitting')}
+        onSubmit={(values: any) => submitForm(values)}
         initialValues={{ [FIELD_NAME]: props.postcode || 'CM11 0AA' }}
       >
         {({ handleSubmit }) => (
@@ -32,13 +41,7 @@ const PostcodeSearch = (props: any) => {
                 value
               />
               <Flex cfg={{ my: 3 }}>
-                <Button
-                  onClick={() => {
-                    props.nextStep();
-                  }}
-                >
-                  Find address
-                </Button>
+                <Button type="submit">Find address</Button>
               </Flex>
             </Flex>
           </form>

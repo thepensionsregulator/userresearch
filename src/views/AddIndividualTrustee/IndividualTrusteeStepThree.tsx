@@ -9,6 +9,8 @@ import PostcodeSearch from '../AddressForm/PostcodeSearch';
 import AddressSelect from '../AddressForm/AddressSelect';
 import AddressConfirmation from '../AddressForm/AddressConfirmation';
 
+export const AddressContext = React.createContext({});
+
 const IndividualTrusteeStepThree = (props: any) => {
   const history = useHistory();
 
