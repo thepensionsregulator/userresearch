@@ -3,7 +3,7 @@ import Styles from '../Layout.module.scss';
 import { ArrowLink, ArrowButton } from '@tpr/layout';
 import { useHistory } from 'react-router-dom';
 import { H3, H1, Hr, Flex, P, Button } from '@tpr/core';
-import { Form, renderFields, FieldProps } from '@tpr/forms';
+import { Form, renderFields, FieldProps, FFSelect } from '@tpr/forms';
 import ScrollToTop from '../../components/ScrollToTop';
 
 const IndividualTrusteeStepThree = (props: any) => {
@@ -79,6 +79,28 @@ const IndividualTrusteeStepThree = (props: any) => {
     },
   ];
 
+  const addressSelect: FieldProps[] = [
+    {
+      name: 'addressSelect',
+      type: 'select',
+      label: 'select address',
+      inputWidth: 6,
+      options: [
+        {
+          label: 'The Pensions Regulator, Napier House, Trafalgar Place',
+          value: {
+            addressLine1: 'The Pensions Regulator',
+            addressLine2: 'Napier House',
+            addressLine3: 'Trafalgar Place',
+            postTown: 'Brighton',
+            postcode: 'BN1 4AA',
+            county: 'East Sussex',
+          },
+        },
+      ],
+    },
+  ];
+
   const onSubmit = (values: any) => {
     props.setNewTrustee({ ...props.newTrustee, ...values });
     props.nextPage();
@@ -105,20 +127,22 @@ const IndividualTrusteeStepThree = (props: any) => {
               </P>
               {renderFields(postCode)}
               <Flex>
-                <Button type="submit" size="medium">
+                <Button type="submit" size="medium" disabled={!valid}>
                   Find address
                 </Button>
               </Flex>
             </Flex>
+            {renderFields(addressSelect)}
+            {renderFields(fields)}
             <Hr cfg={{ mt: 8, mb: 4 }} />
-            {/* <ArrowButton
+            <ArrowButton
               type="submit"
               iconSide="right"
               pointsTo="right"
               title="Continue"
               cfg={{ my: 4 }}
               disabled={!valid}
-            /> */}
+            />
           </form>
         )}
       </Form>
