@@ -1,9 +1,9 @@
-import { TrusteeInput } from '@tpr/layout/lib/components/cards/trustee/context';
+import { Trustee } from '@tpr/layout/lib/components/cards/trustee/context';
 
 interface ITrusteeRepository {
-  GetAllTrustees(): TrusteeInput[] | undefined;
-  GetTrustee(id: string): TrusteeInput;
-  WriteTrustee(trustee: TrusteeInput): void;
+  GetAllTrustees(): Trustee[] | undefined;
+  GetTrustee(id: string): Trustee;
+  WriteTrustee(trustee: Trustee): void;
   RemoveTrustee(trustee: any): void;
   UpdateTrustee(trustee: any): void;
 }
