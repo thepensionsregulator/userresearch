@@ -80,7 +80,7 @@ const Trustees = () => {
       <div className={Styles.main}>
         <H1 cfg={{ mb: 2 }}>Trustee Details</H1>
         <Hr cfg={{ mt: 6, mb: 8 }} />
-        <P>
+        <P cfg={{ mb: 3 }}>
           The following is a list of the trustees we hold for the scheme. Check,
           amend and add trustees as necessary.
         </P>
