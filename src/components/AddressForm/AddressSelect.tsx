@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, P, Link, Hr, Button } from '@tpr/core';
+import { Flex, P, Link, Hr } from '@tpr/core';
 import { FFSelect } from '@tpr/forms';
 import { ArrowButton } from '@tpr/layout';
 
