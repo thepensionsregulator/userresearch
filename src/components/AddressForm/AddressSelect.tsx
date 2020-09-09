@@ -57,7 +57,6 @@ const AddressSelect = (props: any) => {
     addressContext.setPostcode(values.addressSelect.value.postcode);
     addressContext.setCounty(values.addressSelect.value.county);
     addressContext.setCountry(values.addressSelect.value.country);
-    console.log(values);
     props.nextStep();
   };
 
