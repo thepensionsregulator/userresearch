@@ -4,7 +4,7 @@ import { H1, Hr, P, Flex, H2 } from '@tpr/core';
 import UserResearchSidebar from '../components/UserResearchSidebar';
 import AddTrusteeLink from '../components/AddTrusteeLink';
 import { TrusteeCard, ArrowButton } from '@tpr/layout';
-import { TrusteeInput } from '@tpr/layout/lib/components/cards/trustee/context';
+import { Trustee } from '@tpr/layout/lib/components/cards/trustee/context';
 import { Form } from '@tpr/forms';
 import ScrollToTop from '../components/ScrollToTop';
 import TrusteeRepository from '../services/TrusteeRepository';
@@ -43,7 +43,7 @@ const Trustees = () => {
     return results;
   };
 
-  const removeTrustee = (formValues: any, trusteeToRemove: TrusteeInput) => {
+  const removeTrustee = (formValues: any, trusteeToRemove: Trustee) => {
     TrusteeRepository.RemoveTrustee(trusteeToRemove);
     setTrustees([...TrusteeRepository.GetAllTrustees()]);
     history.push({ search: 'state=trustee-removed' });
