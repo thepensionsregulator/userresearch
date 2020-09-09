@@ -1,34 +1,96 @@
-import React from 'react';
-import { Flex, P, Link, H3 } from '@tpr/core';
-import { FFInputText } from '@tpr/forms';
+import React, { useContext } from 'react';
+import { Flex, P, Link, H3, Hr } from '@tpr/core';
+import { Form, FieldProps, renderFields } from '@tpr/forms';
 
-const AddressConfirmation = (props: any) => {
+import { ArrowButton } from '@tpr/layout';
+import AddressContext from './AddressContext';
+import { CardAddress } from '@tpr/layout/lib/components/cards/common/interfaces';
+const AddressConfirmation = (props: {
+  firstStep: () => void;
+  saveAddress: (address: CardAddress) => void;
+  nextStep: () => void;
+}) => {
+  const addressLine1FieldName = 'addressLine1';
+  const addressLine2FieldName = 'addressLine2';
+
+  const addressFields: FieldProps[] = [
+    {
+      type: 'text',
+      name: addressLine1FieldName,
+      label: 'Address Line 1',
+      validate: (value) => {
+        if (!value) return 'Address Line 1 required';
+      },
+    },
+    { type: 'text', name: addressLine2FieldName, label: 'Address Line 2' },
+  ];
+
+  const addressContext = useContext(AddressContext);
+
+  const onSubmit = (values: any) => {
+    addressContext.setAddressLine1(values.addressLine1);
+    addressContext.setAddressLine2(values.addressLine2);
+    props.saveAddress({
+      addressLine1: addressContext.addressLine1,
+      addressLine2: addressContext.addressLine2,
+      addressLine3: addressContext.addressLine3,
+      postTown: addressContext.postTown,
+      postcode: addressContext.postcode,
+      county: addressContext.county,
+      country: addressContext.country,
+      countryId: addressContext.country,
+    });
+    props.nextStep();
+  };
+
   return (
-    <Flex cfg={{ flexDirection: 'column' }}>
-      <H3>Trustee correspondence address</H3>
-      <P>
-        We'll use this address when we need to get in touch with this trustee.
-      </P>
-      <FFInputText name="addressLine1" label="Address line 1" />
-      <FFInputText name="addressLine2" label="Address line 2" />
-      <FFInputText name="addressLine3" label="Address line 3" />
-      <P>Post town</P>
-      <P>{props.posttown || 'Billericay'}</P>
-      <P>County</P>
-      <P>{props.county || 'Essex'}</P>
-      <P>Postcode</P>
-      <P>{props.postcode || 'CM12 0AG'}</P>
-      <P>Country</P>
-      <P>Uk</P>
-      <Link
-        underline
-        onClick={() => {
-          props.firstStep();
-        }}
-      >
-        I need to change the address
-      </Link>
-    </Flex>
+    <Form
+      onSubmit={(values: any) => onSubmit(values)}
+      initialValues={{
+        [addressLine1FieldName]: addressContext.addressLine1,
+        [addressLine2FieldName]: addressContext.addressLine2,
+      }}
+    >
+      {({ handleSubmit }) => (
+        <form onSubmit={handleSubmit}>
+          <Flex cfg={{ flexDirection: 'column' }}>
+            <H3>Trustee correspondence address</H3>
+            <P>
+              We'll use this address when we need to get in touch with this
+              trustee.
+            </P>
+            {renderFields(addressFields)}
+            <P>Address line 3</P>
+            <P>{addressContext.addressLine3}</P>
+            <P>Post Town</P>
+            <P>{addressContext.postTown}</P>
+            <P>County</P>
+            <P>{addressContext.county}</P>
+            <P>Postcode</P>
+            <P>{addressContext.postcode}</P>
+            <P>Country</P>
+            <P>{addressContext.country}</P>
+            <Flex cfg={{ justifyContent: 'flex-start' }}>
+              <Link
+                underline
+                onClick={() => {
+                  props.firstStep();
+                }}
+              >
+                I need to change the address
+              </Link>
+            </Flex>
+          </Flex>
+          <Hr cfg={{ mt: 4, mb: 5 }} />
+          <ArrowButton
+            type="submit"
+            title="Save and continue"
+            iconSide="right"
+            pointsTo="right"
+          />
+        </form>
+      )}
+    </Form>
   );
 };
 
