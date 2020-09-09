@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import Styles from '../Layout.module.scss';
 import { ArrowLink } from '@tpr/layout';
 import { useHistory } from 'react-router-dom';
-import { H3, H1, Hr, Flex } from '@tpr/core';
-import { Form, FieldProps } from '@tpr/forms';
+import { H3, H1, Hr } from '@tpr/core';
 import ScrollToTop from '../../components/ScrollToTop';
 import PostcodeSearch from '../../components/AddressForm/PostcodeSearch';
 import AddressSelect from '../../components/AddressForm/AddressSelect';
@@ -13,97 +12,6 @@ import { CardAddress } from '@tpr/layout/lib/components/cards/common/interfaces'
 
 const IndividualTrusteeStepThree = (props: any) => {
   const history = useHistory();
-
-  const fields: FieldProps[] = [
-    {
-      type: 'text',
-      inputWidth: 5,
-      name: 'addressLine1',
-      label: 'Address line 1',
-      cfg: { my: 5 },
-      validate: (values) => {
-        if (!values) return 'Enter address line 1';
-      },
-    },
-    {
-      type: 'text',
-      inputWidth: 5,
-      name: 'addressLine2',
-      label: 'Address line 2',
-      cfg: { my: 5 },
-      validate: (_) => {},
-    },
-    {
-      type: 'text',
-      inputWidth: 5,
-      name: 'addressLine3',
-      label: 'Address line 3',
-      cfg: { my: 5 },
-      validate: (_) => {},
-    },
-    {
-      type: 'text',
-      inputWidth: 5,
-      name: 'postTown',
-      label: 'Post town',
-      cfg: { my: 5 },
-      validate: (values) => {
-        if (!values) return 'Enter post town';
-      },
-    },
-    {
-      type: 'text',
-      inputWidth: 5,
-      name: 'county',
-      label: 'County',
-      cfg: { my: 5 },
-      validate: (_) => {},
-    },
-    {
-      type: 'text',
-      inputWidth: 5,
-      name: 'postcode',
-      label: 'Post code',
-      cfg: { my: 5 },
-      validate: (values) => {
-        if (!values) return 'Enter postcode';
-      },
-    },
-  ];
-
-  const postCode: FieldProps[] = [
-    {
-      type: 'text',
-      name: 'postcode',
-      label: 'Postcode',
-      inputWidth: 2,
-      validate: (value) => {
-        if (!value) return 'Enter a postcode';
-      },
-      cfg: { py: 3, my: 2 },
-    },
-  ];
-
-  const addressSelect: FieldProps[] = [
-    {
-      name: 'addressSelect',
-      type: 'select',
-      label: 'Address',
-      options: [
-        {
-          label: 'The Pensions Regulator, Napier House, Trafalgar Place',
-          value: {
-            addressLine1: 'The Pensions Regulator',
-            addressLine2: 'Napier House',
-            addressLine3: 'Trafalgar Place',
-            postTown: 'Brighton',
-            postcode: 'BN1 4AA',
-            county: 'East Sussex',
-          },
-        },
-      ],
-    },
-  ];
 
   const [step, setStep] = useState<'step-0' | 'step-1' | 'step-2'>('step-0');
 
@@ -141,11 +49,6 @@ const IndividualTrusteeStepThree = (props: any) => {
         console.warn('Invalid step');
         break;
     }
-  };
-
-  const onSubmit = (values: any) => {
-    props.setNewTrustee({ ...props.newTrustee, ...values });
-    props.nextPage();
   };
 
   return (
