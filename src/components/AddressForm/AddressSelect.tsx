@@ -78,7 +78,7 @@ const AddressSelect = (props: any) => {
             <P tag="b">Postcode</P>
             <Flex cfg={{ mt: 3 }}>
               <P tag="b" cfg={{ mr: 1 }}>
-                {addressContext.postcode.toString()}
+                {addressContext.postcode}
               </P>
               <Link underline={true} onClick={() => props.prevStep()}>
                 Change
