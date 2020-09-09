@@ -72,7 +72,7 @@ const AddressSelect = (props: any) => {
         },
       }}
     >
-      {({ handleSubmit }) => (
+      {({ handleSubmit, pristine }) => (
         <form onSubmit={handleSubmit}>
           <Flex cfg={{ bg: 'neutral.3', flexDirection: 'column', p: 6 }}>
             <P tag="b">Postcode</P>
@@ -96,6 +96,7 @@ const AddressSelect = (props: any) => {
             iconSide="right"
             pointsTo="right"
             title="Continue"
+            disabled={pristine}
           />
         </form>
       )}
