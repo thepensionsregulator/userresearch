@@ -39,7 +39,6 @@ const IndividualTrusteeStepFour = (props: any) => {
 
   const onSubmit = (values: any) => {
     TrusteeRepository.WriteTrustee({ ...props.newTrustee, ...values });
-    console.log('trustee added');
     history.push({ pathname: '/trustees', search: 'state=trustee-added' });
   };
 

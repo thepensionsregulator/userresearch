@@ -28,8 +28,6 @@ const AddressConfirmation = (props: {
   const addressContext = useContext(AddressContext);
 
   const onSubmit = (values: any) => {
-    console.log(values.addressLine1);
-    console.log(values.addressLine2);
     addressContext.setAddressLine1(values.addressLine1);
     addressContext.setAddressLine2(values.addressLine2);
     props.saveAddress({
