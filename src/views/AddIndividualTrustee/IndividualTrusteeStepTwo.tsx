@@ -103,6 +103,7 @@ const IndividualTrusteeStepTwo = (props: any) => {
                 <a
                   href="https://www.thepensionsregulator.gov.uk/docs/professional-trustee-description-policy.pdf"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   professional trustee description policy
                 </a>
