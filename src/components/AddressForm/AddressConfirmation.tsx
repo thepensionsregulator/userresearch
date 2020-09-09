@@ -60,16 +60,16 @@ const AddressConfirmation = (props: {
               trustee.
             </P>
             {renderFields(addressFields)}
-            <P>Address line 3</P>
-            <P>{addressContext.addressLine3}</P>
-            <P>Post Town</P>
-            <P>{addressContext.postTown}</P>
-            <P>County</P>
-            <P>{addressContext.county}</P>
-            <P>Postcode</P>
-            <P>{addressContext.postcode}</P>
-            <P>Country</P>
-            <P>{addressContext.country}</P>
+            <P cfg={{ mt: 2 }}>Address line 3</P>
+            <P cfg={{ mt: 1 }}>{addressContext.addressLine3}</P>
+            <P cfg={{ mt: 6 }}>Post Town</P>
+            <P cfg={{ mt: 1 }}>{addressContext.postTown}</P>
+            <P cfg={{ mt: 6 }}>County</P>
+            <P cfg={{ mt: 1 }}>{addressContext.county}</P>
+            <P cfg={{ mt: 6 }}>Postcode</P>
+            <P cfg={{ mt: 1 }}>{addressContext.postcode}</P>
+            <P cfg={{ mt: 6 }}>Country</P>
+            <P cfg={{ mt: 1 }}>{addressContext.country}</P>
             <Flex cfg={{ justifyContent: 'flex-start' }}>
               <Link
                 underline
