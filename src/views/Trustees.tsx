@@ -17,7 +17,6 @@ const Trustees = () => {
 
   const onSubmit = (values: any) => {
     dispatch({ type: 'COMPLETE', index: 3 });
-    history.push('/scheme-name-and-address');
   };
 
   const complete = false;
