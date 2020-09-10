@@ -17,6 +17,7 @@ const Trustees = () => {
 
   const onSubmit = (values: any) => {
     dispatch({ type: 'COMPLETE', index: 3 });
+    history.push({ search: 'state=trustee-form-submitted' });
   };
 
   const complete = false;
