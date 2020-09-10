@@ -10,7 +10,7 @@ const SidebarProvider = (props: any) => {
       switch (action.type) {
         case 'COMPLETE':
           sectionCompletedState[action.index] = true;
-          return sectionCompletedState;
+          return { ...sectionCompletedState };
       }
     },
     sectionCompletedState,
