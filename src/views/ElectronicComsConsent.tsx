@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom';
 import UserResearchSidebar from '../components/UserResearchSidebar';
 import ScrollToTop from '../components/ScrollToTop';
 import StateContext from '../StateContext';
+import SidebarContext from '../components/SidebarContext';
 
 const ElectronicComsConsent = () => {
   const appState = useContext(StateContext);
@@ -14,8 +15,11 @@ const ElectronicComsConsent = () => {
 
   const FIELD_NAME = 'electronicConsent';
 
+  const { dispatch } = useContext(SidebarContext);
+
   const submit = (values: any) => {
     appState.setElectronicConsent(values.electronicConsent);
+    dispatch({ type: 'COMPLETE', index: 2 });
     history.push('/trustees');
   };
 

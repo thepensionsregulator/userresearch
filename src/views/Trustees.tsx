@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Styles from './Layout.module.scss';
 import { H1, Hr, P, Flex, H2 } from '@tpr/core';
 import UserResearchSidebar from '../components/UserResearchSidebar';
@@ -10,14 +10,17 @@ import ScrollToTop from '../components/ScrollToTop';
 import TrusteeRepository from '../services/TrusteeRepository';
 import { TrusteeProps } from '@tpr/layout/lib/components/cards/trustee/trusteeMachine';
 import { useHistory } from 'react-router-dom';
+import SidebarContext from '../components/SidebarContext';
 const Trustees = () => {
-  const onSubmit = (values: any) => {
-    console.log('Submitting form');
-  };
-
+  const { dispatch } = useContext(SidebarContext);
   const history = useHistory();
 
-  const complete = false; // Will need to be changed to useState(false) to implement the 'correct' functionality
+  const onSubmit = (values: any) => {
+    dispatch({ type: 'COMPLETE', index: 3 });
+    history.push('/scheme-name-and-address');
+  };
+
+  const complete = false;
   const [trustees, setTrustees] = useState(TrusteeRepository.GetAllTrustees());
   const [correctTrusteeDetails, setCorrectTrusteeDetails] = useState(0);
 

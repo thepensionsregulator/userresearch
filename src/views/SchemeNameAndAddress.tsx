@@ -7,6 +7,7 @@ import { ArrowLink, ArrowButton } from '@tpr/layout';
 import { Form, FieldProps, renderFields } from '@tpr/forms';
 import ScrollToTop from '../components/ScrollToTop';
 import StateContext from '../StateContext';
+import SidebarContext from '../components/SidebarContext';
 
 const SchemeNameAndAddress = () => {
   const appState = useContext(StateContext);
@@ -53,8 +54,11 @@ const SchemeNameAndAddress = () => {
 
   const [fields, setFields] = useState(formFields);
 
+  const { dispatch } = useContext(SidebarContext);
+
   const onSubmit = (values: any) => {
     appState.setSchemeName(values.schemeName);
+    dispatch({ type: 'COMPLETE', index: 0 });
     history.push('/scheme-status-and-membership');
   };
 
