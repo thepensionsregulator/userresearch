@@ -1,9 +1,9 @@
 import ITrusteeRepository from './ITrusteeRepository';
-import { TrusteeInput } from '@tpr/layout/lib/components/cards/trustee/context';
+import { Trustee } from '@tpr/layout/lib/components/cards/trustee/context';
 import Data from '../data.json';
 
 class TrusteeRepository implements ITrusteeRepository {
-  WriteTrustee(trustee: TrusteeInput): void {
+  WriteTrustee(trustee: Trustee): void {
     const toWrite = {
       ...trustee,
       id: this.getRandomInt(1000).toString(),
@@ -14,13 +14,14 @@ class TrusteeRepository implements ITrusteeRepository {
     Data.trustees.push(toWrite);
   }
 
-  GetAllTrustees(): TrusteeInput[] {
+  GetAllTrustees(): Trustee[] {
     const trustees = Data.trustees;
     return trustees;
   }
 
-  GetTrustee(id: string): TrusteeInput {
-    const trustee = Data.trustees.find((x) => x.id === id);
+  GetTrustee(id: string): Trustee {
+    const result = Data.trustees.find((x) => x.id === id);
+    const trustee: Trustee = { ...result };
     return trustee;
   }
 

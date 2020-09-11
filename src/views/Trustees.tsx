@@ -4,7 +4,7 @@ import { H1, Hr, P, Flex, H2 } from '@tpr/core';
 import UserResearchSidebar from '../components/UserResearchSidebar';
 import AddTrusteeLink from '../components/AddTrusteeLink';
 import { TrusteeCard, ArrowButton } from '@tpr/layout';
-import { TrusteeInput } from '@tpr/layout/lib/components/cards/trustee/context';
+import { Trustee } from '@tpr/layout/lib/components/cards/trustee/context';
 import { Form } from '@tpr/forms';
 import ScrollToTop from '../components/ScrollToTop';
 import TrusteeRepository from '../services/TrusteeRepository';
@@ -43,7 +43,7 @@ const Trustees = () => {
     return results;
   };
 
-  const removeTrustee = (formValues: any, trusteeToRemove: TrusteeInput) => {
+  const removeTrustee = (formValues: any, trusteeToRemove: Trustee) => {
     TrusteeRepository.RemoveTrustee(trusteeToRemove);
     setTrustees([...TrusteeRepository.GetAllTrustees()]);
     history.push({ search: 'state=trustee-removed' });
@@ -80,9 +80,9 @@ const Trustees = () => {
       <div className={Styles.main}>
         <H1 cfg={{ mb: 2 }}>Trustee Details</H1>
         <Hr cfg={{ mt: 6, mb: 8 }} />
-        <P>
-          The following is a list of the trustees we hold for the scheme. It is
-          important that our records match the scheme records.
+        <P cfg={{ mb: 3 }}>
+          The following is a list of the trustees we hold for the scheme. Check,
+          amend and add trustees as necessary.
         </P>
         <Flex cfg={{ p: 4, bg: 'neutral.3', justifyContent: 'space-between' }}>
           <P>Total Number of Trustees: {trustees.length}</P>
