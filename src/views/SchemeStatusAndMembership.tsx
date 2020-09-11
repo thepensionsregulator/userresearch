@@ -14,6 +14,7 @@ import UserResearchSidebar from '../components/UserResearchSidebar';
 import { Link, useHistory } from 'react-router-dom';
 import ScrollToTop from '../components/ScrollToTop';
 import StateContext from '../StateContext';
+import SidebarContext from '../components/SidebarContext';
 const SchemeStatusAndMembership = () => {
   const appState = useContext(StateContext);
   const history = useHistory();
@@ -125,6 +126,8 @@ const SchemeStatusAndMembership = () => {
     },
   ];
 
+  const { dispatch } = useContext(SidebarContext);
+
   const onSubmit = (values: any) => {
     appState.setSchemeStatus(values.schemeStatus);
     appState.setSchemeStatusApplied(values.schemeStatusApplied);
@@ -133,6 +136,7 @@ const SchemeStatusAndMembership = () => {
     appState.setPensionerMembers(values.pensionerMembers);
     appState.setTotalMembers(values.totalMembers);
     appState.setMembershipEffective(values.dateMembershipEffective);
+    dispatch({ type: 'COMPLETE', index: 1 });
     history.push('/consent-to-electronic-communication');
   };
 

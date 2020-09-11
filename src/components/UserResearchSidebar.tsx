@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Sidebar } from '@tpr/layout';
 import { useLocation, useHistory, matchPath } from 'react-router-dom';
+import SidebarContext from './SidebarContext';
 
 const UserResearchSidebar = () => {
   const history = useHistory();
   const location = useLocation();
+
+  const { state } = useContext(SidebarContext);
+
   return (
     <Sidebar
       history={history}
@@ -19,17 +23,17 @@ const UserResearchSidebar = () => {
           links: [
             {
               name: 'Scheme name and address',
-              completed: true,
+              completed: state[0],
               path: '/scheme-name-and-address',
             },
             {
               name: 'Scheme status and membership',
-              completed: false,
+              completed: state[1],
               path: '/scheme-status-and-membership',
             },
             {
               name: 'Consent to electronic communication',
-              completed: false,
+              completed: state[2],
               path: '/consent-to-electronic-communication',
             },
           ],
@@ -40,22 +44,22 @@ const UserResearchSidebar = () => {
           links: [
             {
               name: 'Trustee details',
-              completed: false,
+              completed: state[3],
               path: '/trustees',
             },
             {
               name: 'Employer details',
-              completed: false,
+              completed: state[4],
               path: '/employer-details',
             },
             {
               name: 'Service provider details',
-              completed: false,
+              completed: state[5],
               path: '/service-provider-details',
             },
             {
               name: 'Named contact details',
-              completed: false,
+              completed: state[6],
               path: '/named-contact-details',
             },
           ],
@@ -66,7 +70,7 @@ const UserResearchSidebar = () => {
           links: [
             {
               name: 'Review and submit',
-              completed: false,
+              completed: state[7],
               path: '/review-and-submit',
             },
           ],

@@ -6,14 +6,17 @@ import './index.module.scss';
 import ThemeProvider from '@tpr/theming';
 import { BrowserRouter as Router } from 'react-router-dom';
 import StateProvider from './StateProvider';
+import SidebarProvider from './components/SidebarContextProvider';
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider>
       <StateProvider>
-        <Router basename={`${process.env.PUBLIC_URL}`}>
-          <App />
-        </Router>
+        <SidebarProvider>
+          <Router basename={`${process.env.PUBLIC_URL}`}>
+            <App />
+          </Router>
+        </SidebarProvider>
       </StateProvider>
     </ThemeProvider>
   </React.StrictMode>,
