@@ -6,14 +6,14 @@ import IndividualTrusteeStepOne from './AddIndividualTrustee/IndividualTrusteeSt
 import IndividualTrusteeStepTwo from './AddIndividualTrustee/IndividualTrusteeStepTwo';
 import IndividualTrusteeStepThree from './AddIndividualTrustee/IndividualTrusteeStepThree';
 import IndividualTrusteeStepZero from './AddIndividualTrustee/IndividualTrusteeStepZero';
-import { TrusteeInput } from '@tpr/layout/lib/components/cards/trustee/context';
+import { Trustee } from '@tpr/layout/lib/components/cards/trustee/context';
 
 const AddTrustee = () => {
   const [state, setState] = useState<
     'step-0' | 'step-1' | 'step-2' | 'step-3' | 'step-4'
   >('step-0');
 
-  const [newTrustee, setNewTrustee] = useState<TrusteeInput>();
+  const [newTrustee, setNewTrustee] = useState<Trustee>();
 
   const renderForm = () => {
     switch (state) {
