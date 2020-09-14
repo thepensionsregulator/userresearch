@@ -1,9 +1,10 @@
 import React from 'react';
-import { H1, Hr, H2, P } from '@tpr/core';
-import { Info } from '@tpr/layout';
+import { H1, Hr, H2, P, Flex } from '@tpr/core';
+import { ArrowButton, ArrowLink, Info } from '@tpr/layout';
 import Styles from './Layout.module.scss';
 import ScrollToTop from '../components/ScrollToTop';
 import UserResearchSidebar from '../components/UserResearchSidebar';
+import { Link } from 'react-router-dom';
 
 const HomePage = () => (
   <div className={Styles.root}>
@@ -18,6 +19,24 @@ const HomePage = () => (
           <P tag="b"> 31 October 2020</P>.
         </P>
       </Info>
+      <Flex cfg={{ my: 6 }}>
+        <Link to="/scheme-name-and-address">
+          <ArrowButton
+            title="Start"
+            pointsTo="right"
+            iconSide="right"
+            cfg={{ mr: 3 }}
+          />
+        </Link>
+        <ArrowLink
+          title="View current and previous scheme returns"
+          pointsTo="right"
+          iconSide="right"
+          onClick={() => {
+            console.log('redirecting to Documents available page');
+          }}
+        />
+      </Flex>
       <Hr cfg={{ mt: 6 }} />
       <H2 cfg={{ mt: 9 }}>Before you start</H2>
       <P cfg={{ my: 4 }}>
