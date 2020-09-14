@@ -39,7 +39,7 @@ const HomePage = () => (
       </Flex>
       <Hr cfg={{ mt: 6 }} />
       <H2 cfg={{ mt: 9 }}>Before you start</H2>
-      <P cfg={{ my: 4 }}>
+      <P cfg={{ mt: 4 }}>
         Make sure you have the following information to hand:
       </P>
       <ul className={Styles.list}>
@@ -52,6 +52,15 @@ const HomePage = () => (
           charity or company name, Companies House number or registered charity
           number (for employer and trustees)
         </li>
+      </ul>
+      <P cfg={{ mt: 4 }}>
+        Check if there are any changes to the names or contact details of:
+      </P>
+      <ul className={Styles.list}>
+        <li>trustees</li>
+        <li>employers</li>
+        <li>service providers</li>
+        <li>scheme return contacts</li>
       </ul>
       <Hr cfg={{ my: 5 }} />
       <ScrollToTop />
