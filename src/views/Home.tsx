@@ -1,9 +1,10 @@
 import React from 'react';
-import { H1, Hr, H2, P } from '@tpr/core';
-import { Info } from '@tpr/layout';
+import { H1, Hr, H2, P, Flex } from '@tpr/core';
+import { ArrowButton, ArrowLink, Info } from '@tpr/layout';
 import Styles from './Layout.module.scss';
 import ScrollToTop from '../components/ScrollToTop';
 import UserResearchSidebar from '../components/UserResearchSidebar';
+import { Link } from 'react-router-dom';
 
 const HomePage = () => (
   <div className={Styles.root}>
@@ -15,12 +16,32 @@ const HomePage = () => (
         <P cfg={{ mb: 1 }}>The scheme return for this scheme is due.</P>
         <P cfg={{ mt: 2 }}>
           You must submit the completed scheme return by
-          <strong>31 March 2021</strong>.
+          <P tag="b"> 31 October 2020</P>.
         </P>
       </Info>
+      <Flex cfg={{ my: 6 }}>
+        <Link to="/scheme-name-and-address">
+          <ArrowButton
+            title="Start"
+            pointsTo="right"
+            iconSide="right"
+            cfg={{ mr: 3 }}
+          />
+        </Link>
+        <ArrowLink
+          title="View current and previous scheme returns"
+          pointsTo="right"
+          iconSide="right"
+          onClick={() => {
+            console.log('redirecting to Documents available page');
+          }}
+        />
+      </Flex>
       <Hr cfg={{ mt: 6 }} />
       <H2 cfg={{ mt: 9 }}>Before you start</H2>
-      <P cfg={{ my: 4 }}>Make sure you have the following information to hand:</P>
+      <P cfg={{ mt: 4 }}>
+        Make sure you have the following information to hand:
+      </P>
       <ul className={Styles.list}>
         <li>number of members in the scheme</li>
         <li>
@@ -31,6 +52,15 @@ const HomePage = () => (
           charity or company name, Companies House number or registered charity
           number (for employer and trustees)
         </li>
+      </ul>
+      <P cfg={{ mt: 4 }}>
+        Check if there are any changes to the names or contact details of:
+      </P>
+      <ul className={Styles.list}>
+        <li>trustees</li>
+        <li>employers</li>
+        <li>service providers</li>
+        <li>scheme return contacts</li>
       </ul>
       <Hr cfg={{ my: 5 }} />
       <ScrollToTop />
