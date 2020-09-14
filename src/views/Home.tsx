@@ -15,12 +15,14 @@ const HomePage = () => (
         <P cfg={{ mb: 1 }}>The scheme return for this scheme is due.</P>
         <P cfg={{ mt: 2 }}>
           You must submit the completed scheme return by
-          <strong>31 March 2021</strong>.
+          <P tag="b"> 31 October 2020</P>.
         </P>
       </Info>
       <Hr cfg={{ mt: 6 }} />
       <H2 cfg={{ mt: 9 }}>Before you start</H2>
-      <P cfg={{ my: 4 }}>Make sure you have the following information to hand:</P>
+      <P cfg={{ my: 4 }}>
+        Make sure you have the following information to hand:
+      </P>
       <ul className={Styles.list}>
         <li>number of members in the scheme</li>
         <li>
