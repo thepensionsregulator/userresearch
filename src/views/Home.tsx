@@ -1,10 +1,11 @@
 import React from 'react';
-import { H1, Hr, H2, P, Flex } from '@tpr/core';
+import { H1, Hr, H2, P, Flex, Link } from '@tpr/core';
 import { ArrowButton, ArrowLink, Info } from '@tpr/layout';
 import Styles from './Layout.module.scss';
 import ScrollToTop from '../components/ScrollToTop';
 import UserResearchSidebar from '../components/UserResearchSidebar';
 import { Link as RouterLink } from 'react-router-dom';
+import UL from '../components/UL';
 
 const HomePage = () => (
   <div className={Styles.root}>
@@ -42,26 +43,30 @@ const HomePage = () => (
       <P cfg={{ mt: 4 }}>
         Make sure you have the following information to hand:
       </P>
-      <ul className={Styles.list}>
-        <li>number of members in the scheme</li>
-        <li>
-          any change to the name or contact details of the trustees, employer,
-          service providers or scheme return contact
-        </li>
-        <li>
-          charity or company name, Companies House number or registered charity
-          number (for employer and trustees)
-        </li>
-      </ul>
+      <UL
+        listItems={[
+          'scheme trust deed and rules',
+          'last actuarial valuation',
+          'most recent report and scheme accounts',
+          <div>
+            <Link underline onClick={() => console.log('handling on click')}>
+              DB return scheme checklist
+            </Link>{' '}
+            {'(opens in a new window)'}
+          </div>,
+        ]}
+      />
       <P cfg={{ mt: 4 }}>
         Check if there are any changes to the names or contact details of:
       </P>
-      <ul className={Styles.list}>
-        <li>trustees</li>
-        <li>employers</li>
-        <li>service providers</li>
-        <li>scheme return contacts</li>
-      </ul>
+      <UL
+        listItems={[
+          'trustees',
+          'employers',
+          'service providers',
+          'scheme return contracts',
+        ]}
+      />
       <Hr cfg={{ my: 5 }} />
       <ScrollToTop />
     </div>
