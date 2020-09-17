@@ -72,7 +72,7 @@ const IndividualTrusteeStepTwo = (props: any) => {
         onClick={() => history.goBack()}
       />
       <H3 cfg={{ mt: 2 }}>Add trustee: Individual</H3>
-      <H1 cfg={{ mt: 2, mb: 3 }}>What type of trustee?</H1>
+      <H1 cfg={{ mt: 2, mb: 3 }}>Type of trustee</H1>
       <Hr cfg={{ mt: 4, mb: 5 }} />
       <Form onSubmit={onSubmit}>
         {({ handleSubmit, values }) => (
