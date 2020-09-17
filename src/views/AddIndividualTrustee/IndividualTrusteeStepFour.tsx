@@ -52,10 +52,10 @@ const IndividualTrusteeStepFour = (props: any) => {
         cfg={{ mt: 3 }}
       />
       <H3 cfg={{ mt: 2 }}>Add trustee: Individual</H3>
-      <H1 cfg={{ mt: 2, mb: 3 }}>How can we contact this trustee?</H1>
+      <H1 cfg={{ mt: 2, mb: 3 }}>Contact details for this trustee</H1>
       <Hr cfg={{ mt: 4, mb: 5 }} />
       <P cfg={{ mb: 3 }}>
-        Please provide contact for this trustee (not a third party, such as an
+        Provide contact for this trustee (not a third party, such as an
         administrator).
       </P>
       <Form onSubmit={onSubmit}>
