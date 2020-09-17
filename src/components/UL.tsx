@@ -4,8 +4,8 @@ import Styles from './UL.module.scss';
 
 const UL = (props: any) => (
   <ul className={Styles.root}>
-    {props.listItems.map((item: any) => (
-      <LI>{item}</LI>
+    {props.listItems.map((item: any, index: number) => (
+      <LI key={index}>{item}</LI>
     ))}
   </ul>
 );
