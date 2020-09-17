@@ -48,7 +48,7 @@ const IndividualTrusteeStepOne = (props: any) => {
         cfg={{ mt: 3 }}
       />
       <H3 cfg={{ mt: 2 }}>Add trustee: Individual</H3>
-      <H1 cfg={{ mt: 2, mb: 3 }}>What is the name of the trustee?</H1>
+      <H1 cfg={{ mt: 2, mb: 3 }}>Name of the trustee</H1>
       <Hr cfg={{ mt: 4, mb: 5 }} />
       <Form onSubmit={onSubmit}>
         {({ handleSubmit, hasValidationErrors }) => (
