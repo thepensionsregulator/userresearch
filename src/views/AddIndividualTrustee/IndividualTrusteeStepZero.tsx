@@ -2,7 +2,7 @@ import React from 'react';
 import Styles from '../Layout.module.scss';
 import ScrollToTop from '../../components/ScrollToTop';
 import { Form, SeparatorX, renderFields, FieldProps } from '@tpr/forms';
-import { Hr, Flex, H4, H1, H3 } from '@tpr/core';
+import { Hr, Flex, H1, H3 } from '@tpr/core';
 import { ArrowButton, ArrowLink } from '@tpr/layout';
 import { useHistory } from 'react-router-dom';
 
@@ -20,8 +20,6 @@ const IndividualTrusteeStepZero = (props: any) => {
       name: RADIO_BUTTONS,
       type: 'radio',
       label: 'Corporate',
-      hint:
-        'A corporate trustee will be a company (this may be the employer providing the scheme).',
       value: 'corporate',
     },
   ];
@@ -43,10 +41,9 @@ const IndividualTrusteeStepZero = (props: any) => {
       />
       <H3 cfg={{ mt: 2 }}>Add trustee</H3>
       <H1 cfg={{ mt: 2, mb: 3 }}>
-        Are they an individual or a corporate trustee?
+        Are you adding an individual or a corporate trustee?
       </H1>
       <Hr cfg={{ mt: 4, mb: 5 }} />
-      <H4 cfg={{ mb: 6 }}>Add an individual or corporate trustee?</H4>
       <Form onSubmit={onSubmit}>
         {({ handleSubmit, pristine }) => (
           <form onSubmit={handleSubmit}>
