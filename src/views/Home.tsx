@@ -4,7 +4,7 @@ import { ArrowButton, ArrowLink, Info } from '@tpr/layout';
 import Styles from './Layout.module.scss';
 import ScrollToTop from '../components/ScrollToTop';
 import UserResearchSidebar from '../components/UserResearchSidebar';
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 
 const HomePage = () => (
   <div className={Styles.root}>
@@ -20,14 +20,14 @@ const HomePage = () => (
         </P>
       </Info>
       <Flex cfg={{ my: 6 }}>
-        <Link to="/scheme-name-and-address">
+        <RouterLink to="/scheme-name-and-address">
           <ArrowButton
             title="Start"
             pointsTo="right"
             iconSide="right"
             cfg={{ mr: 3 }}
           />
-        </Link>
+        </RouterLink>
         <ArrowLink
           title="View current and previous scheme returns"
           pointsTo="right"
