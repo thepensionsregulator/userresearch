@@ -20,7 +20,6 @@ const Trustees = () => {
     history.push({ search: 'state=trustee-form-submitted' });
   };
 
-  const complete = false;
   const [trustees, setTrustees] = useState(TrusteeRepository.GetAllTrustees());
   const [correctTrusteeDetails, setCorrectTrusteeDetails] = useState(0);
 
@@ -110,7 +109,8 @@ const Trustees = () => {
               get: (endpoint: any) => callAddressAPI(endpoint),
               limit: 100,
             }}
-            complete={complete}
+            preValidatedData={true}
+            complete={false}
             i18n={{
               preview: {
                 buttons: {
