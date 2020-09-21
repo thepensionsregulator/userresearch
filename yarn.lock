@@ -1556,13 +1556,26 @@
     tslib "^2.0.0"
     xstate "^4.10.0"
 
-"@tpr/forms@^2.2.6":
-  version "2.2.7"
-  resolved "https://registry.yarnpkg.com/@tpr/forms/-/forms-2.2.7.tgz#91b02c536b97ea63c849bbf98c9e824aec52dc56"
-  integrity sha512-IpFh43EByKtwe+zQey0m6CbR3ASu+U8D24LOA+JK2EDtgkw9ef2bXWJM4l/AAA29xCTXE5i7VO8GgWs/K9b2Sw==
+"@tpr/core@^2.2.4":
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/@tpr/core/-/core-2.2.4.tgz#668497fbb59681ddf4b8e27d8f9f9e61bc4f4d24"
+  integrity sha512-FTUotv8FscKbwslP6Xl9ci8WJz+R53TpJgcqaqhfiXkEffxz3CuLhyu4saf8j8Gn9BN6C8uqwHqMl88u/hAOJw==
   dependencies:
-    "@tpr/core" "^2.2.3"
-    "@tpr/icons" "^2.2.3"
+    "@tpr/theming" "^2.2.2"
+    "@xstate/react" "^0.8.1"
+    final-form "^4.20.0"
+    qs "^6.9.4"
+    react-final-form "^6.5.0"
+    tslib "^2.0.0"
+    xstate "^4.10.0"
+
+"@tpr/forms@^2.2.10":
+  version "2.2.10"
+  resolved "https://registry.yarnpkg.com/@tpr/forms/-/forms-2.2.10.tgz#928c0621522dbcbbd4ea639746c2ebceb0cd4cb9"
+  integrity sha512-7e8AHxEUpJxL+k4kGSQZ57FnC3EEXUwzhqOuNgjwn01RlthHRMiLkpP3b6nP2fA52VclBM7ecj98SuUVTkUDeg==
+  dependencies:
+    "@tpr/core" "^2.2.4"
+    "@tpr/icons" "^2.2.4"
     "@tpr/theming" "^2.2.2"
     "@types/lodash" "^4.14.157"
     "@types/match-sorter" "^4.0.0"
@@ -1584,10 +1597,18 @@
     "@tpr/core" "^2.2.3"
     tslib "^2.0.0"
 
-"@tpr/layout@^2.2.13-next.4":
-  version "2.2.13-next.4"
-  resolved "https://registry.yarnpkg.com/@tpr/layout/-/layout-2.2.13-next.4.tgz#5024bcf46cdaf5fd1c430b8a95026df908f2cc87"
-  integrity sha512-mhPkkoRjMF/+56xGUQzY6suCwZc1Ckvks2yvWTLlGIat/SAVI5X4EZ8ubxkMpdEKysj8QdzI1F4btGWOmcf1IA==
+"@tpr/icons@^2.2.4":
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/@tpr/icons/-/icons-2.2.4.tgz#3a6499ff73725f9ccafe0b3c52c9bb85ada9fd05"
+  integrity sha512-wZITSPXD/WysFVF1ktqhBXoEwjtKVnbGuhpxdi9e1i7ZoM3pejp3J4qFLsEu8wHYrU99iOZzc0RzTQm8M5iXNA==
+  dependencies:
+    "@tpr/core" "^2.2.4"
+    tslib "^2.0.0"
+
+"@tpr/layout@^2.2.18":
+  version "2.2.18"
+  resolved "https://registry.yarnpkg.com/@tpr/layout/-/layout-2.2.18.tgz#56a5f2ce63c3f59f7701f52d40c37f7976140539"
+  integrity sha512-CDcBbKy8d+TGJGyGkVj5Vaa0SMm+t5wBM1nx+XXs4VRV8OT1+w155MjMnW3m2/+yc8JK0LoPozX4viY+pGiXvg==
   dependencies:
     "@types/lodash" "^4.14.157"
     "@xstate/react" "^0.8.1"
