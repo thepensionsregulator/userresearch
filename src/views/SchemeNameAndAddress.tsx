@@ -14,45 +14,42 @@ const SchemeNameAndAddress = () => {
   const history = useHistory();
   const [findAddress, setFindAddress] = useState(false);
 
-  const formFields: FieldProps[][] = [
-    [
-      {
-        type: 'text',
-        name: 'schemeName',
-        inputWidth: 5,
-        label: 'Scheme name',
-        validate: (value) => {
-          if (!value) {
-            return 'Scheme name required';
-          }
-        },
-        hint:
-          'This should be the full name of the pension scheme as written in the latest trust deed or any other subsequent amending document. We advise you not to include any scheme reference numbers as part of the scheme name. There is a space to add these details in the section relating to insurance company information.',
+  const schemeName: FieldProps[] = [
+    {
+      type: 'text',
+      name: 'schemeName',
+      inputWidth: 5,
+      label: 'Scheme name',
+      validate: (value) => {
+        if (!value) {
+          return 'Scheme name required';
+        }
       },
-    ],
-    [
-      {
-        type: 'select',
-        name: 'selectAddress',
-        label: 'Scheme correspondence address',
-        placeholder: 'Please select your address from the dropdown menu...',
-        options: [{ label: 'Your search criteria has no match', value: 0 }],
-        inputWidth: 6,
-      },
-    ],
-    [
-      {
-        type: 'text',
-        name: 'postCode',
-        label: 'Postcode',
-        error: 'Please enter a postcode',
-        inputWidth: 8,
-        cfg: { mb: 3 },
-      },
-    ],
+    },
   ];
 
-  const [fields, setFields] = useState(formFields);
+  const schemeAddress: FieldProps[] = [
+    {
+      type: 'select',
+      name: 'selectAddress',
+      label: 'Scheme correspondence address',
+      placeholder: 'Please select your address from the dropdown menu...',
+      options: [{ label: 'Your search criteria has no match', value: 0 }],
+      inputWidth: 6,
+    },
+  ];
+  const postCodeSearch: FieldProps[] = [
+    {
+      type: 'text',
+      name: 'postCode',
+      label: 'Postcode',
+      error: 'Please enter a postcode',
+      inputWidth: 8,
+      cfg: { mb: 3 },
+    },
+  ];
+
+  // const [fields, setFields] = useState();
 
   const { dispatch } = useContext(SidebarContext);
 
@@ -98,6 +95,12 @@ const SchemeNameAndAddress = () => {
                   Correct any details as necessary.
                 </P>
                 {renderFields(fields[0])}
+                <P cfg={{ my: 2 }}>
+                  This needs to be the full name of the pension scheme, as
+                  written out in the trust deed or any other amending documents
+                  which may have changed the scheme name. Please don't include
+                  any scheme reference numbers as part of the scheme name.
+                </P>
               </Flex>
               <Flex cfg={{ mb: 4, flexDirection: 'column' }}>
                 <H4 cfg={{ mb: 1 }}>Scheme correspondence address</H4>
