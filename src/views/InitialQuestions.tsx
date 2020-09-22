@@ -1,7 +1,7 @@
 import React from 'react';
 import Styles from './Layout.module.scss';
 import { ArrowLink, ArrowButton } from '@tpr/layout';
-import { H1, Hr, P } from '@tpr/core';
+import { H1, Hr, Link, P } from '@tpr/core';
 import { Form, renderFields, FieldProps } from '@tpr/forms';
 import { useHistory } from 'react-router-dom';
 import ScrollToTop from '../components/ScrollToTop';
@@ -52,12 +52,14 @@ const InitialQuestions = () => {
         <b>Has this pension scheme been wound up and no longer exists?</b>
       </P>
       <P>
-        You should only choose 'yes' if the scheme no longer has any members,
-        assets or liabilities and the winding up
-      </P>
-      <P>
-        process has finished. If you're not sure, check the current details of
-        the scheme. (open in new window/tab)
+        Select 'yes' if the scheme has no members, assets or liabilities and the
+        winding up process has finished. Not sure?{' '}
+        <Link
+          onClick={() => console.log('Link to current scheme information page')}
+        >
+          Check the current details of the scheme
+        </Link>
+        .
       </P>
       <Form onSubmit={onSubmit}>
         {({ handleSubmit, pristine }) => (
