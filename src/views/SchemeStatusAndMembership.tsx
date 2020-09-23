@@ -109,23 +109,6 @@ const SchemeStatusAndMembership = () => {
       cfg: { mb: 5 },
       required: true,
     },
-    {
-      name: 'totalMembers',
-      type: 'number',
-      label: 'Total Membership',
-      validate: (value: any, SchemeMembershipFields: any) => {
-        const totalMembers =
-          SchemeMembershipFields.activeMembers +
-          SchemeMembershipFields.deferredMembers +
-          SchemeMembershipFields.pensionerMembers;
-        if (value !== totalMembers) {
-          return 'Total members must be equal to the total of active, deferred and pensioner members';
-        }
-      },
-      inputWidth: 1,
-      cfg: { mb: 5 },
-      required: true,
-    },
   ];
 
   const { dispatch } = useContext(SidebarContext);
@@ -136,7 +119,6 @@ const SchemeStatusAndMembership = () => {
     appState.setActiveMembers(values.activeMembers);
     appState.setDeferredMembers(values.deferredMembers);
     appState.setPensionerMembers(values.pensionerMembers);
-    appState.setTotalMembers(values.totalMembers);
     appState.setMembershipEffective(values.dateMembershipEffective);
     dispatch({ type: 'COMPLETE', index: 1 });
     history.push('/consent-to-electronic-communication');
