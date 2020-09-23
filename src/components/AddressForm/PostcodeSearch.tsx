@@ -2,10 +2,7 @@ import React from 'react';
 import { Flex, P, Button } from '@tpr/core';
 import { FFInputText } from '@tpr/forms';
 
-const PostcodeSearch = (props: {
-  addressSelect?: () => void;
-  text?: string;
-}) => {
+const PostcodeSearch = (props: { text?: string }) => {
   return (
     <>
       <Flex
@@ -26,14 +23,7 @@ const PostcodeSearch = (props: {
           }}
         />
         <Flex cfg={{ my: 3 }}>
-          <Button
-            type="submit"
-            onClick={() => {
-              console.log('onSubmit');
-            }}
-          >
-            Find address
-          </Button>
+          <Button type="submit">Find address</Button>
         </Flex>
       </Flex>
     </>

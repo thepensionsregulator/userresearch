@@ -1,14 +1,12 @@
-import React, { useContext } from 'react';
-import { Flex, P, Link, Hr, H1 } from '@tpr/core';
-import { FFSelect, Form } from '@tpr/forms';
+import React from 'react';
+import { Flex, P, Link, Hr } from '@tpr/core';
+import { FFSelect } from '@tpr/forms';
 import { ArrowButton } from '@tpr/layout';
-import AddressContext from './AddressContext';
 
 const AddressSelect = (props: {
   postcode: string;
   isPristine: boolean;
   changePostcode: () => void;
-  selectAddress: () => void;
   hint?: string;
 }) => {
   const placeHolderAddresses = [
@@ -76,7 +74,7 @@ const AddressSelect = (props: {
       <Hr cfg={{ mt: 4, mb: 5 }} />
       <Flex>
         <ArrowButton
-          onClick={() => props.selectAddress()}
+          type="submit"
           iconSide="right"
           pointsTo="right"
           title="Continue"
