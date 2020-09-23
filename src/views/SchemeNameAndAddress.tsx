@@ -35,9 +35,7 @@ const SchemeNameAndAddress = () => {
               country: appState.schemeAddress.country,
               countryId: appState.schemeAddress.countryId,
             }}
-            changeAddress={() => {
-              setStep('postcodeSearch');
-            }}
+            changeAddress={() => setStep('postcodeSearch')}
           />
         );
       case 'selectAddress':
@@ -46,9 +44,6 @@ const SchemeNameAndAddress = () => {
             postcode={appState.schemeAddress.postcode}
             changePostcode={() => {
               setStep('postcodeSearch');
-            }}
-            selectAddress={() => {
-              setStep('addressConfirmation');
             }}
             isPristine={pristine}
           />
@@ -85,45 +80,33 @@ const SchemeNameAndAddress = () => {
     });
     appState.setSchemeName(values.schemeName);
     dispatch({ type: 'COMPLETE', index: 0 });
-    // history.push('/scheme-status-and-membership');
-    console.log('WE ARE IN SUBMIT ADDRESS CONFIRMATION');
+    history.push('/scheme-status-and-membership');
   };
 
   const submitPostcodeSearch = (values: any) => {
-    console.log(appState.schemeAddress);
-    console.log(values);
-    console.log('WE ARE IN SUBMIT POSTCODE SEARCH');
     appState.setSchemeAddress({
-      ...appState.schemeAddress,
-      postcode: values.postcodeSearch,
+      ...values.addressSelect.value,
     });
+    setStep('addressConfirmation');
   };
 
-  let submit = (values: any) => {
-    console.log('Calling Submit function');
-    console.log(`current step: ${step}`);
+  const submitAddressSelect = (values: any) => {
+    setStep('selectAddress');
+  };
+
+  const onSubmit = (values: any) => {
     switch (step) {
       case 'addressConfirmation':
-        console.log('calling address confirmation');
-        submitAddressConfirmation(values);
-        break;
+        return submitAddressConfirmation(values);
       case 'postcodeSearch':
-        console.log('calling postcodeSearch');
-        submitPostcodeSearch(values);
-        break;
+        return submitAddressSelect(values);
       case 'selectAddress':
-        console.log('case is selectAddress');
-        break;
+        return submitPostcodeSearch(values);
       default:
-        console.warn('Invalid step');
+        console.warn('invalid step');
         break;
     }
   };
-
-  useEffect(() => {
-    console.log(`useEffect log of step: ${step}`);
-    submit = (values: any) => submitPostcodeSearch(values);
-  }, [step]);
 
   return (
     <div className={Styles.root}>
@@ -140,7 +123,7 @@ const SchemeNameAndAddress = () => {
         <H1 cfg={{ mt: 6, mb: 2 }}>Scheme name and address</H1>
         <Hr cfg={{ mt: 6, mb: 8 }} />
         <Form
-          onSubmit={submit}
+          onSubmit={(values: any) => onSubmit(values)}
           initialValues={{
             schemeName: appState.schemeName,
             addressLine1: appState.schemeAddress.addressLine1,
