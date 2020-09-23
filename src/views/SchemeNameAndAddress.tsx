@@ -1,18 +1,65 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import Styles from './Layout.module.scss';
-import { H1, Hr, P, H4, Flex, Link as TPRLink, Button } from '@tpr/core';
+import { H1, Hr, P, H4, Flex } from '@tpr/core';
 import UserResearchSidebar from '../components/UserResearchSidebar';
 import { Link, useHistory } from 'react-router-dom';
-import { ArrowLink, ArrowButton } from '@tpr/layout';
+import { ArrowLink } from '@tpr/layout';
 import { Form, FieldProps, renderFields } from '@tpr/forms';
 import ScrollToTop from '../components/ScrollToTop';
 import StateContext from '../StateContext';
 import SidebarContext from '../components/SidebarContext';
+import AddressConfirmation from '../components/AddressForm/AddressConfirmation';
+import AddressSelect from '../components/AddressForm/AddressSelect';
+import PostcodeSearch from '../components/AddressForm/PostcodeSearch';
 
 const SchemeNameAndAddress = () => {
   const appState = useContext(StateContext);
   const history = useHistory();
-  const [findAddress, setFindAddress] = useState(false);
+
+  const [step, setStep] = useState<
+    'addressConfirmation' | 'selectAddress' | 'postcodeSearch'
+  >('addressConfirmation');
+
+  const DisplayForm = (pristine: boolean) => {
+    switch (step) {
+      case 'addressConfirmation':
+        return (
+          <AddressConfirmation
+            address={{
+              addressLine1: appState.schemeAddress.addressLine1,
+              addressLine2: appState.schemeAddress.addressLine2,
+              addressLine3: appState.schemeAddress.addressLine3,
+              postTown: appState.schemeAddress.postTown,
+              county: appState.schemeAddress.county,
+              postcode: appState.schemeAddress.postcode,
+              country: appState.schemeAddress.country,
+              countryId: appState.schemeAddress.countryId,
+            }}
+            changeAddress={() => {
+              setStep('postcodeSearch');
+            }}
+          />
+        );
+      case 'selectAddress':
+        return (
+          <AddressSelect
+            postcode={appState.schemeAddress.postcode}
+            changePostcode={() => {
+              setStep('postcodeSearch');
+            }}
+            selectAddress={() => {
+              setStep('addressConfirmation');
+            }}
+            isPristine={pristine}
+          />
+        );
+      case 'postcodeSearch':
+        return <PostcodeSearch />;
+      default:
+        console.warn('Invalid step');
+        break;
+    }
+  };
 
   const schemeName: FieldProps[] = [
     {
@@ -28,43 +75,55 @@ const SchemeNameAndAddress = () => {
     },
   ];
 
-  const schemeAddress: FieldProps[] = [
-    {
-      type: 'select',
-      name: 'selectAddress',
-      label: 'Scheme correspondence address',
-      placeholder: 'Please select your address from the dropdown menu...',
-      options: [{ label: 'Your search criteria has no match', value: 0 }],
-      inputWidth: 6,
-    },
-  ];
-  const postCodeSearch: FieldProps[] = [
-    {
-      type: 'text',
-      name: 'postCode',
-      label: 'Postcode',
-      error: 'Please enter a postcode',
-      inputWidth: 8,
-      cfg: { mb: 3 },
-    },
-  ];
-
-  // const [fields, setFields] = useState();
-
   const { dispatch } = useContext(SidebarContext);
 
-  const onSubmit = (values: any) => {
+  const submitAddressConfirmation = (values: any) => {
+    appState.setSchemeAddress({
+      ...appState.schemeAddress,
+      addressLine1: values.addressLine1,
+      addressLine2: values.addressLine2,
+    });
     appState.setSchemeName(values.schemeName);
     dispatch({ type: 'COMPLETE', index: 0 });
-    history.push('/scheme-status-and-membership');
+    // history.push('/scheme-status-and-membership');
+    console.log('WE ARE IN SUBMIT ADDRESS CONFIRMATION');
   };
 
-  const AddressLookup = () => {
-    fields[1][0].options![0].label =
-      'The Pensions Regulator, Napier House, Trafalgar Place, BRIGHTON, BN1 4DW';
-    setFields({ ...fields });
-    setFindAddress(false);
+  const submitPostcodeSearch = (values: any) => {
+    console.log(appState.schemeAddress);
+    console.log(values);
+    console.log('WE ARE IN SUBMIT POSTCODE SEARCH');
+    appState.setSchemeAddress({
+      ...appState.schemeAddress,
+      postcode: values.postcodeSearch,
+    });
   };
+
+  let submit = (values: any) => {
+    console.log('Calling Submit function');
+    console.log(`current step: ${step}`);
+    switch (step) {
+      case 'addressConfirmation':
+        console.log('calling address confirmation');
+        submitAddressConfirmation(values);
+        break;
+      case 'postcodeSearch':
+        console.log('calling postcodeSearch');
+        submitPostcodeSearch(values);
+        break;
+      case 'selectAddress':
+        console.log('case is selectAddress');
+        break;
+      default:
+        console.warn('Invalid step');
+        break;
+    }
+  };
+
+  useEffect(() => {
+    console.log(`useEffect log of step: ${step}`);
+    submit = (values: any) => submitPostcodeSearch(values);
+  }, [step]);
 
   return (
     <div className={Styles.root}>
@@ -81,20 +140,22 @@ const SchemeNameAndAddress = () => {
         <H1 cfg={{ mt: 6, mb: 2 }}>Scheme name and address</H1>
         <Hr cfg={{ mt: 6, mb: 8 }} />
         <Form
-          onSubmit={onSubmit}
+          onSubmit={submit}
           initialValues={{
             schemeName: appState.schemeName,
-            postCode: 'BN1 4DW',
+            addressLine1: appState.schemeAddress.addressLine1,
+            addressLine2: appState.schemeAddress.addressLine2,
+            postcodeSearch: appState.schemeAddress.postcode,
           }}
         >
-          {({ handleSubmit }) => (
+          {({ handleSubmit, pristine }) => (
             <form onSubmit={handleSubmit}>
               <Flex cfg={{ flexDirection: 'column', mb: 3 }}>
                 <P cfg={{ mb: 4 }}>
                   These are the scheme details currently held by the regulator.
                   Correct any details as necessary.
                 </P>
-                {renderFields(fields[0])}
+                {renderFields(schemeName)}
                 <P cfg={{ my: 2 }}>
                   This needs to be the full name of the pension scheme, as
                   written out in the trust deed or any other amending documents
@@ -104,55 +165,12 @@ const SchemeNameAndAddress = () => {
               </Flex>
               <Flex cfg={{ mb: 4, flexDirection: 'column' }}>
                 <H4 cfg={{ mb: 1 }}>Scheme correspondence address</H4>
-                <P cfg={{ mb: 4 }}>
+                <P cfg={{ mb: 2 }}>
                   We'll use this address when we need to get in touch with the
-                  scheme trustee
+                  scheme trustee(s).
                 </P>
-                <Flex
-                  cfg={{
-                    mb: 4,
-                    p: 3,
-                    bg: 'neutral.3',
-                    flexDirection: 'row',
-                  }}
-                >
-                  {findAddress ? (
-                    <Flex
-                      cfg={{
-                        flexDirection: 'column',
-                      }}
-                    >
-                      {renderFields(fields[2])}
-                      <Button type="button" onClick={() => AddressLookup()}>
-                        Find address
-                      </Button>
-                    </Flex>
-                  ) : (
-                    <Flex>
-                      <P cfg={{ mr: 2 }}>
-                        The Pensions Regulator, Napier House, Trafalgar Place,
-                        BRIGHTON, BN1 4DW
-                      </P>
-                      <TPRLink
-                        onClick={() => {
-                          setFindAddress(true);
-                        }}
-                      >
-                        Change
-                      </TPRLink>
-                    </Flex>
-                  )}
-                </Flex>
-                <H4 cfg={{ mb: 1 }}>Select Address</H4>
-                {renderFields(fields[1])}
+                {DisplayForm(pristine)}
               </Flex>
-              <Hr cfg={{ mb: 8 }} />
-              <ArrowButton
-                type="submit"
-                pointsTo="right"
-                iconSide="right"
-                title="Save and Continue"
-              />
             </form>
           )}
         </Form>
