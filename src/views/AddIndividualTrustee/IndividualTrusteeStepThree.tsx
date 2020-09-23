@@ -46,6 +46,8 @@ const IndividualTrusteeStepThree = (props: {
       case 'confirmAddress':
         return (
           <AddressConfirmation
+            title="Trustee correspondence address"
+            helpText="We'll use this address when we need to get in touch with this trustee."
             address={{
               addressLine1: address.addressLine1,
               addressLine2: address.addressLine2,
