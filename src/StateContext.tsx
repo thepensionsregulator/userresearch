@@ -1,3 +1,4 @@
+import { CardAddress } from '@tpr/layout/lib/components/cards/common/interfaces';
 import React from 'react';
 
 const StateContext = React.createContext({
@@ -5,6 +6,17 @@ const StateContext = React.createContext({
   setPsr: (newPsr: number) => {},
   schemeName: 'The Top Pension Scheme',
   setSchemeName: (schemeName: string) => {},
+  schemeAddress: {
+    addressLine1: 'The Pensions Regulator',
+    addressLine2: 'Napier House',
+    addressLine3: 'Trafalgar Place',
+    postTown: 'Brighton',
+    county: 'East Sussex',
+    postcode: 'BN1 4DW',
+    country: 'GB',
+    countryId: 'GB',
+  },
+  setSchemeAddress: (address: CardAddress) => {},
   activeMembers: 10,
   setActiveMembers: (activeMembers: number) => {},
   deferredMembers: 10,
