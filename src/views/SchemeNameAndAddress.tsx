@@ -83,14 +83,14 @@ const SchemeNameAndAddress = () => {
     history.push('/scheme-status-and-membership');
   };
 
-  const submitPostcodeSearch = (values: any) => {
+  const submitAddressSelect = (values: any) => {
     appState.setSchemeAddress({
       ...values.addressSelect.value,
     });
     setStep('addressConfirmation');
   };
 
-  const submitAddressSelect = (values: any) => {
+  const submitPostcodeSearch = (values: any) => {
     setStep('selectAddress');
   };
 
@@ -99,9 +99,9 @@ const SchemeNameAndAddress = () => {
       case 'addressConfirmation':
         return submitAddressConfirmation(values);
       case 'postcodeSearch':
-        return submitAddressSelect(values);
-      case 'selectAddress':
         return submitPostcodeSearch(values);
+      case 'selectAddress':
+        return submitAddressSelect(values);
       default:
         console.warn('invalid step');
         break;
