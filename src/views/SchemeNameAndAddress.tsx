@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import Styles from './Layout.module.scss';
 import { H1, Hr, P, H4, Flex } from '@tpr/core';
 import UserResearchSidebar from '../components/UserResearchSidebar';
