@@ -3,7 +3,7 @@ import Styles from './Layout.module.scss';
 import { H1, Hr, P, H4, Flex } from '@tpr/core';
 import UserResearchSidebar from '../components/UserResearchSidebar';
 import { Link, useHistory } from 'react-router-dom';
-import { ArrowLink } from '@tpr/layout';
+import { ArrowLink, Hint } from '@tpr/layout';
 import { Form, FieldProps, renderFields } from '@tpr/forms';
 import ScrollToTop from '../components/ScrollToTop';
 import StateContext from '../StateContext';
@@ -46,6 +46,7 @@ const SchemeNameAndAddress = () => {
               setStep('postcodeSearch');
             }}
             isPristine={pristine}
+            hint="Select the scheme correspondence address from the search results."
           />
         );
       case 'postcodeSearch':
@@ -67,6 +68,7 @@ const SchemeNameAndAddress = () => {
           return 'Scheme name required';
         }
       },
+      cfg: { mb: 3 },
     },
   ];
 
@@ -139,19 +141,19 @@ const SchemeNameAndAddress = () => {
                   Correct any details as necessary.
                 </P>
                 {renderFields(schemeName)}
-                <P cfg={{ my: 2 }}>
+                <Hint>
                   This needs to be the full name of the pension scheme, as
                   written out in the trust deed or any other amending documents
                   which may have changed the scheme name. Please don't include
                   any scheme reference numbers as part of the scheme name.
-                </P>
+                </Hint>
               </Flex>
               <Flex cfg={{ mb: 4, flexDirection: 'column' }}>
                 <H4 cfg={{ mb: 1 }}>Scheme correspondence address</H4>
-                <P cfg={{ mb: 2 }}>
+                <Hint>
                   We'll use this address when we need to get in touch with the
                   scheme trustee(s).
-                </P>
+                </Hint>
                 {DisplayForm(pristine)}
               </Flex>
             </form>

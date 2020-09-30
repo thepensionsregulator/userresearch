@@ -1,7 +1,7 @@
 import React from 'react';
 import { Flex, P, Link, Hr } from '@tpr/core';
 import { FFSelect } from '@tpr/forms';
-import { ArrowButton } from '@tpr/layout';
+import { ArrowButton, Hint } from '@tpr/layout';
 
 const AddressSelect = (props: {
   postcode: string;
@@ -64,11 +64,11 @@ const AddressSelect = (props: {
           </Link>
         </Flex>
       </Flex>
+      {props.hint ? <Hint>{props.hint}</Hint> : <></>}
       <FFSelect
         name={addressSelectFieldName}
         label="Address"
         options={[...placeHolderAddresses]}
-        hint={props.hint}
         cfg={{ my: 4 }}
       />
       <Hr cfg={{ mt: 4, mb: 5 }} />
