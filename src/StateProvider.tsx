@@ -13,7 +13,7 @@ const StateProvider = (props: any) => {
     county: 'East Sussex',
     postcode: 'BN1 4DW',
     country: 'GB',
-    countryId: 'GB',
+    countryId: 2,
   });
   const [activeMembers, setActiveMembers] = useState(30);
   const [deferredMembers, setDeferredMembers] = useState(20);

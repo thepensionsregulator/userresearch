@@ -14,7 +14,7 @@ const StateContext = React.createContext({
     county: 'East Sussex',
     postcode: 'BN1 4DW',
     country: 'GB',
-    countryId: 'GB',
+    countryId: 12,
   },
   setSchemeAddress: (address: CardAddress) => {},
   activeMembers: 10,
