@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Dispatch, SetStateAction } from 'react';
+import React, { useState, Dispatch, SetStateAction } from 'react';
 import Styles from '../Layout.module.scss';
 import { ArrowLink } from '@tpr/layout';
 import { useHistory } from 'react-router-dom';

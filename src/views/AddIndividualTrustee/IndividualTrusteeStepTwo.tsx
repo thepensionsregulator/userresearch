@@ -2,7 +2,7 @@ import React from 'react';
 import Styles from '../Layout.module.scss';
 import { ArrowLink, ArrowButton, HelpLink } from '@tpr/layout';
 import { useHistory } from 'react-router-dom';
-import { H1, H3, Hr, H4, P, Link } from '@tpr/core';
+import { H1, H3, Hr, H4 } from '@tpr/core';
 import {
   Form,
   SeparatorY,
