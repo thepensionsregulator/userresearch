@@ -12,7 +12,7 @@
     "@tpr/core": "^2.2.4",
     "@tpr/forms": "^2.3.1",
     "@tpr/icons": "^2.2.6",
-    "@tpr/layout": "^2.2.24",
+    "@tpr/layout": "^2.2.25-next.1",
     "@tpr/theming": "^2.2.2",
     "@types/jest": "^24.0.0",
     "@types/node": "^12.0.0",
