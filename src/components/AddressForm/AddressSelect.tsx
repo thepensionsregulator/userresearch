@@ -53,7 +53,7 @@ const AddressSelect = (props: {
 
   return (
     <>
-      <Flex cfg={{ bg: 'neutral.3', flexDirection: 'column', p: 6 }}>
+      <Flex cfg={{ my: 3, bg: 'neutral.3', flexDirection: 'column', p: 6 }}>
         <P tag="b">Postcode</P>
         <Flex cfg={{ mt: 3 }}>
           <P tag="b" cfg={{ mr: 1 }}>

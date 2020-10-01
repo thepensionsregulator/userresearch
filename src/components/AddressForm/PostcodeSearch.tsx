@@ -7,6 +7,7 @@ const PostcodeSearch = (props: { text?: string }) => {
     <>
       <Flex
         cfg={{
+          mt: 2,
           p: 4,
           bg: 'neutral.3',
           flexDirection: 'column',
