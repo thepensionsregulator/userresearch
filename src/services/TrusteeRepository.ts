@@ -8,14 +8,13 @@ class TrusteeRepository implements ITrusteeRepository {
       ...trustee,
       id: this.getRandomInt(1000).toString(),
       effectiveDate: new Date().toString(),
-      schemeRoleId: this.getRandomInt(1000).toString(),
+      schemeRoleId: this.getRandomInt(1000),
     };
-
     Data.trustees.push(toWrite);
   }
 
   GetAllTrustees(): Trustee[] {
-    const trustees = Data.trustees;
+    const trustees: Trustee[] = Data.trustees;
     return trustees;
   }
 

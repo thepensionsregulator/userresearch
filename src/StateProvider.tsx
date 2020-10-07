@@ -1,9 +1,20 @@
+import { CardAddress } from '@tpr/layout/lib/components/cards/common/interfaces';
 import React, { useState } from 'react';
 import StateContext from './StateContext';
 
 const StateProvider = (props: any) => {
   const [psr, setPsr] = useState(1000100398);
   const [schemeName, setSchemeName] = useState('The Top Pension Scheme');
+  const [schemeAddress, setSchemeAddress] = useState<CardAddress>({
+    addressLine1: 'The Pensions Regulator',
+    addressLine2: 'Napier House',
+    addressLine3: 'Trafalgar Place',
+    postTown: 'Brighton',
+    county: 'East Sussex',
+    postcode: 'BN1 4DW',
+    country: 'GB',
+    countryId: 2,
+  });
   const [activeMembers, setActiveMembers] = useState(30);
   const [deferredMembers, setDeferredMembers] = useState(20);
   const [membershipEffective, setMembershipEffective] = useState(
@@ -21,45 +32,29 @@ const StateProvider = (props: any) => {
     <StateContext.Provider
       value={{
         psr,
-        setPsr: (newPsr) => {
-          setPsr(newPsr);
-        },
+        setPsr,
         schemeName,
-        setSchemeName: (schemeName: string) => {
-          setSchemeName(schemeName);
-        },
+        setSchemeName,
+        schemeAddress,
+        setSchemeAddress,
         activeMembers,
-        setActiveMembers: (activeMembers: number) => {
-          setActiveMembers(activeMembers);
-        },
+        setActiveMembers,
         deferredMembers,
-        setDeferredMembers: (deferredMembers: number) => {
-          setDeferredMembers(deferredMembers);
-        },
+        setDeferredMembers,
         membershipEffective,
-        setMembershipEffective: (membershipEffective: string) => {
-          setMembershipEffective(new Date(membershipEffective));
-        },
+        setMembershipEffective: (newDate: string) =>
+          setMembershipEffective(new Date(newDate)),
         pensionerMembers,
-        setPensionerMembers: (pensionerMembers: number) => {
-          setPensionerMembers(pensionerMembers);
-        },
+        setPensionerMembers,
         schemeStatus,
-        setSchemeStatus: (schemeStatus: string) => {
-          setSchemeStatus(schemeStatus);
-        },
+        setSchemeStatus,
         schemeStatusApplied,
-        setSchemeStatusApplied: (schemeStatusApplied: string) => {
-          setSchemeStatusApplied(new Date(schemeStatusApplied));
-        },
+        setSchemeStatusApplied: (newDate: string) =>
+          setSchemeStatusApplied(new Date(newDate)),
         totalMembers,
-        setTotalMembers: (totalMembers: number) => {
-          setTotalMembers(totalMembers);
-        },
+        setTotalMembers,
         electronicConsent,
-        setElectronicConsent: (consent: string) => {
-          setElectronicConsent(consent);
-        },
+        setElectronicConsent,
       }}
     >
       {props.children}

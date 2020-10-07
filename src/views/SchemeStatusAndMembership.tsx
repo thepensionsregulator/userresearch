@@ -26,6 +26,7 @@ const SchemeStatusAndMembership = () => {
       name: RADIO_BUTTON_NAME,
       type: 'radio',
       label: 'Open to new members',
+      hint: 'New members can join the scheme',
       value: 'open',
       cfg: { mt: 1, mb: 3 },
     },
@@ -33,6 +34,7 @@ const SchemeStatusAndMembership = () => {
       name: RADIO_BUTTON_NAME,
       type: 'radio',
       label: 'Closed to new members',
+      hint: 'New members are not allowed to join the scheme',
       value: 'closed',
       cfg: { mt: 1, mb: 3 },
     },
@@ -49,7 +51,7 @@ const SchemeStatusAndMembership = () => {
       type: 'radio',
       label: 'Winding up',
       hint:
-        'The trustees have started the process of ending the scheme so that no members, assets or liabilities are left.',
+        'The trustees have started the process of winding up the scheme so that there will be no members, assets or liabilities.',
       value: 'windingUp',
     },
   ];
@@ -107,23 +109,6 @@ const SchemeStatusAndMembership = () => {
       cfg: { mb: 5 },
       required: true,
     },
-    {
-      name: 'totalMembers',
-      type: 'number',
-      label: 'Total Membership',
-      validate: (value: any, SchemeMembershipFields: any) => {
-        const totalMembers =
-          SchemeMembershipFields.activeMembers +
-          SchemeMembershipFields.deferredMembers +
-          SchemeMembershipFields.pensionerMembers;
-        if (value !== totalMembers) {
-          return 'Total members must be equal to the total of active, deferred and pensioner members';
-        }
-      },
-      inputWidth: 1,
-      cfg: { mb: 5 },
-      required: true,
-    },
   ];
 
   const { dispatch } = useContext(SidebarContext);
@@ -134,7 +119,6 @@ const SchemeStatusAndMembership = () => {
     appState.setActiveMembers(values.activeMembers);
     appState.setDeferredMembers(values.deferredMembers);
     appState.setPensionerMembers(values.pensionerMembers);
-    appState.setTotalMembers(values.totalMembers);
     appState.setMembershipEffective(values.dateMembershipEffective);
     dispatch({ type: 'COMPLETE', index: 1 });
     history.push('/consent-to-electronic-communication');
@@ -155,8 +139,8 @@ const SchemeStatusAndMembership = () => {
         <H1 cfg={{ mb: 2 }}>Scheme status and membership</H1>
         <Hr cfg={{ mt: 6, mb: 8 }} />
         <P cfg={{ mb: 6 }}>
-          These are the scheme details currently held by the regulator. Correct
-          any details as necessary.
+          These are the scheme details held by the regulator. Change or amend
+          where necessary.
         </P>
         <Form
           onSubmit={onSubmit}
@@ -193,7 +177,12 @@ const SchemeStatusAndMembership = () => {
                 />
               </Flex>
 
-              <H4 cfg={{ mt: 4, mb: 4 }}>Scheme Membership</H4>
+              <H4 cfg={{ my: 4 }}>Scheme Membership</H4>
+              <P cfg={{ my: 2 }}>
+                Only count each member once. (For example, if a member has both
+                active and deferred benefits, only count the member once as an
+                active member).
+              </P>
               <P cfg={{ mb: 3 }}>Tell us the number of:</P>
               <div>{renderFields(SchemeMembershipFields)}</div>
               <Flex cfg={{ bg: 'neutral.3', p: 6 }}>

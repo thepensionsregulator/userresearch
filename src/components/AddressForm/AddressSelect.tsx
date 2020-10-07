@@ -1,10 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Flex, P, Link, Hr } from '@tpr/core';
-import { FFSelect, Form } from '@tpr/forms';
-import { ArrowButton } from '@tpr/layout';
-import AddressContext from './AddressContext';
+import { FFSelect } from '@tpr/forms';
+import { ArrowButton, Hint } from '@tpr/layout';
 
-const AddressSelect = (props: any) => {
+const AddressSelect = (props: {
+  postcode: string;
+  isPristine: boolean;
+  changePostcode: () => void;
+  hint?: string;
+}) => {
   const placeHolderAddresses = [
     {
       label: 'ACME Acres, First Floor, 123 Any Street, Brighton, BN1 9PR',
@@ -47,60 +51,37 @@ const AddressSelect = (props: any) => {
 
   const addressSelectFieldName: string = 'addressSelect';
 
-  const addressContext = useContext(AddressContext);
-
-  const onSubmit = (values: any) => {
-    addressContext.setAddressLine1(values.addressSelect.value.addressLine1);
-    addressContext.setAddressLine2(values.addressSelect.value.addressLine2);
-    addressContext.setAddressLine3(values.addressSelect.value.addressLine3);
-    addressContext.setPostTown(values.addressSelect.value.postTown);
-    addressContext.setPostcode(values.addressSelect.value.postcode);
-    addressContext.setCounty(values.addressSelect.value.county);
-    addressContext.setCountry(values.addressSelect.value.country);
-    props.nextStep();
-  };
-
   return (
-    <Form
-      onSubmit={(values: any) => {
-        onSubmit(values);
-      }}
-      initialValues={{
-        [addressSelectFieldName]: {
-          label: `${placeHolderAddresses.length} addresses found`,
-          value: undefined,
-        },
-      }}
-    >
-      {({ handleSubmit, pristine }) => (
-        <form onSubmit={handleSubmit}>
-          <Flex cfg={{ bg: 'neutral.3', flexDirection: 'column', p: 6 }}>
-            <P tag="b">Postcode</P>
-            <Flex cfg={{ mt: 3 }}>
-              <P tag="b" cfg={{ mr: 1 }}>
-                {addressContext.postcode}
-              </P>
-              <Link underline={true} onClick={() => props.prevStep()}>
-                Change
-              </Link>
-            </Flex>
-          </Flex>
-          <FFSelect
-            name={addressSelectFieldName}
-            label="select an address"
-            options={[...placeHolderAddresses]}
-          />
-          <Hr cfg={{ mt: 4, mb: 5 }} />
-          <ArrowButton
-            type="submit"
-            iconSide="right"
-            pointsTo="right"
-            title="Continue"
-            disabled={pristine}
-          />
-        </form>
-      )}
-    </Form>
+    <>
+      <Flex cfg={{ my: 3, bg: 'neutral.3', flexDirection: 'column', p: 6 }}>
+        <P tag="b">Postcode</P>
+        <Flex cfg={{ mt: 3 }}>
+          <P tag="b" cfg={{ mr: 1 }}>
+            {props.postcode}
+          </P>
+          <Link underline={true} onClick={() => props.changePostcode()}>
+            Change
+          </Link>
+        </Flex>
+      </Flex>
+      {props.hint ? <Hint>{props.hint}</Hint> : <></>}
+      <FFSelect
+        name={addressSelectFieldName}
+        label="Address"
+        options={[...placeHolderAddresses]}
+        cfg={{ my: 4 }}
+      />
+      <Hr cfg={{ mt: 4, mb: 5 }} />
+      <Flex>
+        <ArrowButton
+          type="submit"
+          iconSide="right"
+          pointsTo="right"
+          title="Continue"
+          disabled={props.isPristine}
+        />
+      </Flex>
+    </>
   );
 };
 
