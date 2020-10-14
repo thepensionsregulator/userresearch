@@ -38,12 +38,6 @@ const IndividualTrusteeStepTwo = (props: any) => {
         label: 'Regulator-appointed trustee',
         value: 'regulatorAppointed',
       },
-      {
-        name: TRUSTEE_TYPE_BUTTONS,
-        type: 'radio',
-        label: 'Other trustee',
-        value: 'other',
-      },
     ],
     [
       { name: PROF_TRUSTEE_BUTTONS, type: 'radio', label: 'Yes', value: 'yes' },
@@ -82,7 +76,6 @@ const IndividualTrusteeStepTwo = (props: any) => {
             <br />
             <H4 cfg={{ mb: 2 }}>Is this individual a professional trustee?</H4>
             <SeparatorX>{renderFields(fields[1])}</SeparatorX>
-            <H4 cfg={{ mb: 3 }}>What do we mean by 'professional trustee'?</H4>
             <HelpLink
               title="What is a 'professional' trustee?"
               content="Someone will normally be considered a professional trustee if they
