@@ -11,6 +11,8 @@ const UserResearchSidebar = () => {
 
   return (
     <Sidebar
+      sectionCompleteLabel="x"
+      sectionIncompleteLabel="y"
       history={history}
       location={location}
       title={'Scheme return home'}
@@ -65,8 +67,13 @@ const UserResearchSidebar = () => {
           ],
         },
         {
-          title: 'Finish Up',
+          title: 'Financial Details',
           order: 3,
+          links: [{ name: 'S179 Valuation', completed: false, path: '/s179' }],
+        },
+        {
+          title: 'Finish Up',
+          order: 4,
           links: [
             {
               name: 'Review and submit',
