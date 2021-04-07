@@ -15,14 +15,14 @@ export const GuidanceAndAssumptions: React.FC = () => {
       <Flex>
         <fieldset className={styles.questionSets}>
           <P>S179 guidance used for this valuation</P>
-          <FFRadioButton name="G8" label="G8" />
-          <FFRadioButton name="G7" label="G7" />
-          <FFRadioButton name="G6" label="G6" />
+          <FFRadioButton value="G8" label="G8" name="Guidance" />
+          <FFRadioButton value="G7" label="G7" name="Guidance" />
+          <FFRadioButton value="G6" label="G6" name="Guidance" />
         </fieldset>
         <fieldset className={styles.questionSets}>
           <P>S179 assumptions used for this valuation</P>
-          <FFRadioButton name="A9" label="A9" />
-          <FFRadioButton name="A8" label="A8" />
+          <FFRadioButton value="A9" label="A9" name="Assumptions" />
+          <FFRadioButton value="A8" label="A8" name="Assumptions" />
         </fieldset>
       </Flex>
     </Flex>
