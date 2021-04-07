@@ -1,0 +1,23 @@
+.rowTitle {
+  width: 20rem;
+  margin-bottom: 0;
+}
+
+.fieldTitles {
+  margin-right: 2.5em;
+}
+
+.fieldTitles:last-of-type {
+  margin-right: 4em;
+}
+
+.pensionerFieldTitles {
+  margin-right: 5rem;
+}
+
+.pensionerFieldQuestion + .pensionerFieldQuestion {
+  margin-right: 11rem;
+}
+.pensionerFieldTitles + .pensionerFieldTitles {
+  margin-right: 16rem;
+}

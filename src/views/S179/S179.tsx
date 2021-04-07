@@ -6,9 +6,10 @@ import { BespokeInvestment } from './BespokeInvestment/BespokeInvestment';
 import { EffectiveDate } from './EffectiveDate/EffectiveDate';
 import { GuidanceAndAssumptions } from './GuidanceAndAssumptions/GuidanceAndAssumptions';
 import { Liabilities } from './Liabilities/Liabilities';
+import { ProportionOfLiabilities } from './ProportionOfLiabilities/ProportionOfLiabilities';
 
 export const S179: React.FC = () => {
-  const [step, setStep] = useState<'step1' | 'step2'>('step2');
+  const [step, setStep] = useState<'step1' | 'step2'>('step1');
 
   const selectStep = () => {
     switch (step) {
@@ -28,6 +29,7 @@ export const S179: React.FC = () => {
         return (
           <>
             <Liabilities />
+            <ProportionOfLiabilities />
             <BespokeInvestment />
             <Button type="submit" cfg={{ my: 3 }}>
               Save and Continue
