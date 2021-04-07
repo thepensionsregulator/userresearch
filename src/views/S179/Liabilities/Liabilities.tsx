@@ -23,7 +23,7 @@ export const Liabilities: React.FC = () => {
               <P className={styles.fieldTitles}>
                 Liabilities <br /> (excluding expenses)
               </P>
-              <P className={styles.fieldTitles}>Insure liabilities</P>
+              <P className={styles.fieldTitles}>Insurer liabilities</P>
               <P className={styles.fieldTitles}>Number of members</P>
               <P className={styles.fieldTitles}>Average ages</P>
             </Flex>
@@ -46,20 +46,12 @@ export const Liabilities: React.FC = () => {
                 />
                 <FFInputNumber
                   type="number"
-                  name="Another name"
+                  name="active2"
                   after="%"
                   inputWidth={7}
                 />
-                <FFInputNumber
-                  type="number"
-                  name="Another field"
-                  inputWidth={7}
-                />
-                <FFInputNumber
-                  type="number"
-                  name="Another name"
-                  inputWidth={7}
-                />
+                <FFInputNumber type="number" name="active3" inputWidth={7} />
+                <FFInputNumber type="number" name="active4" inputWidth={7} />
               </Flex>
             </Flex>
             <Flex
@@ -78,12 +70,12 @@ export const Liabilities: React.FC = () => {
               />
               <FFInputNumber
                 type="number"
-                name="Another name"
+                name="deferred1"
                 after="%"
                 inputWidth={7}
               />
-              <FFInputNumber type="number" name="Label name" inputWidth={7} />
-              <FFInputNumber type="number" name="Another name" inputWidth={7} />
+              <FFInputNumber type="number" name="deferred2" inputWidth={7} />
+              <FFInputNumber type="number" name="deferred3" inputWidth={7} />
             </Flex>
 
             <Flex
@@ -103,16 +95,12 @@ export const Liabilities: React.FC = () => {
 
               <FFInputNumber
                 type="number"
-                name="Another name"
+                name="pensioner1"
                 after="%"
                 inputWidth={7}
               />
-              <FFInputNumber
-                type="number"
-                name="Another field"
-                inputWidth={7}
-              />
-              <FFInputNumber type="number" name="Label name" inputWidth={7} />
+              <FFInputNumber type="number" name="pensioner2" inputWidth={7} />
+              <FFInputNumber type="number" name="pensioner3" inputWidth={7} />
             </Flex>
             <Flex cfg={{ flexDirection: 'row', my: 1 }}>
               <P className={styles.rowTitle}>
