@@ -6,7 +6,7 @@ import styles from './BespokeInvestment.module.scss';
 export const BespokeInvestment: React.FC = () => {
   return (
     <>
-      <H2 cfg={{ mb: 2 }}>
+      <H2 cfg={{ mt: 5, mb: 2 }}>
         Bespoke investment risk calculation for PPF purposes
       </H2>
       <P>
