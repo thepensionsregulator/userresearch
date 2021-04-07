@@ -14,6 +14,7 @@ import SchemeNameAndAddress from './views/SchemeNameAndAddress';
 import Trustees from './views/Trustees';
 import AddTrustee from './views/AddTrustee';
 import StateContext from './StateContext';
+import { S179 } from './views/S179/S179';
 
 function App() {
   const AppState = useContext(StateContext);
@@ -22,13 +23,12 @@ function App() {
     <div>
       <BetaHeader text="This is a new service - your feedback will help us improve it." />
       <Header
-        logoUrl={
+        logoHref={
           'https://www.thepensionsregulator.gov.uk/-/media/thepensionsregulator/images/logo/tpr-logo-header.ashx'
         }
         title={'Scheme Return'}
-        onClickSchemeOptions={() => {
-          console.log('Scheme Options clicked');
-        }}
+        logoSrc=""
+        schemeOptionsHref=""
         onClickLogout={() => {
           console.log('Logout clicked');
         }}
@@ -79,13 +79,13 @@ function App() {
               path="/trustees/add-trustee"
               component={() => <AddTrustee />}
             />
+            <Route exact path="/s179" component={() => <S179 />} />
           </Switch>
         </AppWidth>
       </DocWidth>
 
       <Footer
         logoUrl="https://www.thepensionsregulator.gov.uk/-/media/thepensionsregulator/images/logo/tpr-logo-footer.ashx"
-        onLinkClickHandler={(url) => console.log(`navigate to ${url}`)}
         links={[
           {
             title: 'Accessibility',

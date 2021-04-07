@@ -2,7 +2,7 @@ import React from 'react';
 import Styles from '../Layout.module.scss';
 import { ArrowLink, ArrowButton, HelpLink } from '@tpr/layout';
 import { useHistory } from 'react-router-dom';
-import { H1, H3, Hr, H4 } from '@tpr/core';
+import { H1, H3, Hr, H4, P } from '@tpr/core';
 import {
   Form,
   SeparatorY,
@@ -76,14 +76,17 @@ const IndividualTrusteeStepTwo = (props: any) => {
             <br />
             <H4 cfg={{ mb: 2 }}>Is this individual a professional trustee?</H4>
             <SeparatorX>{renderFields(fields[1])}</SeparatorX>
-            <HelpLink
-              title="What is a 'professional' trustee?"
-              content="Someone will normally be considered a professional trustee if they
-              represented or promoted themselves to the trustees or sponsors of
-              one or more unrelated schemes as having expertise in trustee
-              matters generally (rather than just in certain areas), whether
-              they are paid for the expertise or not. Please see our professional trustee description policy  for a more detailed explanation and examples."
-            />
+            <HelpLink title="What is a 'professional' trustee?">
+              <P>
+                Someone will normally be considered a professional trustee if
+                they represented or promoted themselves to the trustees or
+                sponsors of one or more unrelated schemes as having expertise in
+                trustee matters generally (rather than just in certain areas),
+                whether they are paid for the expertise or not. Please see our
+                professional trustee description policy for a more detailed
+                explanation and examples.
+              </P>
+            </HelpLink>
             <Hr cfg={{ mt: 9, mb: 5 }} />
             <ArrowButton
               title="Continue"
