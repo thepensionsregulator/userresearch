@@ -1,4 +1,4 @@
-import { Button, H1, Hr, P } from '@tpr/core';
+import { Button, Flex, H1, Hr, P } from '@tpr/core';
 import { Form } from '@tpr/forms';
 import React, { useState } from 'react';
 import { Assets } from './Assets/Assets';
@@ -31,9 +31,18 @@ export const S179: React.FC = () => {
             <Liabilities />
             <ProportionOfLiabilities />
             <BespokeInvestment />
-            <Button type="submit" cfg={{ my: 3 }}>
-              Save and Continue
-            </Button>
+            <Flex>
+              <Button
+                type="button"
+                cfg={{ my: 3, mr: 4 }}
+                onClick={() => setStep('step1')}
+              >
+                Back
+              </Button>
+              <Button type="submit" cfg={{ my: 3 }}>
+                Save and Continue
+              </Button>
+            </Flex>
           </>
         );
       default:
@@ -43,7 +52,7 @@ export const S179: React.FC = () => {
 
   return (
     <>
-      <H1>S179 Grid Spike</H1>
+      <H1>S179 Valuation</H1>
       <P>A prototype of a multi-page, grid style S179 page.</P>
       <Hr cfg={{ mb: 5 }} />
       <Form onSubmit={(values: any) => console.log(values)}>
