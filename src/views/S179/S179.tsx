@@ -1,50 +1,26 @@
-import { Button, Flex, H1, Hr, P } from '@tpr/core';
+import { H1, Hr, P } from '@tpr/core';
 import { Form } from '@tpr/forms';
 import React, { useState } from 'react';
-import { Assets } from './Assets/Assets';
-import { BespokeInvestment } from './BespokeInvestment/BespokeInvestment';
-import { EffectiveDate } from './EffectiveDate/EffectiveDate';
-import { GuidanceAndAssumptions } from './GuidanceAndAssumptions/GuidanceAndAssumptions';
-import { Liabilities } from './Liabilities/Liabilities';
-import { ProportionOfLiabilities } from './ProportionOfLiabilities/ProportionOfLiabilities';
+import { Step1 } from './views/Step1';
+import { Step2 } from './views/Step2';
+import { Step3 } from './views/Step3';
 
 export const S179: React.FC = () => {
-  const [step, setStep] = useState<'step1' | 'step2'>('step1');
+  const [step, setStep] = useState<'step1' | 'step2' | 'step3'>('step1');
 
   const selectStep = () => {
     switch (step) {
       case 'step1':
-        return (
-          <>
-            <EffectiveDate />
-            <GuidanceAndAssumptions />
-            <Assets />
-            <Hr cfg={{ my: 8 }} />
-            <Button type="button" onClick={() => setStep('step2')}>
-              Continue
-            </Button>
-          </>
-        );
+        return <Step1 handleNextClick={() => setStep('step2')} />;
       case 'step2':
         return (
-          <>
-            <Liabilities />
-            <ProportionOfLiabilities />
-            <BespokeInvestment />
-            <Flex>
-              <Button
-                type="button"
-                cfg={{ my: 3, mr: 4 }}
-                onClick={() => setStep('step1')}
-              >
-                Back
-              </Button>
-              <Button type="submit" cfg={{ my: 3 }}>
-                Save and Continue
-              </Button>
-            </Flex>
-          </>
+          <Step2
+            handlePrevClick={() => setStep('step1')}
+            handleNextClick={() => setStep('step3')}
+          />
         );
+      case 'step3':
+        return <Step3 handlePrevClick={() => setStep('step2')} />;
       default:
         return;
     }
