@@ -7,7 +7,7 @@ export const Assets: React.FC = () => {
   return (
     <Flex cfg={{ my: 5, flexDirection: 'column' }}>
       <H2 cfg={{ mb: 5 }}>Assets</H2>
-      <Flex>
+      <Flex cfg={{ flexDirection: 'column' }}>
         <Flex cfg={{ flexDirection: 'column' }}>
           <Flex>
             <P className={styles.assetQuestions}>Total Assets</P>
@@ -18,7 +18,7 @@ export const Assets: React.FC = () => {
             <FFInputNumber name="PercentageOfAssets" after="%" />
           </Flex>
         </Flex>
-        <Flex cfg={{ p: 5, bg: 'neutral.2', ml: 4 }}>
+        <Flex cfg={{ p: 5, bg: 'neutral.2', mt: 4 }}>
           <FFInputDate
             name="Date of relevant accounts"
             label="Date of relevant accounts"
