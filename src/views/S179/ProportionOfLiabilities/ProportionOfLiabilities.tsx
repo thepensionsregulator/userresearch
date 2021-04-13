@@ -43,6 +43,7 @@ export const ProportionOfLiabilities: React.FC = () => {
                 type="number"
                 name="activePostApril2009"
                 inputWidth={7}
+                after="%"
               />
             </Flex>
             <Flex
@@ -64,6 +65,7 @@ export const ProportionOfLiabilities: React.FC = () => {
                 type="number"
                 name="deferredPostApril2009"
                 inputWidth={7}
+                after="%"
               />
             </Flex>
             <Flex
