@@ -7,7 +7,7 @@ import { Step2 } from './views/Step2';
 import { Step3 } from './views/Step3';
 
 export const S179: React.FC = () => {
-  const [step, setStep] = useState<'step1' | 'step2' | 'step3'>('step2');
+  const [step, setStep] = useState<'step1' | 'step2' | 'step3'>('step1');
 
   const [initialData, setInitialData] = useState<S179Data>({
     effectiveDate: new Date('2021-04-13'),
