@@ -35,9 +35,8 @@ export const Liabilities: React.FC = () => {
                 }}
               >
                 <P className={styles.rowTitle}>Active Members</P>
-
                 <FFInputCurrency
-                  name="activeLiabilities"
+                  name="ActiveLiabilities"
                   inputWidth={7}
                   before="£"
                   validate={(value: any) => {
@@ -46,12 +45,16 @@ export const Liabilities: React.FC = () => {
                 />
                 <FFInputNumber
                   type="number"
-                  name="active2"
+                  name="ActiveInsurer"
                   after="%"
                   inputWidth={7}
                 />
-                <FFInputNumber type="number" name="active3" inputWidth={7} />
-                <FFInputNumber type="number" name="active4" inputWidth={7} />
+                <FFInputNumber
+                  type="number"
+                  name="ActiveNumber"
+                  inputWidth={7}
+                />
+                <FFInputNumber type="number" name="ActiveAge" inputWidth={7} />
               </Flex>
             </Flex>
             <Flex
@@ -64,20 +67,23 @@ export const Liabilities: React.FC = () => {
               <P className={styles.rowTitle}>Deferred Members</P>
 
               <FFInputCurrency
-                name="deferredLiabilities"
+                name="DeferredLiabilities"
                 inputWidth={7}
                 before="£"
               />
               <FFInputNumber
                 type="number"
-                name="deferred1"
+                name="DeferredInsurer"
                 after="%"
                 inputWidth={7}
               />
-              <FFInputNumber type="number" name="deferred2" inputWidth={7} />
-              <FFInputNumber type="number" name="deferred3" inputWidth={7} />
+              <FFInputNumber
+                type="number"
+                name="DeferredNumber"
+                inputWidth={7}
+              />
+              <FFInputNumber type="number" name="DeferredAge" inputWidth={7} />
             </Flex>
-
             <Flex
               cfg={{
                 flexDirection: 'row',
@@ -88,19 +94,23 @@ export const Liabilities: React.FC = () => {
               <P className={styles.rowTitle}>Pensioner Members</P>
 
               <FFInputCurrency
-                name="pensionerMembersLiabilities"
+                name="PensionerLiabilities"
                 inputWidth={7}
                 before="£"
               />
 
               <FFInputNumber
                 type="number"
-                name="pensioner1"
+                name="PensionerInsurer"
                 after="%"
                 inputWidth={7}
               />
-              <FFInputNumber type="number" name="pensioner2" inputWidth={7} />
-              <FFInputNumber type="number" name="pensioner3" inputWidth={7} />
+              <FFInputNumber
+                type="number"
+                name="PensionerNumber"
+                inputWidth={7}
+              />
+              <FFInputNumber type="number" name="PensionerAge" inputWidth={7} />
             </Flex>
             <Flex cfg={{ flexDirection: 'row', my: 1 }}>
               <P className={styles.rowTitle}>
@@ -108,7 +118,7 @@ export const Liabilities: React.FC = () => {
               </P>
 
               <FFInputCurrency
-                name="windingUpLiabilities"
+                name="WindingUpLiabilities"
                 inputWidth={7}
                 before="£"
               />
@@ -117,7 +127,7 @@ export const Liabilities: React.FC = () => {
               <P className={styles.rowTitle}>External liabilities</P>
 
               <FFInputCurrency
-                name="externalLiabilities"
+                name="ExternalLiabilities"
                 inputWidth={7}
                 before="£"
               />
@@ -128,7 +138,7 @@ export const Liabilities: React.FC = () => {
               </P>
 
               <FFInputCurrency
-                name="expenseOfBenefitLiabilities"
+                name="BenefitLiabilities"
                 inputWidth={7}
                 before="£"
               />

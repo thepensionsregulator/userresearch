@@ -1,9 +1,33 @@
 import { Flex, H2, P } from '@tpr/core';
 import { FFInputCurrency } from '@tpr/forms';
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { S179Context } from '../Services/S179Context';
 import styles from './BespokeInvestment.module.scss';
 
 export const BespokeInvestment: React.FC = () => {
+  const [optional, setOptional] = useState<boolean>(true);
+  const appContext = useContext(S179Context);
+  const data = appContext.data;
+  useEffect(() => {
+    const liabilitiesTotal =
+      data.ActiveLiabilities +
+      data.DeferredLiabilities +
+      data.PensionerLiabilities +
+      data.ExternalLiabilities +
+      data.WindingUpLiabilities +
+      data.BenefitLiabilities;
+    if (liabilitiesTotal >= 1500000000) {
+      setOptional(false);
+    }
+  }, [
+    setOptional,
+    data.ActiveLiabilities,
+    data.DeferredLiabilities,
+    data.PensionerLiabilities,
+    data.ExternalLiabilities,
+    data.WindingUpLiabilities,
+    data.BenefitLiabilities,
+  ]);
   return (
     <>
       <H2 cfg={{ mt: 5, mb: 2 }}>
@@ -17,20 +41,43 @@ export const BespokeInvestment: React.FC = () => {
         accounts.
       </P>
       <Flex>
-        <Flex className={styles.bespokeInvestmentQuestions}>
-          <FFInputCurrency
-            before="£"
-            name="StressedAssets"
-            label="Stressed asset value"
-          />
-        </Flex>
-        <Flex className={styles.bespokeInvestmentQuestions}>
-          <FFInputCurrency
-            before="£"
-            name="UnstressedAssets"
-            label="Unstressed asset value"
-          />
-        </Flex>
+        {optional ? (
+          <>
+            <Flex className={styles.bespokeInvestmentQuestions}>
+              <FFInputCurrency
+                before="£"
+                name="StressedAssets"
+                label="Stressed asset value"
+              />
+            </Flex>
+            <Flex className={styles.bespokeInvestmentQuestions}>
+              <FFInputCurrency
+                before="£"
+                name="UnstressedAssets"
+                label="Unstressed asset value"
+              />
+            </Flex>
+          </>
+        ) : (
+          <>
+            <Flex className={styles.bespokeInvestmentQuestions}>
+              <FFInputCurrency
+                before="£"
+                name="StressedAssets"
+                label="Stressed asset value"
+                required
+              />
+            </Flex>
+            <Flex className={styles.bespokeInvestmentQuestions}>
+              <FFInputCurrency
+                before="£"
+                name="UnstressedAssets"
+                label="Unstressed asset value"
+                required
+              />
+            </Flex>
+          </>
+        )}
       </Flex>
     </>
   );
