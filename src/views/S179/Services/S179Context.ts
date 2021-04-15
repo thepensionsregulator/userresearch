@@ -32,6 +32,7 @@ export interface S179Data {
   WindingUpLiabilities?: number;
   ExternalLiabilities?: number;
   BenefitLiabilities?: number;
+  TotalProtectedLiabilities?: number;
   ActivePre1997?: number;
   ActivePreApril2009?: number;
   ActivePostApril2009?: number;

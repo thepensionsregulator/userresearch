@@ -1,4 +1,4 @@
-import { Flex, H4, P } from '@tpr/core';
+import { Flex, H2, P } from '@tpr/core';
 import { FFInputCurrency, FFInputNumber } from '@tpr/forms';
 import { HelpLink } from '@tpr/layout';
 import React from 'react';
@@ -8,7 +8,7 @@ export const Liabilities: React.FC = () => {
   return (
     <Flex>
       <Flex cfg={{ ml: 2, flexDirection: 'column' }}>
-        <H4>Liabilities</H4>
+        <H2>Liabilities</H2>
         <P>Here is some guidance text</P>
         <HelpLink title="Help with liabilities">Help text content</HelpLink>
 
@@ -136,9 +136,16 @@ export const Liabilities: React.FC = () => {
               <P className={styles.rowTitle}>
                 Estimated expenses of benefit installation/ payment
               </P>
-
               <FFInputCurrency
                 name="BenefitLiabilities"
+                inputWidth={7}
+                before="£"
+              />
+            </Flex>
+            <Flex cfg={{ flexDirection: 'row', my: 1 }}>
+              <P className={styles.rowTitle}>Total protected liabilities</P>
+              <FFInputCurrency
+                name="TotalProtectedLiabilities"
                 inputWidth={7}
                 before="£"
               />
