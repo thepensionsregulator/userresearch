@@ -1,4 +1,4 @@
-import { Flex, H2, P, Span } from '@tpr/core';
+import { Flex, H2, H4, P, Span } from '@tpr/core';
 import { FFInputNumber } from '@tpr/forms';
 import React, { useContext, useEffect, useState } from 'react';
 import { S179Context } from '../Services/S179Context';
@@ -90,7 +90,7 @@ export const ProportionOfLiabilities: React.FC = () => {
       <H2 cfg={{ mt: 5, mb: 2 }}>Proportion of Liabilities</H2>
       <P>
         Enter the percentage of liabilities for each member type. Total for each
-        member must equal 100%/
+        member must equal 100%
       </P>
       <Flex cfg={{ flexDirection: 'row' }}>
         <Flex cfg={{ flexDirection: 'column' }}>
@@ -103,7 +103,6 @@ export const ProportionOfLiabilities: React.FC = () => {
             <P className={styles.fieldTitles}>Pre 6 April 1997</P>
             <P className={styles.fieldTitles}>6 April 1997 - 5 April 2009</P>
             <P className={styles.fieldTitles}>Post 5 April 2009</P>
-            <P className={styles.fieldTitles}>Total</P>
           </Flex>
           <Flex cfg={{ flexDirection: 'column', my: 1 }}>
             <Flex
@@ -136,7 +135,9 @@ export const ProportionOfLiabilities: React.FC = () => {
                 after="%"
                 callback={(event: any) => setActivePost2009(event.target.value)}
               />
-              <Flex>
+              <Flex cfg={{ flexDirection: 'column', my: 1 }}>
+                <H4>Active Members Total</H4>
+                <P>This total automatically updates as you type</P>
                 <Span tag="h4">{activeTotal}%</Span>
               </Flex>
             </Flex>
@@ -174,7 +175,9 @@ export const ProportionOfLiabilities: React.FC = () => {
                   setDeferredPost2009(event.target.value)
                 }
               />
-              <Flex>
+              <Flex cfg={{ flexDirection: 'column', my: 1 }}>
+                <H4>Deferred Members Total</H4>
+                <P>This total automatically updates as you type</P>
                 <Span tag="h4">{deferredTotal}%</Span>
               </Flex>
             </Flex>
@@ -215,8 +218,10 @@ export const ProportionOfLiabilities: React.FC = () => {
                   }
                 />
               </Flex>
-              <Flex>
-                <Span tag="h4">{Number(pensionerTotal)}%</Span>
+              <Flex cfg={{ flexDirection: 'column', my: 1 }}>
+                <H4>Pensioner Members Total</H4>
+                <P>This total automatically updates as you type</P>
+                <Span tag="h4">{pensionerTotal}%</Span>
               </Flex>
             </Flex>
           </Flex>

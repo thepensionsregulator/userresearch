@@ -1,4 +1,4 @@
-import { Flex, H2, P } from '@tpr/core';
+import { Flex, H2, P, Span } from '@tpr/core';
 import { FFRadioButton } from '@tpr/forms';
 import React from 'react';
 import styles from './GuidanceAndAssumptions.module.scss';
@@ -22,7 +22,7 @@ export const GuidanceAndAssumptions: React.FC<GuidanceAndAssumptionsProps> = ({
       </P>
       <Flex>
         <fieldset className={styles.questionSets}>
-          <P>S179 guidance used for this valuation</P>
+          <Span tag="h4">S179 guidance used for this valuation</Span>
           {guidance ? (
             <>
               <P>{guidance}</P>
@@ -36,7 +36,7 @@ export const GuidanceAndAssumptions: React.FC<GuidanceAndAssumptionsProps> = ({
           )}
         </fieldset>
         <fieldset className={styles.questionSets}>
-          <P>S179 assumptions used for this valuation</P>
+          <Span tag="h4">S179 assumptions used for this valuation</Span>
           {assumption ? (
             <>
               <P>{assumption}</P>

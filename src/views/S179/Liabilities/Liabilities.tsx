@@ -136,9 +136,16 @@ export const Liabilities: React.FC = () => {
               <P className={styles.rowTitle}>
                 Estimated expenses of benefit installation/ payment
               </P>
-
               <FFInputCurrency
                 name="BenefitLiabilities"
+                inputWidth={7}
+                before="£"
+              />
+            </Flex>
+            <Flex cfg={{ flexDirection: 'row', my: 1 }}>
+              <P className={styles.rowTitle}>Total protected liabilities</P>
+              <FFInputCurrency
+                name="TotalProtectedLiabilities"
                 inputWidth={7}
                 before="£"
               />
