@@ -40,5 +40,5 @@ export interface S179Data {
   DeferredPreApril2009?: number;
   DeferredPostApril2009?: number;
   PensionersPre1997?: number;
-  PensionerPost2009?: number;
+  PensionerPost1997?: number;
 }

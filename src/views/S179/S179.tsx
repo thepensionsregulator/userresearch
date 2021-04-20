@@ -40,7 +40,7 @@ export const S179: React.FC = () => {
     DeferredPreApril2009: 74,
     DeferredPostApril2009: 15,
     PensionersPre1997: 29,
-    PensionerPost2009: 71,
+    PensionerPost1997: 71,
   });
 
   const selectStep = (currentStep: string) => {

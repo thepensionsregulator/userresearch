@@ -1,4 +1,4 @@
-import { Flex, H2, H4, P, Span } from '@tpr/core';
+import { Flex, H2, H3, H4, Hr, P, Span } from '@tpr/core';
 import { FFInputNumber } from '@tpr/forms';
 import React, { useContext, useEffect, useState } from 'react';
 import { S179Context } from '../Services/S179Context';
@@ -35,7 +35,7 @@ export const ProportionOfLiabilities: React.FC = () => {
     s179Context.data.PensionersPre1997,
   );
   const [PensionerPost2009, setPensionerPost2009] = useState<number>(
-    s179Context.data.PensionerPost2009,
+    s179Context.data.PensionerPost1997,
   );
 
   useEffect(() => {
@@ -72,7 +72,7 @@ export const ProportionOfLiabilities: React.FC = () => {
 
     const pensionerTotal =
       Number(s179Context.data.PensionersPre1997) +
-      Number(s179Context.data.PensionerPost2009);
+      Number(s179Context.data.PensionerPost1997);
     setPensionerTotal(pensionerTotal);
   }, [
     s179Context.data.DeferredPre1997,
@@ -82,7 +82,7 @@ export const ProportionOfLiabilities: React.FC = () => {
     s179Context.data.ActivePreApril2009,
     s179Context.data.ActivePostApril2009,
     s179Context.data.PensionersPre1997,
-    s179Context.data.PensionerPost2009,
+    s179Context.data.PensionerPost1997,
   ]);
 
   return (
@@ -92,137 +92,119 @@ export const ProportionOfLiabilities: React.FC = () => {
         Enter the percentage of liabilities for each member type. Total for each
         member must equal 100%
       </P>
-      <Flex cfg={{ flexDirection: 'row' }}>
-        <Flex cfg={{ flexDirection: 'column' }}>
-          <Flex
-            cfg={{
-              justifyContent: 'flex-end',
-              alignItems: 'center',
-            }}
-          >
-            <P className={styles.fieldTitles}>Pre 6 April 1997</P>
-            <P className={styles.fieldTitles}>6 April 1997 - 5 April 2009</P>
-            <P className={styles.fieldTitles}>Post 5 April 2009</P>
+      <Flex cfg={{ flexDirection: 'row', mt: 5 }}>
+        <Flex cfg={{ flexDirection: 'row', my: 1 }}>
+          <Flex className={styles.columns}>
+            <H3 className={styles.rowTitle}>Active Members</H3>
+            <FFInputNumber
+              name="ActivePre1997"
+              label="Pre 6 April 1997"
+              inputWidth={2}
+              after="%"
+              callback={(event: any) => {
+                setActivePre1997(Number(event.target.value));
+              }}
+              required
+              cfg={{ mt: 1, mb: 5 }}
+            />
+            <FFInputNumber
+              type="number"
+              name="ActivePreApril2009"
+              label="6 April 1997 to 5 April 2009"
+              after="%"
+              inputWidth={2}
+              callback={(event: any) => setActivePre2009(event.target.value)}
+              required
+              cfg={{ mt: 1, mb: 5 }}
+            />
+            <FFInputNumber
+              type="number"
+              name="ActivePostApril2009"
+              label="Post 5 April 2009"
+              inputWidth={2}
+              after="%"
+              callback={(event: any) => setActivePost2009(event.target.value)}
+              required
+              cfg={{ mt: 1, mb: 5 }}
+            />
+            <Flex cfg={{ flexDirection: 'column', my: 1 }}>
+              <Hr cfg={{ mt: 3, mb: 2 }} />
+              <H4>Active Members Total</H4>
+              <P>This total automatically updates as you type.</P>
+              <Span tag="h4">{activeTotal}%</Span>
+            </Flex>
           </Flex>
-          <Flex cfg={{ flexDirection: 'column', my: 1 }}>
-            <Flex
-              cfg={{
-                justifyContent: 'space-between',
-                alignItems: 'center',
-              }}
-            >
-              <P className={styles.rowTitle}>Active Members</P>
+          <Flex className={styles.columns}>
+            <H3 className={styles.rowTitle}>Deferred Members</H3>
 
-              <FFInputNumber
-                name="ActivePre1997"
-                inputWidth={7}
-                after="%"
-                callback={(event: any) => {
-                  setActivePre1997(Number(event.target.value));
-                }}
-              />
-              <FFInputNumber
-                type="number"
-                name="ActivePreApril2009"
-                after="%"
-                inputWidth={7}
-                callback={(event: any) => setActivePre2009(event.target.value)}
-              />
-              <FFInputNumber
-                type="number"
-                name="ActivePostApril2009"
-                inputWidth={7}
-                after="%"
-                callback={(event: any) => setActivePost2009(event.target.value)}
-              />
-              <Flex cfg={{ flexDirection: 'column', my: 1 }}>
-                <H4>Active Members Total</H4>
-                <P>This total automatically updates as you type</P>
-                <Span tag="h4">{activeTotal}%</Span>
-              </Flex>
+            <FFInputNumber
+              name="DeferredPre1997"
+              label="Pre 6 April 1997"
+              inputWidth={2}
+              after="%"
+              callback={(event: any) => setDeferredPre1997(event.target.value)}
+              required
+              cfg={{ mt: 1, mb: 5 }}
+            />
+            <FFInputNumber
+              type="number"
+              name="DeferredPreApril2009"
+              label="6 April 1997 to 5 April 2009 (inclusive)"
+              after="%"
+              inputWidth={2}
+              callback={(event: any) => setDeferredPre2009(event.target.value)}
+              required
+              cfg={{ mt: 1, mb: 5 }}
+            />
+            <FFInputNumber
+              type="number"
+              name="DeferredPostApril2009"
+              label="Post 5 April 2009"
+              inputWidth={2}
+              after="%"
+              callback={(event: any) => setDeferredPost2009(event.target.value)}
+              required
+              cfg={{ mt: 1, mb: 5 }}
+            />
+            <Flex cfg={{ flexDirection: 'column', my: 1 }}>
+              <Hr cfg={{ mt: 3, mb: 2 }} />
+              <H4>Deferred Members Total</H4>
+              <P>This total automatically updates as you type.</P>
+              <Span tag="h4">{deferredTotal}%</Span>
             </Flex>
-            <Flex
-              cfg={{
-                justifyContent: 'space-between',
-                alignItems: 'center',
-              }}
-            >
-              <P className={styles.rowTitle}>Deferred Members</P>
+          </Flex>
+          <Flex className={styles.columns}>
+            <H3 className={styles.rowTitle}>Pensioner Members</H3>
 
-              <FFInputNumber
-                name="DeferredPre1997"
-                inputWidth={7}
-                after="%"
-                callback={(event: any) =>
-                  setDeferredPre1997(event.target.value)
-                }
-              />
-              <FFInputNumber
-                type="number"
-                name="DeferredPreApril2009"
-                after="%"
-                inputWidth={7}
-                callback={(event: any) =>
-                  setDeferredPre2009(event.target.value)
-                }
-              />
-              <FFInputNumber
-                type="number"
-                name="DeferredPostApril2009"
-                inputWidth={7}
-                after="%"
-                callback={(event: any) =>
-                  setDeferredPost2009(event.target.value)
-                }
-              />
-              <Flex cfg={{ flexDirection: 'column', my: 1 }}>
-                <H4>Deferred Members Total</H4>
-                <P>This total automatically updates as you type</P>
-                <Span tag="h4">{deferredTotal}%</Span>
-              </Flex>
-            </Flex>
-            <Flex
-              cfg={{
-                justifyContent: 'flex-end',
-                alignItems: 'center',
-                mt: 2,
-              }}
-            >
-              <P className={styles.pensionerFieldTitles}>Pre 6 April 1997</P>
-              <P className={styles.pensionerFieldTitles}>Post 5 April 2009</P>
-            </Flex>
-            <Flex
-              cfg={{
-                alignItems: 'center',
-              }}
-            >
-              <P className={styles.rowTitle}>Pensioner Members</P>
-              <Flex className={styles.pensionerFieldQuestion}>
-                <FFInputNumber
-                  name="PensionersPre1997"
-                  inputWidth={7}
-                  after="%"
-                  callback={(event: any) =>
-                    setPensionerPre1997(event.target.value)
-                  }
-                />
-              </Flex>
-              <Flex className={styles.pensionerFieldQuestion}>
-                <FFInputNumber
-                  type="number"
-                  name="PensionerPost2009"
-                  after="%"
-                  inputWidth={7}
-                  callback={(event: any) =>
-                    setPensionerPost2009(event.target.value)
-                  }
-                />
-              </Flex>
-              <Flex cfg={{ flexDirection: 'column', my: 1 }}>
-                <H4>Pensioner Members Total</H4>
-                <P>This total automatically updates as you type</P>
-                <Span tag="h4">{pensionerTotal}%</Span>
-              </Flex>
+            <FFInputNumber
+              name="PensionersPre1997"
+              label="Pre 6 April 1997"
+              inputWidth={2}
+              after="%"
+              callback={(event: any) => setPensionerPre1997(event.target.value)}
+              required
+              cfg={{ mt: 1, mb: 5 }}
+            />
+
+            <FFInputNumber
+              type="number"
+              name="PensionerPost1997"
+              label="Post 5 April 1997"
+              after="%"
+              inputWidth={2}
+              callback={(event: any) =>
+                setPensionerPost2009(event.target.value)
+              }
+              required
+              cfg={{ mt: 1, mb: 5 }}
+            />
+
+            <Flex cfg={{ flex: '1 0 auto' }}></Flex>
+            <Hr cfg={{ mt: 3, mb: 1 }} />
+            <Flex cfg={{ flexDirection: 'column', my: 1 }}>
+              <H4>Pensioner Members Total</H4>
+              <P>This total automatically updates as you type.</P>
+              <Span tag="h4">{pensionerTotal}%</Span>
             </Flex>
           </Flex>
         </Flex>
