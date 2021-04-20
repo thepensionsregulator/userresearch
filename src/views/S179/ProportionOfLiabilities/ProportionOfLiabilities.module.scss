@@ -1,23 +1,10 @@
-.rowTitle {
-  width: 20rem;
-  margin-bottom: 0;
+.columns {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 15px;
+  justify-content: 'center';
 }
 
-.fieldTitles {
-  margin-right: 1.5em;
-}
-
-.fieldTitles:last-of-type {
-  margin-right: 21em;
-}
-
-.pensionerFieldTitles {
-  margin-right: 4rem;
-}
-
-.pensionerFieldQuestion + .pensionerFieldQuestion {
-  margin-right: 11rem;
-}
-.pensionerFieldTitles + .pensionerFieldTitles {
-  margin-right: 32rem;
+.columns:nth-child(even) {
+  background-color: #f5f5f5;
 }
