@@ -12,7 +12,7 @@ export const EffectiveDate: React.FC<EffectiveDateProps> = ({
   handleNewS179,
 }) => {
   return (
-    <Flex cfg={{ flexDirection: 'column', bg: 'neutral.2', p: 5 }}>
+    <Flex cfg={{ flexDirection: 'column', bg: 'neutral.2', p: 6, mb: 7 }}>
       <Span tag="h4">Effective date of current S179 valuation</Span>
 
       {effectiveDate ? (

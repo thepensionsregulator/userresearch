@@ -1,4 +1,5 @@
-import { Button, Hr } from '@tpr/core';
+import { Hr } from '@tpr/core';
+import { ArrowButton } from '@tpr/layout';
 import React from 'react';
 import { BespokeInvestment } from '../BespokeInvestment/BespokeInvestment';
 
@@ -9,7 +10,12 @@ export const Step3: React.FC<Step3Props> = () => {
     <>
       <BespokeInvestment />
       <Hr cfg={{ my: 8 }} />
-      <Button type="submit">Save and Continue</Button>
+      <ArrowButton
+        type="submit"
+        iconSide="right"
+        pointsTo="right"
+        title="Save and Continue"
+      />
     </>
   );
 };

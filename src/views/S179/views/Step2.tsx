@@ -1,4 +1,5 @@
-import { Button, Flex, Hr } from '@tpr/core';
+import { Flex, Hr } from '@tpr/core';
+import { ArrowButton } from '@tpr/layout';
 import React from 'react';
 import { Liabilities } from '../Liabilities/Liabilities';
 import { ProportionOfLiabilities } from '../ProportionOfLiabilities/ProportionOfLiabilities';
@@ -12,11 +13,16 @@ export const Step2: React.FC<Step2Props> = ({ handleNextClick }) => {
     <>
       <Liabilities />
       <ProportionOfLiabilities />
-      <Hr cfg={{ my: 8 }} />
+      <Hr cfg={{ mt: 9, mb: 7 }} />
       <Flex>
-        <Button type="button" cfg={{ my: 3 }} onClick={handleNextClick}>
-          Continue
-        </Button>
+        <ArrowButton
+          type="button"
+          cfg={{ my: 3 }}
+          onClick={handleNextClick}
+          title="Continue"
+          iconSide="right"
+          pointsTo="right"
+        />
       </Flex>
     </>
   );

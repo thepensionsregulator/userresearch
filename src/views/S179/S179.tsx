@@ -1,4 +1,4 @@
-import { Flex, H1, Hr, P } from '@tpr/core';
+import { Flex, H1, Hr, Span } from '@tpr/core';
 import { Form } from '@tpr/forms';
 import { ArrowLink } from '@tpr/layout';
 import React, { useState } from 'react';
@@ -6,9 +6,12 @@ import { S179Context, S179Data } from './Services/S179Context';
 import { Step1 } from './views/Step1';
 import { Step2 } from './views/Step2';
 import { Step3 } from './views/Step3';
+import styles from './s179.module.scss';
 
 export const S179: React.FC = () => {
-  const [currentStep, setStep] = useState<'step1' | 'step2' | 'step3'>('step1');
+  type steps = 'step1' | 'step2' | 'step3';
+
+  const [currentStep, setStep] = useState<steps>('step1');
 
   const [initialData, setInitialData] = useState<S179Data>({
     effectiveDate: new Date('2021-04-13'),
@@ -43,7 +46,7 @@ export const S179: React.FC = () => {
     PensionerPost1997: 71,
   });
 
-  const selectStep = (currentStep: string) => {
+  const selectForm = (currentStep: steps) => {
     switch (currentStep) {
       case 'step1':
         return <Step1 handleNextClick={() => setStep('step2')} />;
@@ -53,6 +56,19 @@ export const S179: React.FC = () => {
         return <Step3 />;
       default:
         return;
+    }
+  };
+
+  const selectHeading = (currentStep: steps) => {
+    switch (currentStep) {
+      case 'step1':
+        return 'Guidance, assumptions and assets';
+      case 'step2':
+        return 'Liabilities and Proportions';
+      case 'step3':
+        return 'Bespoke investment risk calculation for PPF purposes';
+      default:
+        return <></>;
     }
   };
 
@@ -78,15 +94,20 @@ export const S179: React.FC = () => {
         >
           Back
         </ArrowLink>
-        <H1 cfg={{ mt: 4 }}>S179 Valuation</H1>
-        <P>A prototype of a multi-page, grid style S179 page.</P>
+        <Span
+          cfg={{ fontWeight: 2, fontSize: 4, color: 'neutral.6' }}
+          className={styles.sectionTitle}
+        >
+          Add new S179 valuation
+        </Span>
+        <H1 cfg={{ mt: 1 }}>{selectHeading(currentStep)}</H1>
         <Hr cfg={{ mb: 5 }} />
         <Form
           onSubmit={(values: any) => console.log(values)}
           initialValues={{ ...initialData }}
         >
           {({ handleSubmit }) => (
-            <form onSubmit={handleSubmit}>{selectStep(currentStep)}</form>
+            <form onSubmit={handleSubmit}>{selectForm(currentStep)}</form>
           )}
         </Form>
       </Flex>
