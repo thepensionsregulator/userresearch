@@ -1,5 +1,6 @@
 import { Flex, H2, H3, H4, Hr, P, Span } from '@tpr/core';
 import { FFInputNumber } from '@tpr/forms';
+import { HelpLink } from '@tpr/layout';
 import React, { useContext, useEffect, useState } from 'react';
 import { S179Context } from '../Services/S179Context';
 import styles from './ProportionOfLiabilities.module.scss';
@@ -87,12 +88,12 @@ export const ProportionOfLiabilities: React.FC = () => {
 
   return (
     <Flex cfg={{ flexDirection: 'column' }}>
-      <H2 cfg={{ mt: 5, mb: 2 }}>Proportion of Liabilities</H2>
+      <H2 cfg={{ mt: 6, mb: 2 }}>Proportion of Liabilities</H2>
       <P>
         Enter the percentage of liabilities for each member type. Total for each
         member must equal 100%
       </P>
-      <Flex cfg={{ flexDirection: 'row', mt: 5 }}>
+      <Flex cfg={{ flexDirection: 'column', mt: 5 }}>
         <Flex cfg={{ flexDirection: 'row', my: 1 }}>
           <Flex className={styles.columns}>
             <H3 className={styles.rowTitle}>Active Members</H3>
@@ -131,7 +132,7 @@ export const ProportionOfLiabilities: React.FC = () => {
               <Hr cfg={{ mt: 3, mb: 2 }} />
               <H4>Active Members Total</H4>
               <P>This total automatically updates as you type.</P>
-              <Span tag="h4">{activeTotal}%</Span>
+              <Span tag="h4">{isNaN(activeTotal) ? 0 : activeTotal}%</Span>
             </Flex>
           </Flex>
           <Flex className={styles.columns}>
@@ -170,7 +171,7 @@ export const ProportionOfLiabilities: React.FC = () => {
               <Hr cfg={{ mt: 3, mb: 2 }} />
               <H4>Deferred Members Total</H4>
               <P>This total automatically updates as you type.</P>
-              <Span tag="h4">{deferredTotal}%</Span>
+              <Span tag="h4">{isNaN(deferredTotal) ? 0 : deferredTotal}%</Span>
             </Flex>
           </Flex>
           <Flex className={styles.columns}>
@@ -204,10 +205,15 @@ export const ProportionOfLiabilities: React.FC = () => {
             <Flex cfg={{ flexDirection: 'column', my: 1 }}>
               <H4>Pensioner Members Total</H4>
               <P>This total automatically updates as you type.</P>
-              <Span tag="h4">{pensionerTotal}%</Span>
+              <Span tag="h4">
+                {isNaN(pensionerTotal) ? 0 : pensionerTotal}%
+              </Span>
             </Flex>
           </Flex>
         </Flex>
+        <HelpLink title="Help with proportion of liabilities">
+          HelpLink content
+        </HelpLink>
       </Flex>
     </Flex>
   );

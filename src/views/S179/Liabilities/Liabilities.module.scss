@@ -1,12 +1,18 @@
-.rowTitle {
-  width: 17rem;
-  margin-bottom: 0;
+.firstColumn {
+  width: 255px;
 }
 
-.fieldTitles {
-  margin-right: 3.7em;
+.secondColumn {
+  width: 285px;
 }
 
-.fieldTitles:last-of-type {
-  margin-right: 5.5em;
+.thirdColumn {
+  width: 255px;
+}
+
+.forthColumn {
+  width: 270px;
+}
+.columns:nth-child(even) {
+  background-color: #f5f5f5;
 }
