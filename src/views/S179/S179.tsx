@@ -80,20 +80,37 @@ export const S179: React.FC = () => {
       }}
     >
       <Flex cfg={{ pt: 8, px: 6, pb: 10, flexDirection: 'column' }}>
-        <ArrowLink
-          onClick={() => {
-            if (currentStep === 'step2') {
+        {currentStep === 'step1' ? (
+          <ArrowLink
+            pointsTo="left"
+            iconSide="left"
+            cfg={{ mt: 2 }}
+            onClick={() => {}}
+            title="Back"
+          />
+        ) : currentStep === 'step2' ? (
+          <ArrowLink
+            onClick={() => {
               setStep('step1');
-            } else if (currentStep === 'step3') {
+            }}
+            pointsTo="left"
+            iconSide="left"
+            cfg={{ mt: 2 }}
+            title="Back to last step"
+          />
+        ) : (
+          <ArrowLink
+            onClick={() => {
               setStep('step2');
-            }
-          }}
-          pointsTo="left"
-          iconSide="left"
-          cfg={{ mt: 2 }}
-        >
-          Back
-        </ArrowLink>
+            }}
+            pointsTo="left"
+            iconSide="left"
+            cfg={{ mt: 2 }}
+            title="Back to last step"
+          >
+            Back to last step
+          </ArrowLink>
+        )}
         <Span
           cfg={{ fontWeight: 2, fontSize: 4, color: 'neutral.6' }}
           className={styles.sectionTitle}
