@@ -1,4 +1,4 @@
-import { Flex, H3, P, Span } from '@tpr/core';
+import { Flex, H2, P, Span } from '@tpr/core';
 import { FFInputCurrency, FFInputDate, FFInputNumber } from '@tpr/forms';
 import { HelpLink } from '@tpr/layout';
 import React from 'react';
@@ -10,7 +10,7 @@ export interface AssetsProps {
 export const Assets: React.FC<AssetsProps> = ({ dateOfRelevantAccounts }) => {
   return (
     <Flex cfg={{ my: 5, flexDirection: 'column' }}>
-      <H3 cfg={{ mb: 5 }}>Assets</H3>
+      <H2 cfg={{ mb: 5 }}>Assets</H2>
       <Flex cfg={{ flexDirection: 'column' }}>
         <Flex cfg={{ flexDirection: 'column' }}>
           <FFInputCurrency
