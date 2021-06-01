@@ -122,7 +122,6 @@ export const Liabilities: React.FC = () => {
                 cfg={{ mb: 6 }}
               />
             </Flex>
-
             <Flex
               cfg={{ flexDirection: 'column', pl: 3, pr: 3, pt: 2 }}
               className={`${styles.columns} ${styles.thirdColumn}`}
@@ -171,14 +170,18 @@ export const Liabilities: React.FC = () => {
               <FFInputNumber
                 type="number"
                 name="DeferredAge"
+                label="Deferred members"
                 inputWidth={3}
                 cfg={{ mb: 6 }}
+                required
               />
               <FFInputNumber
                 type="number"
                 name="PensionerAge"
+                label="Pensioner members"
                 inputWidth={3}
                 cfg={{ mb: 6 }}
+                required
               />
             </Flex>
           </Flex>
