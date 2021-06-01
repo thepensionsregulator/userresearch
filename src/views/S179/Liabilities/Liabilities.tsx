@@ -1,4 +1,4 @@
-import { Flex, H3, Hr, P } from '@tpr/core';
+import { Flex, H2, H3, Hr, P } from '@tpr/core';
 import { FFInputCurrency, FFInputNumber } from '@tpr/forms';
 import { HelpLink } from '@tpr/layout';
 import React from 'react';
@@ -8,7 +8,7 @@ export const Liabilities: React.FC = () => {
   return (
     <Flex>
       <Flex cfg={{ ml: 2, flexDirection: 'column' }}>
-        <H3 cfg={{ mb: 4 }}>Liabilities</H3>
+        <H2 cfg={{ mb: 4 }}>Liabilities</H2>
         <P cfg={{ mb: 6 }}>
           Do <strong>not </strong> include the expenses within the active,
           deferred and pensioner components, even if this was the approach taken

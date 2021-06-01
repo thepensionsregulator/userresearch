@@ -82,22 +82,32 @@ export const S179: React.FC = () => {
       }}
     >
       <Flex cfg={{ pt: 8, px: 6, pb: 10, flexDirection: 'column' }}>
-        <ArrowLink
-          onClick={() => {
-            if (currentStep === 'step2') {
-              setStep('step1');
-            } else if (currentStep === 'step3') {
-              setStep('step2');
-            } else if (currentStep === 'journeyEnd') {
-              setStep('step3');
-            }
-          }}
-          pointsTo="left"
-          iconSide="left"
-          cfg={{ mt: 2 }}
-        >
-          Back
-        </ArrowLink>
+        {currentStep === 'step1' ? (
+          <ArrowLink
+            pointsTo="left"
+            iconSide="left"
+            cfg={{ mt: 2 }}
+            onClick={() => {}}
+            title="Back"
+          />
+        ) : (
+          <ArrowLink
+            onClick={() => {
+              if (currentStep === 'step2') {
+                setStep('step1');
+              } else if (currentStep === 'step3') {
+                setStep('step2');
+              } else if (currentStep === 'journeyEnd') {
+                setStep('step3');
+              }
+            }}
+            pointsTo="left"
+            iconSide="left"
+            cfg={{ mt: 2 }}
+            title="Back to last step"
+          />
+        )}
+
         <H1 cfg={{ mt: 1 }}>{selectHeading(currentStep)}</H1>
         <Hr cfg={{ mb: 5 }} />
         <Form
