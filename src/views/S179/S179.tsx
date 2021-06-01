@@ -94,12 +94,6 @@ export const S179: React.FC = () => {
         >
           Back
         </ArrowLink>
-        <Span
-          cfg={{ fontWeight: 2, fontSize: 4, color: 'neutral.6' }}
-          className={styles.sectionTitle}
-        >
-          Add new S179 valuation
-        </Span>
         <H1 cfg={{ mt: 1 }}>{selectHeading(currentStep)}</H1>
         <Hr cfg={{ mb: 5 }} />
         <Form
