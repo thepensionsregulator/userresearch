@@ -3,9 +3,11 @@ import { ArrowButton } from '@tpr/layout';
 import React from 'react';
 import { BespokeInvestment } from '../BespokeInvestment/BespokeInvestment';
 
-export interface Step3Props {}
+export interface Step3Props {
+  handleNextClick: () => void;
+}
 
-export const Step3: React.FC<Step3Props> = () => {
+export const Step3: React.FC<Step3Props> = ({ handleNextClick }) => {
   return (
     <>
       <BespokeInvestment />
@@ -15,6 +17,7 @@ export const Step3: React.FC<Step3Props> = () => {
         iconSide="right"
         pointsTo="right"
         title="Save and Continue"
+        onClick={handleNextClick}
       />
     </>
   );

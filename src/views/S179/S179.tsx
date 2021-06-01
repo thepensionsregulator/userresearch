@@ -1,4 +1,4 @@
-import { Flex, H1, Hr, Span } from '@tpr/core';
+import { Flex, H1, Hr } from '@tpr/core';
 import { Form } from '@tpr/forms';
 import { ArrowLink } from '@tpr/layout';
 import React, { useState } from 'react';
@@ -6,10 +6,10 @@ import { S179Context, S179Data } from './Services/S179Context';
 import { Step1 } from './views/Step1';
 import { Step2 } from './views/Step2';
 import { Step3 } from './views/Step3';
-import styles from './s179.module.scss';
+import { Step4 } from './views/Step4';
 
 export const S179: React.FC = () => {
-  type steps = 'step1' | 'step2' | 'step3';
+  type steps = 'step1' | 'step2' | 'step3' | 'journeyEnd';
 
   const [currentStep, setStep] = useState<steps>('step1');
 
@@ -53,7 +53,9 @@ export const S179: React.FC = () => {
       case 'step2':
         return <Step2 handleNextClick={() => setStep('step3')} />;
       case 'step3':
-        return <Step3 />;
+        return <Step3 handleNextClick={() => setStep('journeyEnd')} />;
+      case 'journeyEnd':
+        return <Step4 />;
       default:
         return;
     }
@@ -86,6 +88,8 @@ export const S179: React.FC = () => {
               setStep('step1');
             } else if (currentStep === 'step3') {
               setStep('step2');
+            } else if (currentStep === 'journeyEnd') {
+              setStep('step3');
             }
           }}
           pointsTo="left"
