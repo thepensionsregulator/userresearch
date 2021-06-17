@@ -7,6 +7,7 @@ import styles from './ProportionOfLiabilities.module.scss';
 
 export const ProportionOfLiabilities: React.FC = () => {
   const s179Context = useContext(S179Context);
+  const data = s179Context.data;
 
   const [activeTotal, setActiveTotal] = useState(0);
 
@@ -107,6 +108,7 @@ export const ProportionOfLiabilities: React.FC = () => {
               }}
               required
               cfg={{ mt: 1, mb: 5 }}
+              initialValue={data.ActivePre1997}
             />
             <FFInputNumber
               type="number"
@@ -117,6 +119,7 @@ export const ProportionOfLiabilities: React.FC = () => {
               callback={(event: any) => setActivePre2009(event.target.value)}
               required
               cfg={{ mt: 1, mb: 5 }}
+              initialValue={data.ActivePreApril2009}
             />
             <FFInputNumber
               type="number"
@@ -127,6 +130,7 @@ export const ProportionOfLiabilities: React.FC = () => {
               callback={(event: any) => setActivePost2009(event.target.value)}
               required
               cfg={{ mt: 1, mb: 5 }}
+              initialValue={data.ActivePostApril2009}
             />
             <Flex cfg={{ flexDirection: 'column', my: 1 }}>
               <Hr cfg={{ mt: 3, mb: 2 }} />
@@ -146,6 +150,7 @@ export const ProportionOfLiabilities: React.FC = () => {
               callback={(event: any) => setDeferredPre1997(event.target.value)}
               required
               cfg={{ mt: 1, mb: 5 }}
+              initialValue={data.DeferredPre1997}
             />
             <FFInputNumber
               type="number"
@@ -156,6 +161,7 @@ export const ProportionOfLiabilities: React.FC = () => {
               callback={(event: any) => setDeferredPre2009(event.target.value)}
               required
               cfg={{ mt: 1, mb: 5 }}
+              initialValue={data.DeferredPreApril2009}
             />
             <FFInputNumber
               type="number"
@@ -166,6 +172,7 @@ export const ProportionOfLiabilities: React.FC = () => {
               callback={(event: any) => setDeferredPost2009(event.target.value)}
               required
               cfg={{ mt: 1, mb: 5 }}
+              initialValue={data.DeferredPostApril2009}
             />
             <Flex cfg={{ flexDirection: 'column', my: 1 }}>
               <Hr cfg={{ mt: 3, mb: 2 }} />
@@ -185,6 +192,7 @@ export const ProportionOfLiabilities: React.FC = () => {
               callback={(event: any) => setPensionerPre1997(event.target.value)}
               required
               cfg={{ mt: 1, mb: 5 }}
+              initialValue={data.PensionersPre1997}
             />
 
             <FFInputNumber
@@ -198,6 +206,7 @@ export const ProportionOfLiabilities: React.FC = () => {
               }
               required
               cfg={{ mt: 1, mb: 5 }}
+              initialValue={data.PensionerPost1997}
             />
 
             <Flex cfg={{ flex: '1 0 auto' }}></Flex>

@@ -112,7 +112,7 @@ export const S179: React.FC = () => {
         <Hr cfg={{ mb: 5 }} />
         <Form
           onSubmit={(values: any) => console.log(values)}
-          initialValues={{ ...initialData }}
+          // initialValues={{ ...initialData }}
         >
           {({ handleSubmit }) => (
             <form onSubmit={handleSubmit}>{selectForm(currentStep)}</form>

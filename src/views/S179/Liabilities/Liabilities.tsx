@@ -1,10 +1,13 @@
 import { Flex, H2, H3, Hr, P } from '@tpr/core';
 import { FFInputCurrency, FFInputNumber } from '@tpr/forms';
 import { HelpLink } from '@tpr/layout';
-import React from 'react';
+import React, { useContext } from 'react';
+import { S179Context } from '../Services/S179Context';
 import styles from './Liabilities.module.scss';
 
 export const Liabilities: React.FC = () => {
+  const s179Context = useContext(S179Context);
+  const data = s179Context.data;
   return (
     <Flex>
       <Flex cfg={{ ml: 2, flexDirection: 'column' }}>
@@ -35,6 +38,7 @@ export const Liabilities: React.FC = () => {
                 label="Active members"
                 required
                 cfg={{ mb: 6 }}
+                initialValue={data.ActiveLiabilities}
               />
               <FFInputCurrency
                 name="DeferredLiabilities"
@@ -43,6 +47,7 @@ export const Liabilities: React.FC = () => {
                 label="Deferred members"
                 required
                 cfg={{ mb: 6 }}
+                initialValue={data.DeferredLiabilities}
               />
               <FFInputCurrency
                 name="PensionerLiabilities"
@@ -51,6 +56,7 @@ export const Liabilities: React.FC = () => {
                 label="Pensioner members"
                 required
                 cfg={{ mb: 6 }}
+                initialValue={data.PensionerLiabilities}
               />
               <FFInputCurrency
                 name="WindingUpLiabilities"
@@ -59,6 +65,7 @@ export const Liabilities: React.FC = () => {
                 label="Estimated expenses of winding up"
                 required
                 cfg={{ mb: 6 }}
+                initialValue={data.WindingUpLiabilities}
               />
               <FFInputCurrency
                 name="ExternalLiabilities"
@@ -67,8 +74,8 @@ export const Liabilities: React.FC = () => {
                 label="External liabilities"
                 required
                 cfg={{ mb: 6 }}
+                initialValue={data.ExternalLiabilities}
               />
-
               <FFInputCurrency
                 name="BenefitLiabilities"
                 inputWidth={7}
@@ -76,6 +83,7 @@ export const Liabilities: React.FC = () => {
                 label="Estimated expenses of benefit installation/payment"
                 required
                 cfg={{ mb: 6 }}
+                initialValue={data.BenefitLiabilities}
               />
               <Hr cfg={{ mb: 3, mt: 2 }} />
               <FFInputCurrency
@@ -85,6 +93,7 @@ export const Liabilities: React.FC = () => {
                 label="Total protected liabilities"
                 required
                 cfg={{ mb: 6 }}
+                initialValue={data.TotalProtectedLiabilities}
               />
             </Flex>
             <Flex
@@ -102,6 +111,7 @@ export const Liabilities: React.FC = () => {
                 label="Active members"
                 required
                 cfg={{ mb: 6 }}
+                initialValue={data.ActiveInsurer}
               />
               <FFInputNumber
                 type="number"
@@ -111,6 +121,7 @@ export const Liabilities: React.FC = () => {
                 label="Deferred members"
                 required
                 cfg={{ mb: 6 }}
+                initialValue={data.DeferredInsurer}
               />
               <FFInputNumber
                 type="number"
@@ -120,6 +131,7 @@ export const Liabilities: React.FC = () => {
                 label="Pensioner members"
                 required
                 cfg={{ mb: 6 }}
+                initialValue={data.PensionerInsurer}
               />
             </Flex>
             <Flex
@@ -136,6 +148,7 @@ export const Liabilities: React.FC = () => {
                 label="Active members"
                 required
                 cfg={{ mb: 6 }}
+                initialValue={data.ActiveNumber}
               />
               <FFInputNumber
                 type="number"
@@ -144,6 +157,7 @@ export const Liabilities: React.FC = () => {
                 label="Deferred members"
                 required
                 cfg={{ mb: 6 }}
+                initialValue={data.DeferredNumber}
               />
               <FFInputNumber
                 type="number"
@@ -152,6 +166,7 @@ export const Liabilities: React.FC = () => {
                 label="Pensioner members"
                 required
                 cfg={{ mb: 6 }}
+                initialValue={data.PensionerNumber}
               />
             </Flex>
             <Flex
@@ -166,6 +181,7 @@ export const Liabilities: React.FC = () => {
                 label="Active members"
                 required
                 cfg={{ mb: 6 }}
+                initialValue={data.ActiveAge}
               />
               <FFInputNumber
                 type="number"
@@ -174,6 +190,7 @@ export const Liabilities: React.FC = () => {
                 inputWidth={3}
                 cfg={{ mb: 6 }}
                 required
+                initialValue={data.DeferredAge}
               />
               <FFInputNumber
                 type="number"
@@ -182,6 +199,7 @@ export const Liabilities: React.FC = () => {
                 inputWidth={3}
                 cfg={{ mb: 6 }}
                 required
+                initialValue={data.PensionerAge}
               />
             </Flex>
           </Flex>
